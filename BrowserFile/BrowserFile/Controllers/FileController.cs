@@ -4,7 +4,8 @@ namespace BrowserFile.Controllers
 {
     public class FileController : Controller
     {
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult File()
         {
             return View();
         }

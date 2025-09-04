@@ -3,36 +3,24 @@
   "WorkspaceRootPath": "E:\\projectX\\BrowserFile\\BrowserFile\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|e:\\projectx\\browserfile\\browserfile\\browserfile\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|e:\\projectx\\browserfile\\browserfile\\browserfile\\models\\entities\\folder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\models\\entities\\folder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|e:\\projectx\\browserfile\\browserfile\\browserfile\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|e:\\projectx\\browserfile\\browserfile\\browserfile\\models\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\models\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|e:\\projectx\\browserfile\\browserfile\\browserfile\\seeder\\identityseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\seeder\\identityseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|e:\\projectx\\browserfile\\browserfile\\browserfile\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|e:\\projectx\\browserfile\\browserfile\\browserfile\\views\\file\\file.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\views\\file\\file.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|e:\\projectx\\browserfile\\browserfile\\browserfile\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|e:\\projectx\\browserfile\\browserfile\\browserfile\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|e:\\projectx\\browserfile\\browserfile\\browserfile\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|e:\\projectx\\browserfile\\browserfile\\browserfile\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|e:\\projectx\\browserfile\\browserfile\\browserfile\\controllers\\filecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\controllers\\filecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,106 +46,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IdentitySeeder.cs",
-              "DocumentMoniker": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Seeder\\IdentitySeeder.cs",
-              "RelativeDocumentMoniker": "BrowserFile\\Seeder\\IdentitySeeder.cs",
-              "ToolTip": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Seeder\\IdentitySeeder.cs",
-              "RelativeToolTip": "BrowserFile\\Seeder\\IdentitySeeder.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAOAAAA",
+              "DocumentIndex": 0,
+              "Title": "Folder.cs",
+              "DocumentMoniker": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Models\\Entities\\Folder.cs",
+              "RelativeDocumentMoniker": "BrowserFile\\Models\\Entities\\Folder.cs",
+              "ToolTip": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Models\\Entities\\Folder.cs",
+              "RelativeToolTip": "BrowserFile\\Models\\Entities\\Folder.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T10:44:47.124Z",
+              "WhenOpened": "2025-09-04T12:53:59.842Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "BrowserFile\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "BrowserFile\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-04T12:31:36.997Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "LoginViewModel.cs",
-              "DocumentMoniker": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Models\\ViewModels\\LoginViewModel.cs",
-              "RelativeDocumentMoniker": "BrowserFile\\Models\\ViewModels\\LoginViewModel.cs",
-              "ToolTip": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Models\\ViewModels\\LoginViewModel.cs",
-              "RelativeToolTip": "BrowserFile\\Models\\ViewModels\\LoginViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T10:43:44.057Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "BrowserFile\\Controllers\\AccountController.cs",
-              "ToolTip": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "BrowserFile\\Controllers\\AccountController.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAQwBQAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T10:43:35.68Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "BrowserFile\\Data\\ApplicationDbContext.cs",
-              "ToolTip": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "BrowserFile\\Data\\ApplicationDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T10:29:21.217Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Program.cs",
-              "RelativeDocumentMoniker": "BrowserFile\\Program.cs",
-              "ToolTip": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Program.cs",
-              "RelativeToolTip": "BrowserFile\\Program.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAAACMAAAAlAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T10:29:14.476Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "Login.cshtml",
               "DocumentMoniker": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "BrowserFile\\Views\\Account\\Login.cshtml",
               "ToolTip": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Views\\Account\\Login.cshtml",
               "RelativeToolTip": "BrowserFile\\Views\\Account\\Login.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABQAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-04T10:56:01.897Z",
+              "WhenOpened": "2025-09-04T12:24:43.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "File.cshtml",
+              "DocumentMoniker": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Views\\File\\File.cshtml",
+              "RelativeDocumentMoniker": "BrowserFile\\Views\\File\\File.cshtml",
+              "ToolTip": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Views\\File\\File.cshtml",
+              "RelativeToolTip": "BrowserFile\\Views\\File\\File.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-04T12:23:58.583Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "BrowserFile\\Views\\Home\\Index.cshtml",
-              "ToolTip": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "BrowserFile\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAABxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-04T10:57:32.487Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Privacy.cshtml",
-              "DocumentMoniker": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Views\\Home\\Privacy.cshtml",
-              "RelativeDocumentMoniker": "BrowserFile\\Views\\Home\\Privacy.cshtml",
-              "ToolTip": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Views\\Home\\Privacy.cshtml",
-              "RelativeToolTip": "BrowserFile\\Views\\Home\\Privacy.cshtml",
+              "Title": "FileController.cs",
+              "DocumentMoniker": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Controllers\\FileController.cs",
+              "RelativeDocumentMoniker": "BrowserFile\\Controllers\\FileController.cs",
+              "ToolTip": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\Controllers\\FileController.cs",
+              "RelativeToolTip": "BrowserFile\\Controllers\\FileController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-04T10:57:38.34Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T12:23:53.189Z",
               "EditorCaption": ""
             }
           ]
