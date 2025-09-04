@@ -1,21 +1,38 @@
 ﻿@model BrowserFile.Models.ViewModels.LoginViewModel
-<h2>Login</h2>
 
-<div asp-validation-summary="All" class="text-danger"></div>
+<div class="d-flex justify-content-center align-items-center" style="min-height:80vh">
+    <div class="card shadow-lg p-4 rounded-4 w-100 mx-2" style="max-width: 400px;">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold text-primary">Login</h2>
+            <p class="text-muted">Please enter your details to log in</p>
+        </div>
 
-<form asp-action="Login" method="post">
-    <div class="form-group">
-        <label asp-for="Email"></label>
-        <input asp-for="Email" class="form-control" />
-        <span asp-validation-for="Email" class="text-danger"></span>
+        @if (!ViewData.ModelState.IsValid && ViewData.ModelState.ErrorCount > 0)
+        {
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger small" role="alert"></div>
+        }
+
+        <form asp-action="Login" method="post" novalidate>
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label fw-semibold"></label>
+                <input asp-for="Email" class="form-control" placeholder="john.pork@email.com" />
+                <span asp-validation-for="Email" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label fw-semibold"></label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="••••••••" />
+                <span asp-validation-for="Password" class="text-danger small"></span>
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary btn-lg rounded-pill">
+                    Zaloguj się
+                </button>
+            </div>
+        </form>
     </div>
-    <div class="form-group">
-        <label asp-for="Password"></label>
-        <input asp-for="Password" class="form-control" />
-        <span asp-validation-for="Password" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary">Login</button>
-</form>
+</div>
 
 @section Scripts {
     @{
