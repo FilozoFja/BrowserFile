@@ -4,18 +4,53 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <ul class="nav nav-pills pt-2">
     <li class="nav-item">
-        <a class="nav-link" aria-current="page" data-bs-toggle="pill" href="#">Main page</a>
+        <a class="nav-link active" data-bs-toggle="pill" href="#mainPage">Main page</a>
     </li>
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Folders</a>
         <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Show all folders</a></li>
+            <li><a class="dropdown-item" data-bs-toggle="pill" href="#showFolders">Show all folders</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Create folder</a></li>
-            <li><a class="dropdown-item" href="#">Edit folder</a></li>
-            <li><a class="dropdown-item" href="#">Delete folder</a></li>
+            <li><a class="dropdown-item" data-bs-toggle="pill" href="#createFolder">Create folder</a></li>
+            <li><a class="dropdown-item" data-bs-toggle="pill" href="#editFolder">Edit folder</a></li>
+            <li><a class="dropdown-item" data-bs-toggle="pill" href="#deleteFolder">Delete folder</a></li>
         </ul>
     </li>
 </ul>
+
+<!-- Tutaj będzie obszar zmieniający zawartość -->
+<div class="tab-content mt-3">
+    <div class="tab-pane fade show active" id="mainPage">
+        <h3>Main page content</h3>
+        <p>Tu jest główna strona.</p>
+    </div>
+
+    <div class="tab-pane fade" id="showFolders">
+        <h3>All folders</h3>
+        <p>Lista folderów...</p>
+    </div>
+
+    <div class="tab-pane fade" id="createFolder">
+        <h3>Create folder</h3>
+        <form>
+            <div class="mb-3">
+                <label for="folderName" class="form-label">Folder name</label>
+                <input type="text" class="form-control" id="folderName" placeholder="Enter folder name">
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+    </div>
+
+    <div class="tab-pane fade" id="editFolder">
+        <h3>Edit folder</h3>
+        <p>Tu będzie formularz edycji folderu...</p>
+    </div>
+
+    <div class="tab-pane fade" id="deleteFolder">
+        <h3>Delete folder</h3>
+        <p>Tu możesz usunąć folder.</p>
+    </div>
+</div>
+
 @{
 }
