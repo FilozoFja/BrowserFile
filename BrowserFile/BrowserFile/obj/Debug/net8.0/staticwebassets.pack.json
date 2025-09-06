@@ -13,6 +13,86 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\wwwroot\\icons\\arrow-to-bottom-stroke.svg",
+      "PackagePath": "staticwebassets\\icons\\arrow-to-bottom-stroke.svg"
+    },
+    {
+      "Id": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\wwwroot\\icons\\chart-gantt.svg",
+      "PackagePath": "staticwebassets\\icons\\chart-gantt.svg"
+    },
+    {
+      "Id": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\wwwroot\\icons\\cupcake.svg",
+      "PackagePath": "staticwebassets\\icons\\cupcake.svg"
+    },
+    {
+      "Id": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\wwwroot\\icons\\database-alt.svg",
+      "PackagePath": "staticwebassets\\icons\\database-alt.svg"
+    },
+    {
+      "Id": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\wwwroot\\icons\\dumbbell.svg",
+      "PackagePath": "staticwebassets\\icons\\dumbbell.svg"
+    },
+    {
+      "Id": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\wwwroot\\icons\\education.svg",
+      "PackagePath": "staticwebassets\\icons\\education.svg"
+    },
+    {
+      "Id": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\wwwroot\\icons\\file.svg",
+      "PackagePath": "staticwebassets\\icons\\file.svg"
+    },
+    {
+      "Id": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\wwwroot\\icons\\film-roll-alt.svg",
+      "PackagePath": "staticwebassets\\icons\\film-roll-alt.svg"
+    },
+    {
+      "Id": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\wwwroot\\icons\\folder-code.svg",
+      "PackagePath": "staticwebassets\\icons\\folder-code.svg"
+    },
+    {
+      "Id": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\wwwroot\\icons\\folder.svg",
+      "PackagePath": "staticwebassets\\icons\\folder.svg"
+    },
+    {
+      "Id": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\wwwroot\\icons\\hot.svg",
+      "PackagePath": "staticwebassets\\icons\\hot.svg"
+    },
+    {
+      "Id": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\wwwroot\\icons\\keyframe-hold-ease-in.svg",
+      "PackagePath": "staticwebassets\\icons\\keyframe-hold-ease-in.svg"
+    },
+    {
+      "Id": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\wwwroot\\icons\\microphone-alt.svg",
+      "PackagePath": "staticwebassets\\icons\\microphone-alt.svg"
+    },
+    {
+      "Id": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\wwwroot\\icons\\movie.svg",
+      "PackagePath": "staticwebassets\\icons\\movie.svg"
+    },
+    {
+      "Id": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\wwwroot\\icons\\music.svg",
+      "PackagePath": "staticwebassets\\icons\\music.svg"
+    },
+    {
+      "Id": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\wwwroot\\icons\\palette.svg",
+      "PackagePath": "staticwebassets\\icons\\palette.svg"
+    },
+    {
+      "Id": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\wwwroot\\icons\\paper-plane.svg",
+      "PackagePath": "staticwebassets\\icons\\paper-plane.svg"
+    },
+    {
+      "Id": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\wwwroot\\icons\\save.svg",
+      "PackagePath": "staticwebassets\\icons\\save.svg"
+    },
+    {
+      "Id": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\wwwroot\\icons\\trash-x.svg",
+      "PackagePath": "staticwebassets\\icons\\trash-x.svg"
+    },
+    {
+      "Id": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\wwwroot\\icons\\unlink.svg",
+      "PackagePath": "staticwebassets\\icons\\unlink.svg"
+    },
+    {
       "Id": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
