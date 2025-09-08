@@ -7,5 +7,6 @@ namespace BrowserFile.Models.ViewModels
         public List<Folder> Folders { get; set; }
         public List<Icon> Icons { get; set; }
         public Folder FolderToCreate { get; set; }
+        public string FolderToDeleteId { get; set; }
     }
 }
