@@ -5,15 +5,14 @@
     <li class="nav-item">
         <a class="nav-link active" data-bs-toggle="pill" href="#mainPage">Main page</a>
     </li>
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Folders</a>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" data-bs-toggle="pill" href="#showFolders">Show all folders</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" data-bs-toggle="pill" href="#createFolder">Create folder</a></li>
-            <li><a class="dropdown-item" data-bs-toggle="pill" href="#editFolder">Edit folder</a></li>
-            <li><a class="dropdown-item" data-bs-toggle="pill" href="#deleteFolder">Delete folder</a></li>
-        </ul>
+    <li>
+        <a class="nav-link" data-bs-toggle="pill" href="#createFolder">Create folder</a>
+    </li>
+    <li>
+        <a class="nav-link" data-bs-toggle="pill" href="#editFolder">Edit folder</a>
+    </li>
+    <li>
+        <a class="nav-link" data-bs-toggle="pill" href="#deleteFolder">Delete folder</a>
     </li>
 </ul>
 
@@ -30,7 +29,7 @@
         <p>Lista folderów...</p>
     </div>
 
-    <div class="tab-pane fade" id="createFolder">
+    <div class="tab-pane fade w-50" id="createFolder">
         <h3>Create folder</h3>
         <form asp-action="Create" asp-controller="Folder" method="post">
             <div class="mb-3">
@@ -41,7 +40,7 @@
 
             <div class="mb-3">
                 <label asp-for="FolderToCreate.Description" class="form-label"></label>
-                <textarea asp-for="FolderToCreate.Description" class="form-control"></textarea>
+                <textarea asp-for="FolderToCreate.Description" class="form-control" placeholder="Enter description"></textarea>
             </div>
 
             <div class="mb-3">
@@ -49,16 +48,19 @@
                 <input asp-for="FolderToCreate.Tag" class="form-control" placeholder="Enter tag" />
                 <span asp-validation-for="FolderToCreate.Tag" class="text-danger"></span>
             </div>
-            @foreach (var icon in Model.Icons)
-            {
-                <label style="cursor:pointer;">
-                    <input type="radio" asp-for="FolderToCreate.IconId" value="@icon.Id" hidden />
-                    <img src="@icon.Url" alt="@icon.Name" class="img-thumbnail"
-                          style="width:50px;height:50px;" />
-                </label>
-            }
+            <div class="mb-3">
+                <label asp-for="FolderToCreate.IconId" class="form-label">Choose an icon:</label>
+                <br />
+                @foreach (var icon in Model.Icons)
+                {
+                    <label class="p-3" style="cursor:pointer;">
+                        <input type="radio" asp-for="FolderToCreate.IconId" value="@icon.Id" hidden />
+                        @Html.Raw(System.IO.File.ReadAllText("wwwroot" + icon.Url))
+                    </label>
+                }
+            </div>
 
-
+            <br/>
             <button type="submit" class="btn btn-primary">Create</button>
         </form>
     </div>
