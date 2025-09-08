@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj": {}
+    "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj": {}
   },
   "projects": {
-    "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj": {
+    "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj",
+        "projectUniqueName": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj",
         "projectName": "BrowserFile",
-        "projectPath": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj",
+        "projectPath": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj",
         "packagesPath": "C:\\Users\\korne\\.nuget\\packages\\",
-        "outputPath": "E:\\projectX\\BrowserFile\\BrowserFile\\BrowserFile\\obj\\",
+        "outputPath": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -67,6 +67,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.19, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[8.0.3, )"
             }
           },
           "imports": [

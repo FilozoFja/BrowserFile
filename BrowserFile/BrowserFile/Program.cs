@@ -1,7 +1,9 @@
 using BrowserFile.Data;
 using BrowserFile.Models.Entities;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,13 +14,14 @@ builder.Services.AddSingleton<TimeProvider>(TimeProvider.System);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(connectionString));
 
+builder.Host.UseSerilog((ctx, configuration) => configuration.ReadFrom.Configuration(ctx.Configuration));
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
     options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
     options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
 }).AddApplicationCookie();
-
 
 builder.Services.AddIdentityCore<ApplicationUser>(options =>
 {
@@ -42,11 +45,24 @@ if (!app.Environment.IsDevelopment())
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
-    await IdentitySeeder.SeedAsync(services);
+    var context = services.GetRequiredService<ApplicationDbContext>();
+
+    await DbSeeder.SeedAsync(services);
+    DbSeeder.SeedIcons(context);
 }
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    ContentTypeProvider = new FileExtensionContentTypeProvider
+    {
+        Mappings = { [".svg"] = "image/svg+xml" }
+    }
+});
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseSerilogRequestLogging();
 
 app.UseRouting();
 
