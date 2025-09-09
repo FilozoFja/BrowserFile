@@ -14,6 +14,8 @@ builder.Services.AddSingleton<TimeProvider>(TimeProvider.System);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(connectionString));
 
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Host.UseSerilog((ctx, configuration) => configuration.ReadFrom.Configuration(ctx.Configuration));
 
 builder.Services.AddAuthentication(options =>
@@ -65,6 +67,7 @@ app.UseStaticFiles();
 app.UseSerilogRequestLogging();
 
 app.UseRouting();
+
 
 app.UseAuthentication();
 app.UseAuthorization();

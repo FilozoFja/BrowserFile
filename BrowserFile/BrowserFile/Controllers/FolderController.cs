@@ -1,4 +1,6 @@
-﻿using BrowserFile.Data;
+﻿using AutoMapper;
+using BrowserFile.Data;
+using BrowserFile.Models.DTO;
 using BrowserFile.Models.Entities;
 using BrowserFile.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -11,22 +13,26 @@ namespace BrowserFile.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly ILogger<FolderController> _logger;
+        private readonly IMapper _mapper;
 
-        public FolderController(ApplicationDbContext context, ILogger<FolderController> logger)
+        public FolderController(ApplicationDbContext context, ILogger<FolderController> logger, IMapper mapper)
         {
             _context = context;
             _logger = logger;
+            _mapper = mapper;
         }
 
         [HttpGet]
         [Authorize]
         public IActionResult Index()
         {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             var vm = new FolderViewModel
             {
-                Folders = _context.Folders.ToList(),
+                Folders = _context.Folders.Where(f => f.UserId == userId).ToList(),
                 Icons = _context.Icons.ToList(),
-                FolderToCreate = new Folder()
+                FolderToCreate = new FolderDTO()
             };
             return View(vm);
         }
@@ -41,16 +47,11 @@ namespace BrowserFile.Controllers
                 ModelState.AddModelError("FolderToCreate.IconId", "Invalid icon selected.");
             }
 
-            var folder = new Folder
-            {
-                Id = Guid.NewGuid().ToString(),
-                UserId = User.FindFirstValue(ClaimTypes.NameIdentifier),
-                IconId = folderViewModel.FolderToCreate.IconId,
-                Name = folderViewModel.FolderToCreate.Name,
-                Description = folderViewModel.FolderToCreate.Description,
-                CreatedAt = DateTime.UtcNow,
-                Tag = folderViewModel.FolderToCreate.Tag
-            };
+            var folder = _mapper.Map<Folder>(folderViewModel.FolderToCreate);
+
+            folder.Id = Guid.NewGuid().ToString();
+            folder.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            folder.CreatedAt = DateTime.UtcNow;
 
             _context.Folders.Add(folder);
             _context.SaveChanges();
@@ -59,6 +60,7 @@ namespace BrowserFile.Controllers
 
             return RedirectToAction("Index");
         }
+
         [HttpPost]
         [Authorize]
         public IActionResult Delete([FromRoute]string id) 
@@ -67,15 +69,15 @@ namespace BrowserFile.Controllers
             {
                 return NotFound();
             }
-            var folder = _context.Folders.Find(id);
+
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var folder = _context.Folders.FirstOrDefault(f => f.Id == id && f.UserId == userId);
+
             if(folder == null)
             {
                 return NotFound();
             }
-            if(folder.UserId != User.FindFirstValue(ClaimTypes.NameIdentifier))
-            {
-                return Forbid();
-            }
+
             _context.Folders.Remove(folder);
             _context.SaveChanges();
 
@@ -93,31 +95,20 @@ namespace BrowserFile.Controllers
                 return NotFound();
             }
 
-            var originalFolder = _context.Folders.Find(id);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var originalFolder = _context.Folders.FirstOrDefault(x => x.UserId == userId && x.Id == id);
 
-            var vm = new EditFolderViewModel
-            {
-                OriginalFolder = originalFolder,
-                FolderToCreate = new Folder
-                {
-                    Name = originalFolder.Name,
-                    Description = originalFolder.Description,
-                    Tag = originalFolder.Tag,
-                    IconId = originalFolder.IconId
-                },
-                Icons = _context.Icons.ToList()
-            };
-
-            if(vm.OriginalFolder == null)
+            if(originalFolder == null)
             {
                 return NotFound();
             }
 
-            if (User.FindFirstValue(ClaimTypes.NameIdentifier) != vm.OriginalFolder.UserId)
+            var vm = new EditFolderViewModel
             {
-                _logger.LogCritical("Unauthorized access attempt to edit folder {FolderId} by user {UserId}", id, User.FindFirstValue(ClaimTypes.NameIdentifier));
-                return Forbid();
-            }
+                OriginalFolderId = originalFolder.Id,
+                FolderToEdit = _mapper.Map<FolderDTO>(originalFolder),
+                Icons = _context.Icons.ToList()
+            };
 
             return View(vm);
         }
@@ -126,24 +117,19 @@ namespace BrowserFile.Controllers
         [Authorize]
         public IActionResult Edit(EditFolderViewModel editFolderViewModel)
         {
-            var originalFolder = _context.Folders.Find(editFolderViewModel.OriginalFolder.Id);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var originalFolder = _context.Folders.FirstOrDefault(f => f.Id == editFolderViewModel.OriginalFolderId && f.UserId == userId );
+
             if (originalFolder == null)
             {
                 return NotFound();
             }
 
-            if (User.FindFirstValue(ClaimTypes.NameIdentifier) != originalFolder.UserId)
-            {
-                _logger.LogCritical("Unauthorized access attempt to edit folder {FolderId} by user {UserId}", editFolderViewModel.OriginalFolder.Id, User.FindFirstValue(ClaimTypes.NameIdentifier));
-                return Forbid();
-            }
+            originalFolder.Name = editFolderViewModel.FolderToEdit.Name;
+            originalFolder.Description = editFolderViewModel.FolderToEdit.Description;
+            originalFolder.Tag = editFolderViewModel.FolderToEdit.Tag;
+            originalFolder.IconId = editFolderViewModel.FolderToEdit.IconId;
 
-            originalFolder.Name = editFolderViewModel.FolderToCreate.Name;
-            originalFolder.Description = editFolderViewModel.FolderToCreate.Description;
-            originalFolder.Tag = editFolderViewModel.FolderToCreate.Tag;
-            originalFolder.IconId = editFolderViewModel.FolderToCreate.IconId;
-
-            _context.Folders.Update(originalFolder);
             _context.SaveChanges();
 
             _logger.LogInformation("Folder edited: {FolderName} by User: {UserId}", originalFolder.Name, originalFolder.UserId);

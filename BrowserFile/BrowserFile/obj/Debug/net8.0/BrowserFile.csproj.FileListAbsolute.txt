@@ -291,3 +291,5 @@ D:\Coding\BrowserFile\BrowserFile\BrowserFile\bin\Debug\net8.0\Serilog.Settings.
 D:\Coding\BrowserFile\BrowserFile\BrowserFile\bin\Debug\net8.0\Serilog.Sinks.Console.dll
 D:\Coding\BrowserFile\BrowserFile\BrowserFile\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
 D:\Coding\BrowserFile\BrowserFile\BrowserFile\bin\Debug\net8.0\Serilog.Sinks.File.dll
+D:\Coding\BrowserFile\BrowserFile\BrowserFile\bin\Debug\net8.0\AutoMapper.dll
+D:\Coding\BrowserFile\BrowserFile\BrowserFile\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

@@ -3,29 +3,29 @@
 <div class="w-50">
     <h3>Edit folder</h3>
     <form asp-action="Edit" asp-controller="Folder" method="post">
-        <input type="hidden" asp-for="OriginalFolder.Id" />
+        <input type="hidden" asp-for="OriginalFolderId" />
 
         <div class="mb-3">
-            <label asp-for="FolderToCreate.Name" class="form-label"></label>
-            <input asp-for="FolderToCreate.Name" class="form-control" />
-            <span asp-validation-for="FolderToCreate.Name" class="text-danger"></span>
+            <label asp-for="FolderToEdit.Name" class="form-label"></label>
+            <input asp-for="FolderToEdit.Name" class="form-control" />
+            <span asp-validation-for="FolderToEdit.Name" class="text-danger"></span>
         </div>
         <div class="mb-3">
-            <label asp-for="FolderToCreate.Description" class="form-label"></label>
-            <textarea asp-for="FolderToCreate.Description" class="form-control"></textarea>
+            <label asp-for="FolderToEdit.Description" class="form-label"></label>
+            <textarea asp-for="FolderToEdit.Description" class="form-control"></textarea>
         </div>
         <div class="mb-3">
-            <label asp-for="FolderToCreate.Tag" class="form-label"></label>
-            <input asp-for="FolderToCreate.Tag" class="form-control" />
-            <span asp-validation-for="FolderToCreate.Tag" class="text-danger"></span>
+            <label asp-for="FolderToEdit.Tag" class="form-label"></label>
+            <input asp-for="FolderToEdit.Tag" class="form-control" />
+            <span asp-validation-for="FolderToEdit.Tag" class="text-danger"></span>
         </div>
         <div class="mb-3">
-            <label asp-for="FolderToCreate.IconId" class="form-label">Choose an icon:</label>
+            <label asp-for="FolderToEdit.IconId" class="form-label">Choose an icon:</label>
             <br />
             @foreach (var icon in Model.Icons)
             {
                 <div class="icon-selector">
-                    <input type="radio" asp-for="FolderToCreate.IconId" value="@icon.Id" id="icon-@icon.Id" />
+                    <input type="radio" asp-for="FolderToEdit.IconId" value="@icon.Id" id="icon-@icon.Id" />
                     <label for="icon-@icon.Id">
                         @Html.Raw(System.IO.File.ReadAllText("wwwroot" + icon.Url))
                     </label>

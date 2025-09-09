@@ -1,4 +1,5 @@
-﻿using BrowserFile.Models.Entities;
+﻿using BrowserFile.Models.DTO;
+using BrowserFile.Models.Entities;
 
 namespace BrowserFile.Models.ViewModels
 {
@@ -6,7 +7,7 @@ namespace BrowserFile.Models.ViewModels
     {
         public List<Folder> Folders { get; set; }
         public List<Icon> Icons { get; set; }
-        public Folder FolderToCreate { get; set; }
+        public FolderDTO FolderToCreate { get; set; }
         public string FolderToDeleteId { get; set; }
     }
 }
