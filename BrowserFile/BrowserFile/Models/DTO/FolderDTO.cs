@@ -1,10 +1,20 @@
-﻿namespace BrowserFile.Models.DTO
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BrowserFile.Models.DTO
 {
     public class FolderDTO
     {
-        public string IconId { get; set; } = string.Empty;
-        public string Name { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
-        public string Tag { get; set; } = string.Empty; 
+        [Required(ErrorMessage = "Folder name is required.")]
+        [StringLength(30, ErrorMessage = "Folder name must not exceed 30 characters.")]
+        public string Name { get; set; }
+
+        [StringLength(100, ErrorMessage = "Description must not exceed 100 characters.")]
+        public string Description { get; set; }
+
+        [StringLength(4, ErrorMessage = "Tag must not exceed 4 characters.")]
+        public string Tag { get; set; }
+
+        [Required(ErrorMessage = "Icon is required.")]
+        public string IconId { get; set; }
     }
 }
