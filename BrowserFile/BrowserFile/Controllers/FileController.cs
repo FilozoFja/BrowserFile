@@ -15,7 +15,7 @@ namespace BrowserFile.Controllers
 
         [HttpGet]
         [Authorize]
-        public IActionResult File()
+        public IActionResult Index([FromRoute]string id)
         {
             return View();
         }

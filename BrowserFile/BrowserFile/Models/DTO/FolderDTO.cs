@@ -5,10 +5,10 @@ namespace BrowserFile.Models.DTO
     public class FolderDTO
     {
         [Required(ErrorMessage = "Folder name is required.")]
-        [StringLength(30, ErrorMessage = "Folder name must not exceed 30 characters.")]
+        [StringLength(20, ErrorMessage = "Folder name must not exceed 30 characters.")]
         public string Name { get; set; }
 
-        [StringLength(100, ErrorMessage = "Description must not exceed 100 characters.")]
+        [StringLength(50, ErrorMessage = "Description must not exceed 100 characters.")]
         public string Description { get; set; }
 
         [StringLength(4, ErrorMessage = "Tag must not exceed 4 characters.")]
