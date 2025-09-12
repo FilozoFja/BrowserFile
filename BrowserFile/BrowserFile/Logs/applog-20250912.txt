@@ -579,3 +579,122 @@ FROM "Icons" AS "i"
 2025-09-12 08:09:18.737 +00:00 [DBG] Connection id "0HNFHQEIEO0ML" completed keep alive response.
 2025-09-12 08:09:18.738 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5196/images/bootstrap-logo.svg - 404 0 null 2.9492ms
 2025-09-12 08:09:18.738 +00:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5196/images/bootstrap-logo.svg, Response status code: 404
+2025-09-12 15:18:13.981 +00:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2025-09-12 15:18:14.429 +00:00 [DBG] The index {'UserId'} was not created on entity type 'Folder' as the properties are already covered by the index {'UserId', 'Name'}.
+2025-09-12 15:18:14.431 +00:00 [DBG] The index {'UserId'} was not created on entity type 'StoredFile' as the properties are already covered by the index {'UserId', 'Name', 'FolderId'}.
+2025-09-12 15:18:14.431 +00:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserRole<string>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+2025-09-12 15:18:14.431 +00:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserToken<string>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+2025-09-12 15:18:14.616 +00:00 [DBG] Entity Framework Core 8.0.19 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:8.0.19' with options: None
+2025-09-12 15:18:14.641 +00:00 [DBG] Compiling query expression: 
+'DbSet<ApplicationUser>()
+    .Where(u => u.NormalizedEmail == __normalizedEmail_0)
+    .SingleOrDefault()'
+2025-09-12 15:18:14.788 +00:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<ApplicationUser>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: ApplicationUser.Id (string) Required PK AfterSave:Throw, 0], [Property: ApplicationUser.AccessFailedCount (int) Required, 1], [Property: ApplicationUser.ConcurrencyStamp (string) Concurrency, 2], [Property: ApplicationUser.Email (string) MaxLength(256), 3], [Property: ApplicationUser.EmailConfirmed (bool) Required, 4], [Property: ApplicationUser.LockoutEnabled (bool) Required, 5], [Property: ApplicationUser.LockoutEnd (DateTimeOffset?), 6], [Property: ApplicationUser.NormalizedEmail (string) Index MaxLength(256), 7], [Property: ApplicationUser.NormalizedUserName (string) Index MaxLength(256), 8], [Property: ApplicationUser.PasswordHash (string), 9], [Property: ApplicationUser.PhoneNumber (string), 10], [Property: ApplicationUser.PhoneNumberConfirmed (bool) Required, 11], [Property: ApplicationUser.SecurityStamp (string), 12], [Property: ApplicationUser.TwoFactorEnabled (bool) Required, 13], [Property: ApplicationUser.UserName (string) MaxLength(256), 14] }
+        SELECT TOP(2) a.Id, a.AccessFailedCount, a.ConcurrencyStamp, a.Email, a.EmailConfirmed, a.LockoutEnabled, a.LockoutEnd, a.NormalizedEmail, a.NormalizedUserName, a.PasswordHash, a.PhoneNumber, a.PhoneNumberConfirmed, a.SecurityStamp, a.TwoFactorEnabled, a.UserName
+        FROM AspNetUsers AS a
+        WHERE a.NormalizedEmail == @__normalizedEmail_0), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, ApplicationUser>, 
+    BrowserFile.Data.ApplicationDbContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+2025-09-12 15:18:14.813 +00:00 [DBG] Creating DbConnection.
+2025-09-12 15:18:14.821 +00:00 [DBG] Created DbConnection. (6ms).
+2025-09-12 15:18:14.824 +00:00 [DBG] Opening connection to database 'main' on server 'MyApp.db'.
+2025-09-12 15:18:14.836 +00:00 [DBG] Opened connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-12 15:18:14.841 +00:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-09-12 15:18:14.846 +00:00 [DBG] Created DbCommand for 'ExecuteReader' (4ms).
+2025-09-12 15:18:14.848 +00:00 [DBG] Initialized DbCommand for 'ExecuteReader' (9ms).
+2025-09-12 15:18:14.855 +00:00 [DBG] Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 17)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-09-12 15:18:14.874 +00:00 [INF] Executed DbCommand (20ms) [Parameters=[@__normalizedEmail_0='?' (Size = 17)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-09-12 15:18:14.912 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'ApplicationUser' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-12 15:18:14.940 +00:00 [DBG] Closing data reader to 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-12 15:18:14.945 +00:00 [DBG] A data reader for 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db' is being disposed after spending 67ms reading results.
+2025-09-12 15:18:14.946 +00:00 [DBG] Closing connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-12 15:18:14.949 +00:00 [DBG] Closed connection to database 'main' on server 'MyApp.db' (2ms).
+2025-09-12 15:18:14.952 +00:00 [DBG] Compiling query expression: 
+'DbSet<Icon>()
+    .Any()'
+2025-09-12 15:18:14.957 +00:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Icons AS i)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    BrowserFile.Data.ApplicationDbContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2025-09-12 15:18:14.961 +00:00 [DBG] Opening connection to database 'main' on server 'MyApp.db'.
+2025-09-12 15:18:14.961 +00:00 [DBG] Opened connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-12 15:18:14.961 +00:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-09-12 15:18:14.961 +00:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2025-09-12 15:18:14.961 +00:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2025-09-12 15:18:14.962 +00:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Icons" AS "i")
+2025-09-12 15:18:14.962 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Icons" AS "i")
+2025-09-12 15:18:14.962 +00:00 [DBG] Closing data reader to 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-12 15:18:14.963 +00:00 [DBG] A data reader for 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db' is being disposed after spending 0ms reading results.
+2025-09-12 15:18:14.963 +00:00 [DBG] Closing connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-12 15:18:14.963 +00:00 [DBG] Closed connection to database 'main' on server 'MyApp.db' (0ms).
+2025-09-12 15:18:14.964 +00:00 [DBG] 'ApplicationDbContext' disposed.
+2025-09-12 15:18:14.966 +00:00 [DBG] Disposing connection to database 'main' on server 'MyApp.db'.
+2025-09-12 15:18:14.967 +00:00 [DBG] Disposed connection to database 'main' on server 'MyApp.db' (0ms).
+2025-09-12 15:18:14.992 +00:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2025-09-12 15:18:14.999 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Account/Login.cshtml'.
+2025-09-12 15:18:15.000 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/File/Index.cshtml'.
+2025-09-12 15:18:15.000 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Folder/Edit.cshtml'.
+2025-09-12 15:18:15.000 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Folder/Index.cshtml'.
+2025-09-12 15:18:15.000 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Home/Index.cshtml'.
+2025-09-12 15:18:15.000 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Home/Privacy.cshtml'.
+2025-09-12 15:18:15.000 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Error.cshtml'.
+2025-09-12 15:18:15.000 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_LoginPartial.cshtml'.
+2025-09-12 15:18:15.001 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_ValidationScriptsPartial.cshtml'.
+2025-09-12 15:18:15.001 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/_ViewImports.cshtml'.
+2025-09-12 15:18:15.001 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/_ViewStart.cshtml'.
+2025-09-12 15:18:15.001 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_Layout.cshtml'.
+2025-09-12 15:18:15.009 +00:00 [WRN] Storing keys in a directory '/home/codespace/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+2025-09-12 15:18:15.009 +00:00 [INF] User profile is available. Using '/home/codespace/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-09-12 15:18:15.044 +00:00 [DBG] Hosting starting
+2025-09-12 15:18:15.052 +00:00 [DBG] Reading data from file '/home/codespace/.aspnet/DataProtection-Keys/key-19161e93-51b7-4868-8f64-082171dac6b5.xml'.
+2025-09-12 15:18:15.060 +00:00 [DBG] Found key {19161e93-51b7-4868-8f64-082171dac6b5}.
+2025-09-12 15:18:15.067 +00:00 [DBG] Considering key {19161e93-51b7-4868-8f64-082171dac6b5} with expiration date 2025-12-11 08:08:56Z as default key.
+2025-09-12 15:18:15.070 +00:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2025-09-12 15:18:15.071 +00:00 [DBG] Using managed symmetric algorithm 'System.Security.Cryptography.Aes'.
+2025-09-12 15:18:15.071 +00:00 [DBG] Using managed keyed hash algorithm 'System.Security.Cryptography.HMACSHA256'.
+2025-09-12 15:18:15.078 +00:00 [DBG] Using key {19161e93-51b7-4868-8f64-082171dac6b5} as the default key.
+2025-09-12 15:18:15.078 +00:00 [DBG] Key ring with default key {19161e93-51b7-4868-8f64-082171dac6b5} was loaded during application startup.
+2025-09-12 15:18:15.098 +00:00 [INF] Now listening on: http://localhost:5196
+2025-09-12 15:18:15.098 +00:00 [DBG] Loaded hosting startup assembly BrowserFile
+2025-09-12 15:18:15.099 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-12 15:18:15.099 +00:00 [INF] Hosting environment: Development
+2025-09-12 15:18:15.099 +00:00 [INF] Content root path: /workspaces/BrowserFile/BrowserFile/BrowserFile
+2025-09-12 15:18:15.099 +00:00 [DBG] Hosting started
