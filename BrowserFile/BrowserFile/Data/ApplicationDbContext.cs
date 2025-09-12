@@ -13,6 +13,7 @@ namespace BrowserFile.Data
 
         public DbSet<Folder> Folders { get; set; }
         public DbSet<Icon> Icons { get; set; }
+        public DbSet<StoredFile> StoredFiles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -37,6 +38,27 @@ namespace BrowserFile.Data
             builder.Entity<Folder>()
                 .HasIndex(f => new { f.UserId, f.Name })
                 .IsUnique();
+
+            builder.Entity<StoredFile>()
+                .HasOne(f => f.User)
+                .WithMany(u => u.StoredFiles)
+                .HasForeignKey(f => f.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<StoredFile>()
+                .Property(f => f.CreatedAt)
+                .HasDefaultValueSql("GETUTCDATE()");
+
+            builder.Entity<StoredFile>()
+                .HasIndex(f => new { f.UserId, f.Name, f.FolderId })
+                .IsUnique();
+
+            builder.Entity<StoredFile>()
+                .HasOne(f => f.Folder)
+                .WithMany(f => f.StoredFiles)
+                .HasForeignKey(f => f.FolderId)
+                .OnDelete(DeleteBehavior.Cascade);
+            
         }
     }
 }

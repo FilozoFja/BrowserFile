@@ -35,7 +35,7 @@ namespace BrowserFile.Controllers
                 icons = _context.Icons.ToList();
                 var cacheEntryOptions = new MemoryCacheEntryOptions()
                     .SetSlidingExpiration(TimeSpan.FromHours(1));
-                _cache.Set("icons", icons, cacheEntryOptions);
+                _cache.Set(ICONS_CACHE_KEY, icons, cacheEntryOptions);
             }
             return icons;
         }

@@ -8,16 +8,18 @@ namespace BrowserFile.Models.Entities
         [Required]
         public required string Id { get; set; }
         public string UserId { get; set; } = string.Empty;
-        public string IconId { get; set; } = string.Empty;  
+        public string IconId { get; set; } = string.Empty;
         public required string Name { get; set; } = string.Empty;
         public string? Description { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }
         public string? Tag { get; set; } = string.Empty;
 
         [ForeignKey("UserId")]
-        public virtual ApplicationUser User { get; set; }
+        public virtual ApplicationUser User { get; set; } = null!;
 
         [ForeignKey("IconId")]
-        public virtual Icon Icon { get; set; }
+        public virtual Icon Icon { get; set; } = null!;
+
+        public virtual ICollection<StoredFile> StoredFiles { get; set; } = new List<StoredFile>();
     }
 }

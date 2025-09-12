@@ -1,2 +1,12 @@
-﻿@{
+﻿@model BrowserFile.Models.ViewModels.FileViewModel
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Files in @Model.FolderName</h2>
+    <a class="btn btn-primary" asp-controller="File" asp-action="Create" asp-route-folderId="@Model.CurrentFolderId">Upload New File</a>
+</div>
+
+
+
+@{
+    ViewData["Title"] = "Files in " + Model.FolderName;
 }
