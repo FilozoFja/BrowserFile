@@ -5,6 +5,8 @@ using System.Security.Claims;
 using BrowserFile.Models.ViewModels;
 using BrowserFile.Models.Entities;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+using BrowserFile.Models.DTO;
 
 namespace BrowserFile.Controllers
 {
@@ -13,13 +15,13 @@ namespace BrowserFile.Controllers
         private readonly ApplicationDbContext _context;
         private readonly IConfiguration _configuration;
         private string CurrentUserId => User?.FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty;
+        private readonly IMapper _mapper;
 
-
-        public FileController(ApplicationDbContext context, IConfiguration configuration)
+        public FileController(ApplicationDbContext context, IConfiguration configuration, IMapper mapper)
         {
             _context = context;
             _configuration = configuration;
-            _context = context;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -27,8 +29,10 @@ namespace BrowserFile.Controllers
         public IActionResult Index([FromRoute] string id)
         {
             var files = _context.StoredFiles.Where(f => f.UserId == CurrentUserId && f.FolderId == id).ToList();
-            var folder = _context.Folders.FirstOrDefault(f => f.Id == id && f.UserId == CurrentUserId);
-            if (folder == null || string.IsNullOrEmpty(id))
+            var folders = _context.Folders.Where(f => f.UserId == CurrentUserId).ToList();
+            var currentFolder = folders.FirstOrDefault(f => f.Id == id);
+
+            if (currentFolder == null || string.IsNullOrEmpty(id))
             {
                 TempData["Error"] = "Folder not found.";
                 return RedirectToAction("Index", "Folder");
@@ -38,7 +42,9 @@ namespace BrowserFile.Controllers
             {
                 Files = files,
                 CurrentFolderId = id,
-                FolderName = folder?.Name ?? "Root"
+                FolderName = currentFolder?.Name ?? "Root",
+                FolderShortModel = _mapper.Map<List<FolderShortModelDTO>>(folders)
+
             };
             return View(vm);
         }
@@ -104,6 +110,7 @@ namespace BrowserFile.Controllers
             TempData["Success"] = "File created successfully.";
             return RedirectToAction("Index", new { id = fileViewModel.CurrentFolderId });
         }
+
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> DeleteFile(string id, string folderId)
@@ -248,6 +255,90 @@ namespace BrowserFile.Controllers
             }
             TempData["Success"] = "File moved successfully.";
             return RedirectToAction("Index", new { id = newFolderId });
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> MoveFiles(string[] fileIds, string newFolderId, string currentFolderId)
+        {
+            if (fileIds == null || fileIds.Length == 0)
+            {
+                TempData["Error"] = "No files selected to move.";
+                return RedirectToAction("Index", new { id = currentFolderId });
+            }
+
+            var files = await _context.StoredFiles.Where(f => fileIds.Contains(f.Id) && f.UserId == CurrentUserId).ToListAsync();
+            if (files.Count != fileIds.Length)
+            {
+                TempData["Error"] = "One or more files not found or you do not have permission to move them.";
+                return RedirectToAction("Index", new { id = currentFolderId });
+            }
+
+            var newFolder = await _context.Folders.FirstOrDefaultAsync(f => f.Id == newFolderId && f.UserId == CurrentUserId);
+            if (newFolder == null)
+            {
+                TempData["Error"] = "Destination folder not found.";
+                return RedirectToAction("Index", new { id = currentFolderId });
+            }
+
+            try
+            {
+                foreach (var file in files)
+                {
+                    file.FolderId = newFolderId;
+                }
+                _context.StoredFiles.UpdateRange(files);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = "An error occurred while moving the files: " + ex.Message;
+                return RedirectToAction("Index", new { id = currentFolderId });
+            }
+
+            TempData["Success"] = "Files moved successfully.";
+            return RedirectToAction("Index", new { id = newFolderId });
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> DeleteFiles(string[] fileIds, string currentFolderId)
+        {
+            if (fileIds == null || fileIds.Length == 0)
+            {
+                TempData["Error"] = "No files selected to delete.";
+                return RedirectToAction("Index", new { id = currentFolderId });
+            }
+
+            var files = await _context.StoredFiles.Where(f => fileIds.Contains(f.Id) && f.UserId == CurrentUserId).ToListAsync();
+            if (files.Count != fileIds.Length)
+            {
+                TempData["Error"] = "One or more files not found or you do not have permission to delete them.";
+                return RedirectToAction("Index", new { id = currentFolderId });
+            }
+
+            try
+            {
+                foreach (var file in files)
+                {
+                    var fullFilePath = Path.Combine(Directory.GetCurrentDirectory(), file.FilePath);
+                    if (System.IO.File.Exists(fullFilePath))
+                    {
+                        System.IO.File.Delete(fullFilePath);
+                    }
+                }
+
+                _context.StoredFiles.RemoveRange(files);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = "An error occurred while deleting the files: " + ex.Message;
+                return RedirectToAction("Index", new { id = currentFolderId });
+            }
+
+            TempData["Success"] = "Files deleted successfully.";
+            return RedirectToAction("Index", new { id = currentFolderId });
         }
 
         [HttpPost]
