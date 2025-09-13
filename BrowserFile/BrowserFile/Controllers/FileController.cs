@@ -27,8 +27,8 @@ namespace BrowserFile.Controllers
         public IActionResult Index([FromRoute] string id)
         {
             var files = _context.StoredFiles.Where(f => f.UserId == CurrentUserId && f.FolderId == id).ToList();
-            var folder = _context.StoredFiles.FirstOrDefault(f => f.Id == id && f.UserId == CurrentUserId);
-            if (folder == null && !string.IsNullOrEmpty(id))
+            var folder = _context.Folders.FirstOrDefault(f => f.Id == id && f.UserId == CurrentUserId);
+            if (folder == null || string.IsNullOrEmpty(id))
             {
                 TempData["Error"] = "Folder not found.";
                 return RedirectToAction("Index", "Folder");
@@ -104,7 +104,7 @@ namespace BrowserFile.Controllers
             TempData["Success"] = "File created successfully.";
             return RedirectToAction("Index", new { id = fileViewModel.CurrentFolderId });
         }
-        [HttpDelete]
+        [HttpPost]
         [Authorize]
         public async Task<IActionResult> DeleteFile(string id, string folderId)
         {
@@ -142,7 +142,7 @@ namespace BrowserFile.Controllers
             return RedirectToAction("Index", new { id = folderId });
         }
 
-        [HttpPatch]
+        [HttpPost]
         [Authorize]
         public async Task<IActionResult> ToggleStar(string id, string folderId)
         {
@@ -175,7 +175,7 @@ namespace BrowserFile.Controllers
             return RedirectToAction("Index", new { id = folderId });
         }
 
-        [HttpPatch]
+        [HttpPost]
         [Authorize]
         public async Task<IActionResult> RenameFile(string id, string newName, string folderId)
         {
@@ -214,7 +214,7 @@ namespace BrowserFile.Controllers
             return RedirectToAction("Index", new { id = folderId });
         }
 
-        [HttpPatch]
+        [HttpPost]
         [Authorize]
         public async Task<IActionResult> MoveFile(string id, string newFolderId, string currentFolderId)
         {
@@ -285,7 +285,7 @@ namespace BrowserFile.Controllers
 
         public async Task<string?> FileCreateHandler(IFormFile file, string fileId)
         {
-            if (file == null || file.Length == 0)
+            if (file == null)
                 return null;
 
             const long maxFileSize = 100 * 1024 * 1024;
