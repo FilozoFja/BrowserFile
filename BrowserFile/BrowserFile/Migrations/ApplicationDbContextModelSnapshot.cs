@@ -92,7 +92,6 @@ namespace BrowserFile.Migrations
                         .HasDefaultValueSql("GETUTCDATE()");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("IconId")
@@ -104,7 +103,6 @@ namespace BrowserFile.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Tag")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("UserId")
@@ -137,6 +135,63 @@ namespace BrowserFile.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Icons");
+                });
+
+            modelBuilder.Entity("BrowserFile.Models.Entities.StoredFile", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT")
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<string>("FileExtension")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FolderId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsInTrash")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsShared")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsStarred")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Size")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("WhoAdded")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FolderId");
+
+                    b.HasIndex("UserId", "Name", "FolderId")
+                        .IsUnique();
+
+                    b.ToTable("StoredFiles");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -286,6 +341,25 @@ namespace BrowserFile.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("BrowserFile.Models.Entities.StoredFile", b =>
+                {
+                    b.HasOne("BrowserFile.Models.Entities.Folder", "Folder")
+                        .WithMany("StoredFiles")
+                        .HasForeignKey("FolderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BrowserFile.Models.Entities.ApplicationUser", "User")
+                        .WithMany("StoredFiles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Folder");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -340,6 +414,13 @@ namespace BrowserFile.Migrations
             modelBuilder.Entity("BrowserFile.Models.Entities.ApplicationUser", b =>
                 {
                     b.Navigation("Folders");
+
+                    b.Navigation("StoredFiles");
+                });
+
+            modelBuilder.Entity("BrowserFile.Models.Entities.Folder", b =>
+                {
+                    b.Navigation("StoredFiles");
                 });
 
             modelBuilder.Entity("BrowserFile.Models.Entities.Icon", b =>

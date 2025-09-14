@@ -20,7 +20,6 @@ namespace BrowserFile.Data
                     EmailConfirmed = true
                 };
                 var result = await userManager.CreateAsync(user, "Admin123!");
-
             }
         }
         public static void SeedIcons(ApplicationDbContext context)
