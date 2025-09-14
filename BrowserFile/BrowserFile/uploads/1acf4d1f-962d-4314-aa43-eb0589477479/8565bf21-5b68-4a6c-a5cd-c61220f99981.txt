@@ -1,0 +1,67 @@
+#370101
+#000000
+#ffffff
+
+
+COOKIEEYE-CONSENT - 1 rok - CookieYes sets this cookie to remember users consent preferences so that their preferences are respected on their subsequent visits to this site. It does not collect or store any personal information of the site visitors.
+<br>
+_GRECAPTCHA - 1 rok - This cookie is set by the Google recaptcha service to identify bots to protect the website against malicious spam attacks.
+<br>
+woocommerce_items_in_cart - sesja - WooCommerce sets this cookie to record if there are any items in the WooCommerce shopping cart.
+<br>
+woocommerce_cart_hash - sesja - This cookie is set by WooCommerce. The cookie helps WooCommerce determine when cart contents/data changes.
+
+
+
+.kategoria-produktu {
+    height: 14px !important;
+    font-family: 'Poppins' !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 13px !important;
+    color: #6E6E6E !important;
+  	line-height:110%;
+}
+
+
+custom-blog-v4.post-meta {
+  font-size: 0 !important;
+}
+
+custom-blog-v4.post-meta span.published,
+custom-blog-v4.post-meta a {
+  font-size: 16px; /* dowolna wartość docelowa */
+  display: inline-block;
+  margin-right: 8px; /* odstęp */
+}
+
+custom-blog-v4.post-meta a::before {
+  content: url('/wp-content/uploads/2025/07/ChefHat.svg');
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+
+
+
+
+
+.post-meta {
+  font-size: 0 !important;
+}
+
+.post-meta span.published,
+.post-meta a {
+  font-size: 16px; /* dowolna wartość docelowa */
+  display: inline-block;
+  margin-right: 8px; /* odstęp */
+}
+
+.post-meta a::before {
+  content: url('/wp-content/uploads/2025/07/ChefHat.svg');
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+

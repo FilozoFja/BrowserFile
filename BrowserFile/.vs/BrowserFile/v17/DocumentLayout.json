@@ -67,8 +67,12 @@
               "RelativeToolTip": "BrowserFile\\Models\\DTO\\FolderDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAABYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+<<<<<<< HEAD
               "WhenOpened": "2025-09-10T17:42:17.655Z",
               "EditorCaption": ""
+=======
+              "WhenOpened": "2025-09-06T18:16:01.841Z"
+>>>>>>> 111ee1e (resolve conflicts)
             },
             {
               "$type": "Document",
@@ -93,8 +97,12 @@
               "RelativeToolTip": "BrowserFile\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+<<<<<<< HEAD
               "WhenOpened": "2025-09-10T14:42:39.681Z",
               "EditorCaption": ""
+=======
+              "WhenOpened": "2025-09-06T18:02:29.087Z"
+>>>>>>> 111ee1e (resolve conflicts)
             },
             {
               "$type": "Document",
@@ -106,8 +114,12 @@
               "RelativeToolTip": "BrowserFile\\Controllers\\FolderController.cs",
               "ViewState": "AQIAAIQAAAAAAAAAAAAmwMAAAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+<<<<<<< HEAD
               "WhenOpened": "2025-09-09T13:09:29.798Z",
               "EditorCaption": ""
+=======
+              "WhenOpened": "2025-09-06T17:57:26.216Z"
+>>>>>>> 111ee1e (resolve conflicts)
             }
           ]
         }
