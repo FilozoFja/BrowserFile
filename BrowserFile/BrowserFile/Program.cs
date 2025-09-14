@@ -68,15 +68,7 @@ app.UseSerilogRequestLogging();
 
 app.UseRouting();
 
-<<<<<<< HEAD
 
-=======
-<<<<<<< Updated upstream
-=======
-
-
->>>>>>> Stashed changes
->>>>>>> 111ee1e (resolve conflicts)
 app.UseAuthentication();
 app.UseAuthorization();
 

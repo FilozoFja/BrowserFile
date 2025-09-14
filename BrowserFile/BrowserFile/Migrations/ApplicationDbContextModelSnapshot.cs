@@ -137,11 +137,6 @@ namespace BrowserFile.Migrations
                     b.ToTable("Icons");
                 });
 
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> 111ee1e (resolve conflicts)
             modelBuilder.Entity("BrowserFile.Models.Entities.StoredFile", b =>
                 {
                     b.Property<string>("Id")
@@ -193,20 +188,12 @@ namespace BrowserFile.Migrations
 
                     b.HasIndex("FolderId");
 
-<<<<<<< HEAD
                     b.HasIndex("UserId", "Name", "FolderId")
                         .IsUnique();
-=======
-                    b.HasIndex("UserId");
->>>>>>> 111ee1e (resolve conflicts)
 
                     b.ToTable("StoredFiles");
                 });
 
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
->>>>>>> 111ee1e (resolve conflicts)
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")

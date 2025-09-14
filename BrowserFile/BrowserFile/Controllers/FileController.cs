@@ -13,35 +13,15 @@ namespace BrowserFile.Controllers
     public class FileController : Controller
     {
         private readonly ApplicationDbContext _context;
-<<<<<<< HEAD
         private readonly IConfiguration _configuration;
         private string CurrentUserId => User?.FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty;
         private readonly IMapper _mapper;
-=======
-<<<<<<< Updated upstream
->>>>>>> 111ee1e (resolve conflicts)
 
         public FileController(ApplicationDbContext context, IConfiguration configuration, IMapper mapper)
         {
             _context = context;
-<<<<<<< HEAD
             _configuration = configuration;
             _mapper = mapper;
-=======
-=======
-        private readonly IConfiguration _configuration;
-        private readonly ILogger<FileController> _logger;
-        private string CurrentUserId => User?.FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty;
-        private readonly IMapper _mapper;
-
-        public FileController(ApplicationDbContext context, IConfiguration configuration, IMapper mapper, ILogger<FileController> logger)
-        {
-            _context = context;
-            _configuration = configuration;
-            _mapper = mapper;
-            _logger = logger;
->>>>>>> Stashed changes
->>>>>>> 111ee1e (resolve conflicts)
         }
 
         [HttpGet]
@@ -68,11 +48,6 @@ namespace BrowserFile.Controllers
             };
             return View(vm);
         }
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> 111ee1e (resolve conflicts)
 
         [HttpPost]
         [Authorize]
@@ -92,11 +67,7 @@ namespace BrowserFile.Controllers
                 return RedirectToAction("Index", "Folder");
             }
 
-<<<<<<< HEAD
             if (file.Name == null || string.IsNullOrWhiteSpace(file.Name))
-=======
-            if (file == null || file.Name == null || string.IsNullOrWhiteSpace(file.Name))
->>>>>>> 111ee1e (resolve conflicts)
             {
                 TempData["Error"] = "File name is required.";
                 return RedirectToAction("Index", new { id = fileViewModel.CurrentFolderId });
@@ -114,15 +85,9 @@ namespace BrowserFile.Controllers
             var newFile = new StoredFile
             {
                 Id = fileId,
-<<<<<<< HEAD
                 Name = file.Name,
                 Size = (file.Length / 1024.0).ToString("F2") + " KB",
                 CreatedAt = DateTime.UtcNow,
-=======
-                Name = file.FileName,
-                Size = (file.Length / 1024.0).ToString("F2") + " KB",
-                CreatedAt = DateTime.Now,
->>>>>>> 111ee1e (resolve conflicts)
                 WhoAdded = User.Identity?.Name ?? "Unknown",
                 FileExtension = Path.GetExtension(file.FileName),
                 FilePath = filePath,
@@ -139,10 +104,6 @@ namespace BrowserFile.Controllers
             catch (Exception ex)
             {
                 TempData["Error"] = "An error occurred while creating the file: " + ex.Message;
-<<<<<<< HEAD
-=======
-                _logger.LogCritical(ex, "Error creating file");
->>>>>>> 111ee1e (resolve conflicts)
                 return RedirectToAction("Index", new { id = fileViewModel.CurrentFolderId });
             }
 
@@ -451,9 +412,5 @@ namespace BrowserFile.Controllers
             }
         }
 
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
->>>>>>> 111ee1e (resolve conflicts)
     }
 }

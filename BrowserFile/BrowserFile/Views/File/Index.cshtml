@@ -14,31 +14,6 @@
         <li class="breadcrumb-item active" aria-current="page">@Model.FolderName</li>
     </ol>
 </nav>
-<<<<<<< HEAD
-=======
-<!-- Bulk actions toolbar -->
-<div id="bulkActions" class="alert alert-info d-none mb-3">
-    <div class="d-flex justify-content-between align-items-center">
-        <div>
-            <strong><span id="selectedCount">0</span> files selected</strong>
-        </div>
-        <div>
-            <button class="btn btn-sm btn-outline-primary me-2" onclick="showBulkMoveModal()">
-                <i class="fas fa-arrows-alt"></i> Move Selected
-            </button>
-            <button class="btn btn-sm btn-outline-danger me-2" onclick="bulkMoveToTrash()">
-                <i class="fas fa-trash"></i> Move to Trash
-            </button>
-            <button class="btn btn-sm btn-outline-danger" onclick="bulkDeleteFiles()">
-                <i class="fas fa-times"></i> Delete Selected
-            </button>
-            <button class="btn btn-sm btn-secondary ms-2" onclick="clearSelection()">
-                <i class="fas fa-times"></i> Clear Selection
-            </button>
-        </div>
-    </div>
-</div>
->>>>>>> 111ee1e (resolve conflicts)
 
 <ul class="nav nav-pills pt-2">
     <li class="nav-item">
@@ -50,21 +25,10 @@
     <li>
         <a class="nav-link" data-bs-toggle="pill" href="#manageFiles">Manage files</a>
     </li>
-<<<<<<< HEAD
 </ul>
 
 <div class="tab-content mt-3">
     <!-- Main Files Tab -->
-=======
-    <li class="ms-auto">
-        <button class="btn btn-outline-secondary btn-sm" id="toggleBulkSelect">
-            <i class="fas fa-check-square"></i> Select Multiple
-        </button>
-    </li>
-</ul>
-
-<div class="tab-content mt-3">
->>>>>>> 111ee1e (resolve conflicts)
     <div class="tab-pane fade show active" id="mainPage">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h3>Files in @Model.FolderName</h3>
@@ -78,7 +42,6 @@
             </div>
         </div>
 
-<<<<<<< HEAD
         @if (Model.Files.Any())
         {
             <!-- Grid View -->
@@ -120,100 +83,6 @@
                                     </div>
                                     <div class="dropdown">
                                         <button class="btn btn-sm" type="button" data-bs-toggle="dropdown">
-=======
-        <!-- Grid View with Bulk Selection -->
-        <div id="filesGrid" class="row">
-            @foreach (var file in Model.Files)
-            {
-                <div class="col-md-4 col-lg-3 mb-3">
-                    <div class="card h-100 file-card" data-file-id="@file.Id">
-                        <!-- Checkbox overlay for bulk selection -->
-                        <div class="file-checkbox d-none">
-                            <input type="checkbox" class="file-select-checkbox" value="@file.Id"
-                                   onchange="updateBulkSelection()">
-                        </div>
-
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <div class="file-icon">
-                                    @* File icons code same as original *@
-                                    <i class="fas fa-file text-secondary fa-2x"></i>
-                                </div>
-                                <div class="dropdown">
-                                    <button class="btn btn-sm single-file-actions" type="button" data-bs-toggle="dropdown">
-                                        <i class="fas fa-ellipsis-v"></i>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <!-- Same dropdown menu as original -->
-                                        <li>
-                                            <button class="dropdown-item" onclick="showRenameModal('@file.Id', '@file.Name')">
-                                                <i class="fas fa-edit"></i> Rename
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button class="dropdown-item" onclick="showMoveModal('@file.Id')">
-                                                <i class="fas fa-arrows-alt"></i> Move
-                                            </button>
-                                        </li>
-                                        <li><hr class="dropdown-divider"></li>
-                                        <li>
-                                            <button class="dropdown-item text-danger" onclick="moveToTrash('@file.Id', '@Model.CurrentFolderId')">
-                                                <i class="fas fa-trash"></i> Move to Trash
-                                            </button>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <h6 class="card-title text-truncate" title="@file.Name">@file.Name</h6>
-                            <small class="text-muted d-block">Size: @file.Size</small>
-                            <small class="text-muted d-block">Extension: @file.FileExtension</small>
-                            <small class="text-muted d-block">Added by: @file.WhoAdded</small>
-                            <small class="text-muted">Created: @file.CreatedAt.ToString("dd/MM/yyyy HH:mm")</small>
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
-
-        <!-- List View with Bulk Selection -->
-        <div id="filesList" class="d-none">
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th class="bulk-select-header d-none">
-                                <input type="checkbox" id="selectAll" onchange="toggleSelectAll()">
-                            </th>
-                            <th>Name</th>
-                            <th>Size</th>
-                            <th>Type</th>
-                            <th>Added by</th>
-                            <th>Created</th>
-                            <th class="single-file-header">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var file in Model.Files)
-                        {
-                            <tr data-file-id="@file.Id">
-                                <td class="bulk-select-cell d-none">
-                                    <input type="checkbox" class="file-select-checkbox" value="@file.Id"
-                                           onchange="updateBulkSelection()">
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-file text-secondary me-2"></i>
-                                        @file.Name
-                                    </div>
-                                </td>
-                                <td>@file.Size</td>
-                                <td>@file.FileExtension</td>
-                                <td>@file.WhoAdded</td>
-                                <td>@file.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
-                                <td class="single-file-cell">
-                                    <div class="dropdown">
-                                        <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="dropdown">
->>>>>>> 111ee1e (resolve conflicts)
                                             <i class="fas fa-ellipsis-v"></i>
                                         </button>
                                         <ul class="dropdown-menu">
@@ -226,25 +95,12 @@
                                                     </button>
                                                 </form>
                                             </li>
-<<<<<<< HEAD
                                             <li><button class="dropdown-item" onclick="showRenameModal('@file.Id', '@file.Name')">
                                                 <i class="fas fa-edit"></i> Rename
                                             </button></li>
                                             <li><button class="dropdown-item" onclick="showMoveModal('@file.Id')">
                                                 <i class="fas fa-arrows-alt"></i> Move
                                             </button></li>
-=======
-                                            <li>
-                                                <button class="dropdown-item" onclick="showRenameModal('@file.Id', '@file.Name')">
-                                                    <i class="fas fa-edit"></i> Rename
-                                                </button>
-                                            </li>
-                                            <li>
-                                                <button class="dropdown-item" onclick="showMoveModal('@file.Id')">
-                                                    <i class="fas fa-arrows-alt"></i> Move
-                                                </button>
-                                            </li>
->>>>>>> 111ee1e (resolve conflicts)
                                             <li><hr class="dropdown-divider"></li>
                                             <li>
                                                 <form asp-action="MoveToTrash" asp-route-id="@file.Id" asp-route-folderId="@Model.CurrentFolderId" method="post" style="display: inline;">
@@ -256,7 +112,6 @@
                                             </li>
                                         </ul>
                                     </div>
-<<<<<<< HEAD
                                 </div>
                                 <h6 class="card-title text-truncate" title="@file.Name">@file.Name</h6>
                                 <small class="text-muted d-block">Size: @file.Size</small>
@@ -381,15 +236,6 @@
                 <a class="btn btn-primary" data-bs-toggle="pill" href="#uploadFile">Upload your first file</a>
             </div>
         }
-=======
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-        </div>
->>>>>>> 111ee1e (resolve conflicts)
     </div>
 
     <!-- Upload File Tab -->
@@ -397,11 +243,7 @@
         <h3>Upload file</h3>
         <form asp-action="CreateFolder" method="post" enctype="multipart/form-data">
             <input type="hidden" asp-for="CurrentFolderId" />
-<<<<<<< HEAD
             
-=======
-
->>>>>>> 111ee1e (resolve conflicts)
             <div class="mb-3">
                 <label class="form-label">Choose file:</label>
                 <div class="file-upload-area" onclick="document.getElementById('fileInput').click()">
@@ -520,7 +362,6 @@
     </div>
 </div>
 
-<<<<<<< HEAD
 <!-- Move Modal -->
 <div class="modal fade" id="moveModal" tabindex="-1">
     <div class="modal-dialog">
@@ -536,26 +377,6 @@
                     <div class="mb-3">
                         <label class="form-label">Select destination folder:</label>
                         <select name="newFolderId" class="form-select" required>
-=======
-<!-- Bulk Move Modal -->
-<div class="modal fade" id="bulkMoveModal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Move Selected Files</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <form id="bulkMoveForm" method="post" action="@Url.Action("MoveFiles", "File")">
-                <div class="modal-body">
-                    @Html.AntiForgeryToken()
-                    <input type="hidden" name="currentFolderId" value="@Model.CurrentFolderId" />
-                    <div id="selectedFilesList"></div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Select destination folder:</label>
-                        <select name="newFolderId" class="form-select" required>
-                            <option value="">Choose folder...</option>
->>>>>>> 111ee1e (resolve conflicts)
                             @foreach (var folder in Model.FolderShortModel)
                             {
                                 <option value="@folder.Id">@folder.Name</option>
@@ -565,243 +386,13 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-<<<<<<< HEAD
                     <button type="submit" class="btn btn-primary">Move</button>
-=======
-                    <button type="submit" class="btn btn-primary">Move Files</button>
->>>>>>> 111ee1e (resolve conflicts)
                 </div>
             </form>
         </div>
     </div>
 </div>
 
-<<<<<<< HEAD
-=======
-<style>
-    .file-card {
-        position: relative;
-        transition: transform 0.2s;
-    }
-
-        .file-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        .file-card.selected {
-            border-color: #007bff;
-            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
-        }
-
-    .file-checkbox {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        z-index: 10;
-        background: white;
-        border-radius: 4px;
-        padding: 4px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .file-select-checkbox {
-        transform: scale(1.2);
-    }
-
-    .bulk-mode .single-file-actions,
-    .bulk-mode .single-file-header,
-    .bulk-mode .single-file-cell {
-        display: none !important;
-    }
-
-    .bulk-mode .file-checkbox,
-    .bulk-mode .bulk-select-header,
-    .bulk-mode .bulk-select-cell {
-        display: block !important;
-    }
-
-    .bulk-mode .file-card {
-        cursor: pointer;
-    }
-</style>
-
-<script>
-    let bulkSelectMode = false;
-    let selectedFiles = [];
-
-    // Toggle bulk selection mode
-    document.getElementById('toggleBulkSelect').addEventListener('click', function () {
-        bulkSelectMode = !bulkSelectMode;
-        document.body.classList.toggle('bulk-mode', bulkSelectMode);
-
-        if (bulkSelectMode) {
-            this.innerHTML = '<i class="fas fa-times"></i> Cancel Selection';
-            this.classList.remove('btn-outline-secondary');
-            this.classList.add('btn-outline-danger');
-        } else {
-            this.innerHTML = '<i class="fas fa-check-square"></i> Select Multiple';
-            this.classList.remove('btn-outline-danger');
-            this.classList.add('btn-outline-secondary');
-            clearSelection();
-        }
-    });
-
-    // Handle card click in bulk mode
-    document.querySelectorAll('.file-card').forEach(card => {
-        card.addEventListener('click', function (e) {
-            if (bulkSelectMode && !e.target.closest('.dropdown')) {
-                const checkbox = this.querySelector('.file-select-checkbox');
-                checkbox.checked = !checkbox.checked;
-                updateBulkSelection();
-            }
-        });
-    });
-
-    // Update bulk selection
-    function updateBulkSelection() {
-        const checkboxes = document.querySelectorAll('.file-select-checkbox:checked');
-        selectedFiles = Array.from(checkboxes).map(cb => cb.value);
-
-        document.getElementById('selectedCount').textContent = selectedFiles.length;
-        document.getElementById('bulkActions').classList.toggle('d-none', selectedFiles.length === 0);
-
-        // Update visual selection
-        document.querySelectorAll('.file-card').forEach(card => {
-            const fileId = card.dataset.fileId;
-            const checkbox = card.querySelector('.file-select-checkbox');
-            card.classList.toggle('selected', checkbox && checkbox.checked);
-        });
-
-        // Update table rows
-        document.querySelectorAll('#filesList tr[data-file-id]').forEach(row => {
-            const checkbox = row.querySelector('.file-select-checkbox');
-            row.classList.toggle('table-primary', checkbox && checkbox.checked);
-        });
-    }
-
-    // Toggle select all
-    function toggleSelectAll() {
-        const selectAll = document.getElementById('selectAll');
-        const checkboxes = document.querySelectorAll('.file-select-checkbox');
-
-        checkboxes.forEach(checkbox => {
-            checkbox.checked = selectAll.checked;
-        });
-
-        updateBulkSelection();
-    }
-
-    // Clear selection
-    function clearSelection() {
-        document.querySelectorAll('.file-select-checkbox').forEach(checkbox => {
-            checkbox.checked = false;
-        });
-        document.getElementById('selectAll').checked = false;
-        updateBulkSelection();
-    }
-
-    // Show bulk move modal
-    function showBulkMoveModal() {
-        if (selectedFiles.length === 0) return;
-
-        const filesList = document.getElementById('selectedFilesList');
-        filesList.innerHTML = selectedFiles.map(fileId =>
-            `<input type="hidden" name="fileIds" value="${fileId}">`
-        ).join('');
-
-        new bootstrap.Modal(document.getElementById('bulkMoveModal')).show();
-    }
-
-    // Bulk move to trash
-    function bulkMoveToTrash() {
-        if (selectedFiles.length === 0) return;
-
-        if (confirm(`Move ${selectedFiles.length} selected files to trash?`)) {
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = '@Url.Action("MoveToTrash", "File")';
-
-            // Add anti-forgery token
-            const token = document.querySelector('input[name="__RequestVerificationToken"]').cloneNode();
-            form.appendChild(token);
-
-            // Add current folder
-            const folderInput = document.createElement('input');
-            folderInput.type = 'hidden';
-            folderInput.name = 'currentFolderId';
-            folderInput.value = '@Model.CurrentFolderId';
-            form.appendChild(folderInput);
-
-            // Add selected files
-            selectedFiles.forEach(fileId => {
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = 'fileIds';
-                input.value = fileId;
-                form.appendChild(input);
-            });
-
-            document.body.appendChild(form);
-            form.submit();
-        }
-    }
-
-    // Bulk delete files
-    function bulkDeleteFiles() {
-        if (selectedFiles.length === 0) return;
-
-        if (confirm(`Permanently delete ${selectedFiles.length} selected files? This cannot be undone.`)) {
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = '@Url.Action("DeleteFiles", "File")';
-
-            // Add anti-forgery token
-            const token = document.querySelector('input[name="__RequestVerificationToken"]').cloneNode();
-            form.appendChild(token);
-
-            // Add current folder
-            const folderInput = document.createElement('input');
-            folderInput.type = 'hidden';
-            folderInput.name = 'currentFolderId';
-            folderInput.value = '@Model.CurrentFolderId';
-            form.appendChild(folderInput);
-
-            // Add selected files
-            selectedFiles.forEach(fileId => {
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = 'fileIds';
-                input.value = fileId;
-                form.appendChild(input);
-            });
-
-            document.body.appendChild(form);
-            form.submit();
-        }
-    }
-
-    // Existing view toggle code remains the same...
-    document.getElementById('listView').addEventListener('click', function () {
-        document.getElementById('filesGrid').classList.add('d-none');
-        document.getElementById('filesList').classList.remove('d-none');
-        this.classList.add('btn-secondary');
-        this.classList.remove('btn-outline-secondary');
-        document.getElementById('gridView').classList.remove('btn-secondary');
-        document.getElementById('gridView').classList.add('btn-outline-secondary');
-    });
-
-    document.getElementById('gridView').addEventListener('click', function () {
-        document.getElementById('filesList').classList.add('d-none');
-        document.getElementById('filesGrid').classList.remove('d-none');
-        this.classList.add('btn-secondary');
-        this.classList.remove('btn-outline-secondary');
-        document.getElementById('listView').classList.remove('btn-secondary');
-        document.getElementById('listView').classList.add('btn-outline-secondary');
-    });
-</script>
-
->>>>>>> 111ee1e (resolve conflicts)
 @{
     ViewData["Title"] = "Files - " + Model.FolderName;
 }
@@ -813,17 +404,10 @@
         transition: transform 0.2s;
     }
 
-<<<<<<< HEAD
     .file-card:hover {
         transform: translateY(-2px);
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-=======
-        .file-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
->>>>>>> 111ee1e (resolve conflicts)
 
     .file-upload-area {
         border: 2px dashed #dee2e6;
@@ -834,7 +418,6 @@
         transition: border-color 0.3s;
     }
 
-<<<<<<< HEAD
     .file-upload-area:hover {
         border-color: #007bff;
         background-color: #f8f9fa;
@@ -844,17 +427,6 @@
         border-color: #007bff;
         background-color: #e3f2fd;
     }
-=======
-        .file-upload-area:hover {
-            border-color: #007bff;
-            background-color: #f8f9fa;
-        }
-
-        .file-upload-area.dragover {
-            border-color: #007bff;
-            background-color: #e3f2fd;
-        }
->>>>>>> 111ee1e (resolve conflicts)
 
     .upload-icon {
         margin-bottom: 15px;
@@ -876,22 +448,14 @@
         // Remove active class from current tab
         document.querySelector('.nav-link.active').classList.remove('active');
         document.querySelector('.tab-pane.show.active').classList.remove('show', 'active');
-<<<<<<< HEAD
         
-=======
-
->>>>>>> 111ee1e (resolve conflicts)
         // Add active class to upload tab
         document.querySelector('a[href="#uploadFile"]').classList.add('active');
         document.getElementById('uploadFile').classList.add('show', 'active');
     }
 
     // View toggle
-<<<<<<< HEAD
     document.getElementById('listView').addEventListener('click', function() {
-=======
-    document.getElementById('listView').addEventListener('click', function () {
->>>>>>> 111ee1e (resolve conflicts)
         document.getElementById('filesGrid').classList.add('d-none');
         document.getElementById('filesList').classList.remove('d-none');
         this.classList.add('btn-secondary');
@@ -900,11 +464,7 @@
         document.getElementById('gridView').classList.add('btn-outline-secondary');
     });
 
-<<<<<<< HEAD
     document.getElementById('gridView').addEventListener('click', function() {
-=======
-    document.getElementById('gridView').addEventListener('click', function () {
->>>>>>> 111ee1e (resolve conflicts)
         document.getElementById('filesList').classList.add('d-none');
         document.getElementById('filesGrid').classList.remove('d-none');
         this.classList.add('btn-secondary');
@@ -918,11 +478,7 @@
         const fileInput = document.getElementById('fileInput');
         const selectedFileDiv = document.getElementById('selectedFile');
         const fileName = document.getElementById('fileName');
-<<<<<<< HEAD
         
-=======
-
->>>>>>> 111ee1e (resolve conflicts)
         if (fileInput.files.length > 0) {
             fileName.textContent = fileInput.files[0].name;
             selectedFileDiv.classList.remove('d-none');
@@ -933,33 +489,19 @@
 
     // Drag and drop
     const uploadArea = document.querySelector('.file-upload-area');
-<<<<<<< HEAD
     
     if (uploadArea) {
         uploadArea.addEventListener('dragover', function(e) {
-=======
-
-    if (uploadArea) {
-        uploadArea.addEventListener('dragover', function (e) {
->>>>>>> 111ee1e (resolve conflicts)
             e.preventDefault();
             this.classList.add('dragover');
         });
 
-<<<<<<< HEAD
         uploadArea.addEventListener('dragleave', function(e) {
-=======
-        uploadArea.addEventListener('dragleave', function (e) {
->>>>>>> 111ee1e (resolve conflicts)
             e.preventDefault();
             this.classList.remove('dragover');
         });
 
-<<<<<<< HEAD
         uploadArea.addEventListener('drop', function(e) {
-=======
-        uploadArea.addEventListener('drop', function (e) {
->>>>>>> 111ee1e (resolve conflicts)
             e.preventDefault();
             this.classList.remove('dragover');
             const files = e.dataTransfer.files;
@@ -975,38 +517,22 @@
         const form = document.createElement('form');
         form.method = 'POST';
         form.action = '@Url.Action("ToggleStar", "File")';
-<<<<<<< HEAD
         
-=======
-
->>>>>>> 111ee1e (resolve conflicts)
         const tokenInput = document.createElement('input');
         tokenInput.type = 'hidden';
         tokenInput.name = '__RequestVerificationToken';
         tokenInput.value = document.querySelector('input[name="__RequestVerificationToken"]').value;
-<<<<<<< HEAD
         
-=======
-
->>>>>>> 111ee1e (resolve conflicts)
         const idInput = document.createElement('input');
         idInput.type = 'hidden';
         idInput.name = 'id';
         idInput.value = fileId;
-<<<<<<< HEAD
         
-=======
-
->>>>>>> 111ee1e (resolve conflicts)
         const folderInput = document.createElement('input');
         folderInput.type = 'hidden';
         folderInput.name = 'folderId';
         folderInput.value = folderId;
-<<<<<<< HEAD
         
-=======
-
->>>>>>> 111ee1e (resolve conflicts)
         form.appendChild(tokenInput);
         form.appendChild(idInput);
         form.appendChild(folderInput);
@@ -1020,38 +546,22 @@
             const form = document.createElement('form');
             form.method = 'POST';
             form.action = '@Url.Action("MoveToTrash", "File")';
-<<<<<<< HEAD
             
-=======
-
->>>>>>> 111ee1e (resolve conflicts)
             const tokenInput = document.createElement('input');
             tokenInput.type = 'hidden';
             tokenInput.name = '__RequestVerificationToken';
             tokenInput.value = document.querySelector('input[name="__RequestVerificationToken"]').value;
-<<<<<<< HEAD
             
-=======
-
->>>>>>> 111ee1e (resolve conflicts)
             const idInput = document.createElement('input');
             idInput.type = 'hidden';
             idInput.name = 'id';
             idInput.value = fileId;
-<<<<<<< HEAD
             
-=======
-
->>>>>>> 111ee1e (resolve conflicts)
             const folderInput = document.createElement('input');
             folderInput.type = 'hidden';
             folderInput.name = 'folderId';
             folderInput.value = folderId;
-<<<<<<< HEAD
             
-=======
-
->>>>>>> 111ee1e (resolve conflicts)
             form.appendChild(tokenInput);
             form.appendChild(idInput);
             form.appendChild(folderInput);
@@ -1066,48 +576,28 @@
             const form = document.createElement('form');
             form.method = 'POST';
             form.action = '@Url.Action("DeleteFile", "File")';
-<<<<<<< HEAD
             
-=======
-
->>>>>>> 111ee1e (resolve conflicts)
             // Add method override for DELETE
             const methodInput = document.createElement('input');
             methodInput.type = 'hidden';
             methodInput.name = '_method';
             methodInput.value = 'DELETE';
-<<<<<<< HEAD
             
-=======
-
->>>>>>> 111ee1e (resolve conflicts)
             const tokenInput = document.createElement('input');
             tokenInput.type = 'hidden';
             tokenInput.name = '__RequestVerificationToken';
             tokenInput.value = document.querySelector('input[name="__RequestVerificationToken"]').value;
-<<<<<<< HEAD
             
-=======
-
->>>>>>> 111ee1e (resolve conflicts)
             const idInput = document.createElement('input');
             idInput.type = 'hidden';
             idInput.name = 'id';
             idInput.value = fileId;
-<<<<<<< HEAD
             
-=======
-
->>>>>>> 111ee1e (resolve conflicts)
             const folderInput = document.createElement('input');
             folderInput.type = 'hidden';
             folderInput.name = 'folderId';
             folderInput.value = folderId;
-<<<<<<< HEAD
             
-=======
-
->>>>>>> 111ee1e (resolve conflicts)
             form.appendChild(methodInput);
             form.appendChild(tokenInput);
             form.appendChild(idInput);
@@ -1136,22 +626,14 @@
     @if (TempData["Success"] != null)
     {
         <text>
-<<<<<<< HEAD
         toastr.success('@TempData["Success"]');
-=======
-            toastr.success('@TempData["Success"]');
->>>>>>> 111ee1e (resolve conflicts)
         </text>
     }
 
     @if (TempData["Error"] != null)
     {
         <text>
-<<<<<<< HEAD
         toastr.error('@TempData["Error"]');
-=======
-            toastr.error('@TempData["Error"]');
->>>>>>> 111ee1e (resolve conflicts)
         </text>
     }
 </script>
