@@ -188,8 +188,7 @@ namespace BrowserFile.Migrations
 
                     b.HasIndex("FolderId");
 
-                    b.HasIndex("UserId", "Name", "FolderId")
-                        .IsUnique();
+                    b.HasIndex("UserId");
 
                     b.ToTable("StoredFiles");
                 });

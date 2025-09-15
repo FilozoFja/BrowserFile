@@ -1,4 +1,11 @@
-﻿@model BrowserFile.Models.ViewModels.FileViewModel;
+﻿@model BrowserFile.Models.ViewModels.FileViewModel
+
+@{
+    ViewData["Title"] = "Files - " + Model.FolderName;
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
@@ -15,41 +22,60 @@
     </ol>
 </nav>
 
+<div id="bulkActions" class="alert alert-info d-none mb-3">
+    <div class="d-flex justify-content-between align-items-center">
+        <div>
+            <strong><span id="selectedCount">0</span> files selected</strong>
+        </div>
+        <div>
+            <button class="btn btn-sm btn-outline-primary me-2" onclick="showBulkMoveModal()">
+                <i class="fas fa-arrows-alt"></i> Move Selected
+            </button>
+            <button class="btn btn-sm btn-outline-danger me-2" onclick="bulkMoveToTrash()">
+                <i class="fas fa-trash"></i> Move to Trash
+            </button>
+            <button class="btn btn-sm btn-outline-danger" onclick="bulkDeleteFiles()">
+                <i class="fas fa-times"></i> Delete Selected
+            </button>
+            <button class="btn btn-sm btn-secondary ms-2" onclick="clearSelection()">
+                <i class="fas fa-times"></i> Clear Selection
+            </button>
+        </div>
+    </div>
+</div>
+
 <ul class="nav nav-pills pt-2">
     <li class="nav-item">
         <a class="nav-link active" data-bs-toggle="pill" href="#mainPage">Files</a>
     </li>
-    <li>
+    <li class="nav-item">
         <a class="nav-link" data-bs-toggle="pill" href="#uploadFile">Upload file</a>
     </li>
-    <li>
+    <li class="nav-item">
         <a class="nav-link" data-bs-toggle="pill" href="#manageFiles">Manage files</a>
+    </li>
+    <li class="ms-auto">
+        <button class="btn btn-outline-secondary btn-sm" id="toggleBulkSelect">
+            <i class="fas fa-check-square"></i> Select Multiple
+        </button>
     </li>
 </ul>
 
 <div class="tab-content mt-3">
-    <!-- Main Files Tab -->
     <div class="tab-pane fade show active" id="mainPage">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <h3>Files in @Model.FolderName</h3>
-            <div>
-                <button class="btn btn-outline-secondary btn-sm" id="listView">
-                    <i class="fas fa-list"></i> List
-                </button>
-                <button class="btn btn-outline-secondary btn-sm" id="gridView">
-                    <i class="fas fa-th"></i> Grid
-                </button>
-            </div>
-        </div>
 
         @if (Model.Files.Any())
         {
-            <!-- Grid View -->
             <div id="filesGrid" class="row">
                 @foreach (var file in Model.Files)
                 {
                     <div class="col-md-4 col-lg-3 mb-3">
-                        <div class="card h-100 file-card">
+                        <div class="card h-100 file-card" data-file-id="@file.Id">
+                            <div class="file-checkbox d-none">
+                                <input type="checkbox" class="file-select-checkbox" value="@file.Id"
+                                       onchange="updateBulkSelection()">
+                            </div>
+
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-start mb-2">
                                     <div class="file-icon">
@@ -81,151 +107,22 @@
                                                 break;
                                         }
                                     </div>
-                                    <div class="dropdown">
-                                        <button class="btn btn-sm" type="button" data-bs-toggle="dropdown">
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <form asp-action="ToggleStar" asp-route-id="@file.Id" asp-route-folderId="@Model.CurrentFolderId" method="post" style="display: inline;">
-                                                    @Html.AntiForgeryToken()
-                                                    <button type="submit" class="dropdown-item">
-                                                        <i class="fas fa-star @(file.IsStarred ? "text-warning" : "")"></i>
-                                                        @(file.IsStarred ? "Unstar" : "Star")
-                                                    </button>
-                                                </form>
-                                            </li>
-                                            <li><button class="dropdown-item" onclick="showRenameModal('@file.Id', '@file.Name')">
-                                                <i class="fas fa-edit"></i> Rename
-                                            </button></li>
-                                            <li><button class="dropdown-item" onclick="showMoveModal('@file.Id')">
-                                                <i class="fas fa-arrows-alt"></i> Move
-                                            </button></li>
-                                            <li><hr class="dropdown-divider"></li>
-                                            <li>
-                                                <form asp-action="MoveToTrash" asp-route-id="@file.Id" asp-route-folderId="@Model.CurrentFolderId" method="post" style="display: inline;">
-                                                    @Html.AntiForgeryToken()
-                                                    <button type="submit" class="dropdown-item text-danger" onclick="return confirm('Move file to trash?')">
-                                                        <i class="fas fa-trash"></i> Move to Trash
-                                                    </button>
-                                                </form>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    @if (file.IsStarred)
+                                    {
+                                        <div class="mt-1">
+                                            <i class="fas fa-star text-warning"></i>
+                                        </div>
+                                    }
                                 </div>
                                 <h6 class="card-title text-truncate" title="@file.Name">@file.Name</h6>
                                 <small class="text-muted d-block">Size: @file.Size</small>
                                 <small class="text-muted d-block">Extension: @file.FileExtension</small>
                                 <small class="text-muted d-block">Added by: @file.WhoAdded</small>
                                 <small class="text-muted">Created: @file.CreatedAt.ToString("dd/MM/yyyy HH:mm")</small>
-                                @if (file.IsStarred)
-                                {
-                                    <div class="mt-1">
-                                        <i class="fas fa-star text-warning"></i>
-                                    </div>
-                                }
                             </div>
                         </div>
                     </div>
                 }
-            </div>
-
-            <!-- List View -->
-            <div id="filesList" class="d-none">
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Size</th>
-                                <th>Type</th>
-                                <th>Added by</th>
-                                <th>Created</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var file in Model.Files)
-                            {
-                                <tr>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            @switch (file.FileExtension?.ToLower())
-                                            {
-                                                case ".pdf":
-                                                    <i class="fas fa-file-pdf text-danger me-2"></i>
-                                                    break;
-                                                case ".doc":
-                                                case ".docx":
-                                                    <i class="fas fa-file-word text-primary me-2"></i>
-                                                    break;
-                                                case ".xls":
-                                                case ".xlsx":
-                                                    <i class="fas fa-file-excel text-success me-2"></i>
-                                                    break;
-                                                case ".jpg":
-                                                case ".jpeg":
-                                                case ".png":
-                                                case ".gif":
-                                                    <i class="fas fa-file-image text-info me-2"></i>
-                                                    break;
-                                                case ".zip":
-                                                case ".rar":
-                                                    <i class="fas fa-file-archive text-warning me-2"></i>
-                                                    break;
-                                                default:
-                                                    <i class="fas fa-file text-secondary me-2"></i>
-                                                    break;
-                                            }
-                                            @file.Name
-                                            @if (file.IsStarred)
-                                            {
-                                                <i class="fas fa-star text-warning ms-1"></i>
-                                            }
-                                        </div>
-                                    </td>
-                                    <td>@file.Size</td>
-                                    <td>@file.FileExtension</td>
-                                    <td>@file.WhoAdded</td>
-                                    <td>@file.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="dropdown">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <form asp-action="ToggleStar" asp-route-id="@file.Id" asp-route-folderId="@Model.CurrentFolderId" method="post" style="display: inline;">
-                                                        @Html.AntiForgeryToken()
-                                                        <button type="submit" class="dropdown-item">
-                                                            <i class="fas fa-star @(file.IsStarred ? "text-warning" : "")"></i>
-                                                            @(file.IsStarred ? "Unstar" : "Star")
-                                                        </button>
-                                                    </form>
-                                                </li>
-                                                <li><button class="dropdown-item" onclick="showRenameModal('@file.Id', '@file.Name')">
-                                                    <i class="fas fa-edit"></i> Rename
-                                                </button></li>
-                                                <li><button class="dropdown-item" onclick="showMoveModal('@file.Id')">
-                                                    <i class="fas fa-arrows-alt"></i> Move
-                                                </button></li>
-                                                <li><hr class="dropdown-divider"></li>
-                                                <li>
-                                                    <form asp-action="MoveToTrash" asp-route-id="@file.Id" asp-route-folderId="@Model.CurrentFolderId" method="post" style="display: inline;">
-                                                        @Html.AntiForgeryToken()
-                                                        <button type="submit" class="dropdown-item text-danger" onclick="return confirm('Move file to trash?')">
-                                                            <i class="fas fa-trash"></i> Move to Trash
-                                                        </button>
-                                                    </form>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
             </div>
         }
         else
@@ -243,7 +140,7 @@
         <h3>Upload file</h3>
         <form asp-action="CreateFolder" method="post" enctype="multipart/form-data">
             <input type="hidden" asp-for="CurrentFolderId" />
-            
+
             <div class="mb-3">
                 <label class="form-label">Choose file:</label>
                 <div class="file-upload-area" onclick="document.getElementById('fileInput').click()">
@@ -322,6 +219,12 @@
                                             <i class="fas fa-trash"></i> Delete
                                         </button>
                                     </form>
+                                    <form asp-action="ToggleStar" asp-route-id="@file.Id" asp-route-folderId="@Model.CurrentFolderId" method="post" style="display: inline;">
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="btn btn-outline-warning btn-sm">
+                                            <i class="fas fa-star"></i> Toggle Star
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -362,21 +265,24 @@
     </div>
 </div>
 
-<!-- Move Modal -->
-<div class="modal fade" id="moveModal" tabindex="-1">
+<!-- Bulk Move Modal -->
+<div class="modal fade" id="bulkMoveModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Move file to folder</h5>
+                <h5 class="modal-title">Move Selected Files</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
-            <form id="moveForm" method="post">
+            <form id="bulkMoveForm" method="post" action="@Url.Action("MoveFiles", "File")">
                 <div class="modal-body">
-                    <input type="hidden" id="moveFileId" name="id" />
+                    @Html.AntiForgeryToken()
                     <input type="hidden" name="currentFolderId" value="@Model.CurrentFolderId" />
+                    <div id="selectedFilesList"></div>
+
                     <div class="mb-3">
                         <label class="form-label">Select destination folder:</label>
                         <select name="newFolderId" class="form-select" required>
+                            <option value="">Choose folder...</option>
                             @foreach (var folder in Model.FolderShortModel)
                             {
                                 <option value="@folder.Id">@folder.Name</option>
@@ -386,27 +292,79 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Move</button>
+                    <button type="submit" class="btn btn-primary">Move Files</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 
-@{
-    ViewData["Title"] = "Files - " + Model.FolderName;
-}
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
 <style>
+    .toggle-star-btn:hover {
+    color: white;            
+    background-color: #ffc107; 
+    border-color: #ffc107;    
+    }
+
+    .toggle-star-btn:hover i.fas.fa-star {
+        color: white;             /* ikona gwiazdki na biały */
+    }
+
     .file-card {
+        position: relative;
         transition: transform 0.2s;
+        cursor: pointer;
     }
 
     .file-card:hover {
         transform: translateY(-2px);
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .file-card.selected {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    }
+
+    .file-checkbox {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 10;
+        background: white;
+        border-radius: 4px;
+        padding: 4px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .file-select-checkbox {
+        transform: scale(1.2);
+    }
+
+    .bulk-mode .single-file-actions,
+    .bulk-mode .single-file-header,
+    .bulk-mode .single-file-cell {
+        display: none !important;
+        pointer-events: none !important;
+    }
+
+    .bulk-mode .file-card .dropdown {
+        display: none !important;
+    }
+
+    .bulk-mode .file-checkbox,
+    .bulk-mode .bulk-select-header,
+    .bulk-mode .bulk-select-cell {
+        display: block !important;
+    }
+
+    .bulk-mode .file-card {
+        cursor: pointer;
+    }
+
+    .file-card .dropdown {
+        position: relative;
+        z-index: 1050; /* naprawia dropdown nad checkboxami */
     }
 
     .file-upload-area {
@@ -443,42 +401,79 @@
 </style>
 
 <script>
-    // Switch to upload tab
-    function switchToUploadTab() {
-        // Remove active class from current tab
-        document.querySelector('.nav-link.active').classList.remove('active');
-        document.querySelector('.tab-pane.show.active').classList.remove('show', 'active');
-        
-        // Add active class to upload tab
-        document.querySelector('a[href="#uploadFile"]').classList.add('active');
-        document.getElementById('uploadFile').classList.add('show', 'active');
+    let bulkSelectMode = false;
+    let selectedFiles = [];
+
+    // Toggle bulk selection mode
+    document.getElementById('toggleBulkSelect').addEventListener('click', function () {
+        bulkSelectMode = !bulkSelectMode;
+        document.body.classList.toggle('bulk-mode', bulkSelectMode);
+
+        if (bulkSelectMode) {
+            this.innerHTML = '<i class="fas fa-times"></i> Cancel Selection';
+            this.classList.remove('btn-outline-secondary');
+            this.classList.add('btn-outline-danger');
+        } else {
+            this.innerHTML = '<i class="fas fa-check-square"></i> Select Multiple';
+            this.classList.remove('btn-outline-danger');
+            this.classList.add('btn-outline-secondary');
+            clearSelection();
+        }
+    });
+
+    // Handle card click in bulk mode
+    document.querySelectorAll('.file-card').forEach(card => {
+        card.addEventListener('click', function (e) {
+            if (bulkSelectMode && !e.target.closest('.dropdown')) {
+                const checkbox = this.querySelector('.file-select-checkbox');
+                checkbox.checked = !checkbox.checked;
+                updateBulkSelection();
+            }
+        });
+    });
+
+    document.querySelectorAll('.nav-link[data-bs-toggle="pill"]').forEach(tabLink => {
+        tabLink.addEventListener('click', function () {
+            if (bulkSelectMode && (this.getAttribute('href') === '#uploadFile' || this.getAttribute('href') === '#manageFiles')) {
+                document.getElementById('toggleBulkSelect').click();
+            }
+        });
+    });
+
+    function updateBulkSelection() {
+        const checkboxes = document.querySelectorAll('.file-select-checkbox:checked');
+        selectedFiles = Array.from(checkboxes).map(cb => cb.value);
+
+        document.getElementById('selectedCount').textContent = selectedFiles.length;
+        document.getElementById('bulkActions').classList.toggle('d-none', selectedFiles.length === 0);
+
+        document.querySelectorAll('.file-card').forEach(card => {
+            const checkbox = card.querySelector('.file-select-checkbox');
+            card.classList.toggle('selected', checkbox && checkbox.checked);
+        });
     }
 
-    // View toggle
-    document.getElementById('listView').addEventListener('click', function() {
-        document.getElementById('filesGrid').classList.add('d-none');
-        document.getElementById('filesList').classList.remove('d-none');
-        this.classList.add('btn-secondary');
-        this.classList.remove('btn-outline-secondary');
-        document.getElementById('gridView').classList.remove('btn-secondary');
-        document.getElementById('gridView').classList.add('btn-outline-secondary');
-    });
+    function clearSelection() {
+        document.querySelectorAll('.file-select-checkbox').forEach(cb => cb.checked = false);
+        updateBulkSelection();
+    }
 
-    document.getElementById('gridView').addEventListener('click', function() {
-        document.getElementById('filesList').classList.add('d-none');
-        document.getElementById('filesGrid').classList.remove('d-none');
-        this.classList.add('btn-secondary');
-        this.classList.remove('btn-outline-secondary');
-        document.getElementById('listView').classList.remove('btn-secondary');
-        document.getElementById('listView').classList.add('btn-outline-secondary');
-    });
+    function showBulkMoveModal() {
+        if (selectedFiles.length === 0) return;
 
-    // File upload
+        const filesList = document.getElementById('selectedFilesList');
+        filesList.innerHTML = selectedFiles.map(fileId =>
+            `<input type="hidden" name="fileIds" value="${fileId}">`
+        ).join('');
+
+        new bootstrap.Modal(document.getElementById('bulkMoveModal')).show();
+    }
+
     function updateFileName() {
         const fileInput = document.getElementById('fileInput');
         const selectedFileDiv = document.getElementById('selectedFile');
         const fileName = document.getElementById('fileName');
-        
+
         if (fileInput.files.length > 0) {
             fileName.textContent = fileInput.files[0].name;
             selectedFileDiv.classList.remove('d-none');
@@ -489,125 +484,19 @@
 
     // Drag and drop
     const uploadArea = document.querySelector('.file-upload-area');
-    
     if (uploadArea) {
-        uploadArea.addEventListener('dragover', function(e) {
+        uploadArea.addEventListener('dragover', e => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+        uploadArea.addEventListener('dragleave', e => { e.preventDefault(); uploadArea.classList.remove('dragover'); });
+        uploadArea.addEventListener('drop', e => {
             e.preventDefault();
-            this.classList.add('dragover');
-        });
-
-        uploadArea.addEventListener('dragleave', function(e) {
-            e.preventDefault();
-            this.classList.remove('dragover');
-        });
-
-        uploadArea.addEventListener('drop', function(e) {
-            e.preventDefault();
-            this.classList.remove('dragover');
-            const files = e.dataTransfer.files;
-            if (files.length > 0) {
-                document.getElementById('fileInput').files = files;
+            uploadArea.classList.remove('dragover');
+            if(e.dataTransfer.files.length>0){
+                document.getElementById('fileInput').files = e.dataTransfer.files;
                 updateFileName();
             }
         });
     }
 
-    // Toggle star
-    function toggleStar(fileId, folderId) {
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = '@Url.Action("ToggleStar", "File")';
-        
-        const tokenInput = document.createElement('input');
-        tokenInput.type = 'hidden';
-        tokenInput.name = '__RequestVerificationToken';
-        tokenInput.value = document.querySelector('input[name="__RequestVerificationToken"]').value;
-        
-        const idInput = document.createElement('input');
-        idInput.type = 'hidden';
-        idInput.name = 'id';
-        idInput.value = fileId;
-        
-        const folderInput = document.createElement('input');
-        folderInput.type = 'hidden';
-        folderInput.name = 'folderId';
-        folderInput.value = folderId;
-        
-        form.appendChild(tokenInput);
-        form.appendChild(idInput);
-        form.appendChild(folderInput);
-        document.body.appendChild(form);
-        form.submit();
-    }
-
-    // Move to trash
-    function moveToTrash(fileId, folderId) {
-        if (confirm('Move file to trash?')) {
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = '@Url.Action("MoveToTrash", "File")';
-            
-            const tokenInput = document.createElement('input');
-            tokenInput.type = 'hidden';
-            tokenInput.name = '__RequestVerificationToken';
-            tokenInput.value = document.querySelector('input[name="__RequestVerificationToken"]').value;
-            
-            const idInput = document.createElement('input');
-            idInput.type = 'hidden';
-            idInput.name = 'id';
-            idInput.value = fileId;
-            
-            const folderInput = document.createElement('input');
-            folderInput.type = 'hidden';
-            folderInput.name = 'folderId';
-            folderInput.value = folderId;
-            
-            form.appendChild(tokenInput);
-            form.appendChild(idInput);
-            form.appendChild(folderInput);
-            document.body.appendChild(form);
-            form.submit();
-        }
-    }
-
-    // Delete file (for manage tab)
-    function deleteFile(fileId, folderId) {
-        if (confirm('Are you sure you want to delete this file? This action cannot be undone.')) {
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = '@Url.Action("DeleteFile", "File")';
-            
-            // Add method override for DELETE
-            const methodInput = document.createElement('input');
-            methodInput.type = 'hidden';
-            methodInput.name = '_method';
-            methodInput.value = 'DELETE';
-            
-            const tokenInput = document.createElement('input');
-            tokenInput.type = 'hidden';
-            tokenInput.name = '__RequestVerificationToken';
-            tokenInput.value = document.querySelector('input[name="__RequestVerificationToken"]').value;
-            
-            const idInput = document.createElement('input');
-            idInput.type = 'hidden';
-            idInput.name = 'id';
-            idInput.value = fileId;
-            
-            const folderInput = document.createElement('input');
-            folderInput.type = 'hidden';
-            folderInput.name = 'folderId';
-            folderInput.value = folderId;
-            
-            form.appendChild(methodInput);
-            form.appendChild(tokenInput);
-            form.appendChild(idInput);
-            form.appendChild(folderInput);
-            document.body.appendChild(form);
-            form.submit();
-        }
-    }
-
-    // Rename modal
     function showRenameModal(fileId, currentName) {
         document.getElementById('renameFileId').value = fileId;
         document.getElementById('newFileName').value = currentName;
@@ -615,25 +504,44 @@
         new bootstrap.Modal(document.getElementById('renameModal')).show();
     }
 
-    // Move modal
-    function showMoveModal(fileId) {
-        document.getElementById('moveFileId').value = fileId;
-        document.getElementById('moveForm').action = '@Url.Action("MoveFile", "File")';
-        new bootstrap.Modal(document.getElementById('moveModal')).show();
+    // Toastr notifications
+    @if (TempData["Success"] != null) {
+        <text>toastr.success('@TempData["Success"]');</text>
+    }
+    @if (TempData["Error"] != null) {
+        <text>toastr.error('@TempData["Error"]');</text>
     }
 
-    // Toast notifications for TempData
-    @if (TempData["Success"] != null)
-    {
-        <text>
-        toastr.success('@TempData["Success"]');
-        </text>
-    }
+        function bulkDeleteFiles() {
+            if (selectedFiles.length === 0) return;
 
-    @if (TempData["Error"] != null)
-    {
-        <text>
-        toastr.error('@TempData["Error"]');
-        </text>
-    }
+            if (confirm(`Permanently delete ${selectedFiles.length} selected files? This cannot be undone.`)) {
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = '@Url.Action("DeleteFiles", "File")';
+
+                // Add anti-forgery token
+                const token = document.querySelector('input[name="__RequestVerificationToken"]').cloneNode();
+                form.appendChild(token);
+
+                // Add current folder
+                const folderInput = document.createElement('input');
+                folderInput.type = 'hidden';
+                folderInput.name = 'currentFolderId';
+                folderInput.value = '@Model.CurrentFolderId';
+                form.appendChild(folderInput);
+
+                // Add selected files
+                selectedFiles.forEach(fileId => {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = 'fileIds';
+                    input.value = fileId;
+                    form.appendChild(input);
+                });
+
+                document.body.appendChild(form);
+                form.submit();
+            }
+        }
 </script>

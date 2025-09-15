@@ -85,7 +85,7 @@ namespace BrowserFile.Controllers
             var newFile = new StoredFile
             {
                 Id = fileId,
-                Name = file.Name,
+                Name = file.FileName,
                 Size = (file.Length / 1024.0).ToString("F2") + " KB",
                 CreatedAt = DateTime.UtcNow,
                 WhoAdded = User.Identity?.Name ?? "Unknown",
