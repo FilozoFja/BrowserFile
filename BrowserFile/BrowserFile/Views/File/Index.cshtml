@@ -10,7 +10,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
 
-<!-- Breadcrumb navigation -->
 <nav aria-label="breadcrumb" class="mb-3">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
@@ -120,6 +119,18 @@
                                 <small class="text-muted d-block">Added by: @file.WhoAdded</small>
                                 <small class="text-muted">Created: @file.CreatedAt.ToString("dd/MM/yyyy HH:mm")</small>
                             </div>
+                            <div class="card-footer p-2 bg-light">
+                                <div class="btn-group w-100" role="group">
+                                    <a asp-controller="File" asp-action="Preview" asp-route-id="@file.Id"
+                                       class="btn btn-outline-primary btn-sm">
+                                        <i class="fas fa-eye"></i> Podgląd
+                                    </a>
+                                    <a asp-action="DownloadFile" asp-route-id="@file.Id"
+                                       class="btn btn-outline-success btn-sm">
+                                        <i class="fas fa-download"></i> Pobierz
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 }
@@ -135,7 +146,6 @@
         }
     </div>
 
-    <!-- Upload File Tab -->
     <div class="tab-pane fade w-50" id="uploadFile">
         <h3>Upload file</h3>
         <form asp-action="CreateFolder" method="post" enctype="multipart/form-data">
@@ -164,7 +174,6 @@
         </form>
     </div>
 
-    <!-- Manage Files Tab -->
     <div class="tab-pane fade" id="manageFiles">
         <h3>Manage files</h3>
         @if (Model.Files.Any())
@@ -239,7 +248,6 @@
     </div>
 </div>
 
-<!-- Rename Modal -->
 <div class="modal fade" id="renameModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -265,7 +273,6 @@
     </div>
 </div>
 
-<!-- Bulk Move Modal -->
 <div class="modal fade" id="bulkMoveModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -307,7 +314,7 @@
     }
 
     .toggle-star-btn:hover i.fas.fa-star {
-        color: white;             /* ikona gwiazdki na biały */
+        color: white;
     }
 
     .file-card {
@@ -364,7 +371,7 @@
 
     .file-card .dropdown {
         position: relative;
-        z-index: 1050; /* naprawia dropdown nad checkboxami */
+        z-index: 1050; 
     }
 
     .file-upload-area {
@@ -404,7 +411,6 @@
     let bulkSelectMode = false;
     let selectedFiles = [];
 
-    // Toggle bulk selection mode
     document.getElementById('toggleBulkSelect').addEventListener('click', function () {
         bulkSelectMode = !bulkSelectMode;
         document.body.classList.toggle('bulk-mode', bulkSelectMode);
@@ -421,7 +427,6 @@
         }
     });
 
-    // Handle card click in bulk mode
     document.querySelectorAll('.file-card').forEach(card => {
         card.addEventListener('click', function (e) {
             if (bulkSelectMode && !e.target.closest('.dropdown')) {
@@ -482,7 +487,6 @@
         }
     }
 
-    // Drag and drop
     const uploadArea = document.querySelector('.file-upload-area');
     if (uploadArea) {
         uploadArea.addEventListener('dragover', e => { e.preventDefault(); uploadArea.classList.add('dragover'); });
@@ -504,7 +508,6 @@
         new bootstrap.Modal(document.getElementById('renameModal')).show();
     }
 
-    // Toastr notifications
     @if (TempData["Success"] != null) {
         <text>toastr.success('@TempData["Success"]');</text>
     }
@@ -520,18 +523,15 @@
                 form.method = 'POST';
                 form.action = '@Url.Action("DeleteFiles", "File")';
 
-                // Add anti-forgery token
                 const token = document.querySelector('input[name="__RequestVerificationToken"]').cloneNode();
                 form.appendChild(token);
 
-                // Add current folder
                 const folderInput = document.createElement('input');
                 folderInput.type = 'hidden';
                 folderInput.name = 'currentFolderId';
                 folderInput.value = '@Model.CurrentFolderId';
                 form.appendChild(folderInput);
 
-                // Add selected files
                 selectedFiles.forEach(fileId => {
                     const input = document.createElement('input');
                     input.type = 'hidden';
