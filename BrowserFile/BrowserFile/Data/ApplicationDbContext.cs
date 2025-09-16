@@ -50,10 +50,6 @@ namespace BrowserFile.Data
                 .HasDefaultValueSql("GETUTCDATE()");
 
             builder.Entity<StoredFile>()
-                .HasIndex(f => new { f.UserId, f.Name, f.FolderId })
-                .IsUnique();
-
-            builder.Entity<StoredFile>()
                 .HasOne(f => f.Folder)
                 .WithMany(f => f.StoredFiles)
                 .HasForeignKey(f => f.FolderId)

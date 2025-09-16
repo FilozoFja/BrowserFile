@@ -49,6 +49,59 @@ namespace BrowserFile.Controllers
             return View(vm);
         }
 
+        [HttpGet("download/{id}")]
+        [Authorize]
+        public async Task<IActionResult> DownloadFile(string id)
+        {
+            var file = await _context.StoredFiles.FirstOrDefaultAsync(f => f.Id == id && f.UserId == CurrentUserId);
+            if (file == null)
+            {
+                TempData["Error"] = "File not found.";
+                return RedirectToAction("Index", "Folder");
+            }
+
+            var fullFilePath = Path.Combine(Directory.GetCurrentDirectory(), file.FilePath);
+            if (!System.IO.File.Exists(fullFilePath))
+            {
+                TempData["Error"] = "File not found on server.";
+                return RedirectToAction("Index", "Folder");
+            }
+
+            var stream = new FileStream(fullFilePath, FileMode.Open, FileAccess.Read);
+            var contentType = GetContentType(file.FileExtension) ?? "application/octet-stream";
+
+            return File(stream, contentType, file.Name);
+        }
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> Preview(string id)
+        {
+            var file = await _context.StoredFiles.FirstOrDefaultAsync(f => f.Id == id && f.UserId == CurrentUserId);
+            if (file == null)
+            {
+                TempData["Error"] = "File not found.";
+                return RedirectToAction("Index", "Folder");
+            }
+
+            var previewableExtensions = new[] { ".pdf", ".jpg", ".jpeg", ".png", ".gif", ".txt" };
+
+            if (!previewableExtensions.Contains(file.FileExtension?.ToLower()))
+            {
+                TempData["Error"] = "Nie można podglądać tego typu pliku";
+                return RedirectToAction("Index", "Folder");
+            }
+
+            var fullFilePath = Path.Combine(Directory.GetCurrentDirectory(), file.FilePath);
+            if (!System.IO.File.Exists(fullFilePath))
+            {
+                TempData["Error"] = "File not found on server.";
+                return RedirectToAction("Index", "Folder");
+            }
+            var stream = new FileStream(fullFilePath, FileMode.Open, FileAccess.Read);
+            var contentType = GetContentType(file.FileExtension) ?? "application/octet-stream";
+            return File(stream, contentType);
+        }
+
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> CreateFolder(FileViewModel fileViewModel, IFormFile file)
@@ -85,7 +138,7 @@ namespace BrowserFile.Controllers
             var newFile = new StoredFile
             {
                 Id = fileId,
-                Name = file.Name,
+                Name = file.FileName,
                 Size = (file.Length / 1024.0).ToString("F2") + " KB",
                 CreatedAt = DateTime.UtcNow,
                 WhoAdded = User.Identity?.Name ?? "Unknown",
@@ -412,5 +465,23 @@ namespace BrowserFile.Controllers
             }
         }
 
+        private string GetContentType(string extension)
+        {
+            return extension?.ToLower() switch
+            {
+                ".pdf" => "application/pdf",
+                ".jpg" or ".jpeg" => "image/jpeg",
+                ".png" => "image/png",
+                ".gif" => "image/gif",
+                ".doc" => "application/msword",
+                ".docx" => "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                ".xls" => "application/vnd.ms-excel",
+                ".xlsx" => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                ".zip" => "application/zip",
+                ".rar" => "application/x-rar-compressed",
+                ".txt" => "text/plain",
+                _ => "application/octet-stream"
+            };
+        }
     }
 }
