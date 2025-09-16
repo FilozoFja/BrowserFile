@@ -3,36 +3,12 @@
   "WorkspaceRootPath": "D:\\Coding\\BrowserFile\\BrowserFile\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|d:\\coding\\browserfile\\browserfile\\browserfile\\controllers\\filecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\controllers\\filecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|d:\\coding\\browserfile\\browserfile\\browserfile\\views\\file\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\views\\file\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|d:\\coding\\browserfile\\browserfile\\browserfile\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|d:\\coding\\browserfile\\browserfile\\browserfile\\models\\dto\\folderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\models\\dto\\folderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|d:\\coding\\browserfile\\browserfile\\browserfile\\models\\viewmodels\\editfolderviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\models\\viewmodels\\editfolderviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|d:\\coding\\browserfile\\browserfile\\browserfile\\controllers\\foldercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\controllers\\foldercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|d:\\coding\\browserfile\\browserfile\\browserfile\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|d:\\coding\\browserfile\\browserfile\\browserfile\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|d:\\coding\\browserfile\\browserfile\\browserfile\\controllers\\filecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\controllers\\filecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,104 +34,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "BrowserFile\\Data\\ApplicationDbContext.cs",
-              "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "BrowserFile\\Data\\ApplicationDbContext.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAAcwDIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T18:12:02.78Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Views\\File\\Index.cshtml",
-              "RelativeDocumentMoniker": "BrowserFile\\Views\\File\\Index.cshtml",
-              "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Views\\File\\Index.cshtml",
-              "RelativeToolTip": "BrowserFile\\Views\\File\\Index.cshtml",
-              "ViewState": "AQIAAGwAAAAAAAAAAAAAAIQAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-15T08:12:18.65Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FileController.cs",
-              "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Controllers\\FileController.cs",
-              "RelativeDocumentMoniker": "BrowserFile\\Controllers\\FileController.cs",
-              "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Controllers\\FileController.cs",
-              "RelativeToolTip": "BrowserFile\\Controllers\\FileController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T07:54:05.636Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EditFolderViewModel.cs",
-              "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Models\\ViewModels\\EditFolderViewModel.cs",
-              "RelativeDocumentMoniker": "BrowserFile\\Models\\ViewModels\\EditFolderViewModel.cs",
-              "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Models\\ViewModels\\EditFolderViewModel.cs",
-              "RelativeToolTip": "BrowserFile\\Models\\ViewModels\\EditFolderViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T17:42:46.492Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FolderDTO.cs",
-              "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Models\\DTO\\FolderDTO.cs",
-              "RelativeDocumentMoniker": "BrowserFile\\Models\\DTO\\FolderDTO.cs",
-              "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Models\\DTO\\FolderDTO.cs",
-              "RelativeToolTip": "BrowserFile\\Models\\DTO\\FolderDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAABXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T17:42:17.655Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "BrowserFile\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "BrowserFile\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAEsAAAAAAAAAAAAAAFsAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-10T16:18:48.597Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Program.cs",
-              "RelativeDocumentMoniker": "BrowserFile\\Program.cs",
-              "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Program.cs",
-              "RelativeToolTip": "BrowserFile\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T14:42:39.681Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "FolderController.cs",
               "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Controllers\\FolderController.cs",
               "RelativeDocumentMoniker": "BrowserFile\\Controllers\\FolderController.cs",
               "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Controllers\\FolderController.cs",
               "RelativeToolTip": "BrowserFile\\Controllers\\FolderController.cs",
-              "ViewState": "AQIAAIQAAAAAAAAAAAAmwMAAAAA/AAAA",
+              "ViewState": "AQIAALwAAAAAAAAAAAAAwMwAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-09T13:09:29.798Z"
+              "WhenOpened": "2025-09-16T12:20:19.726Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FileController.cs",
+              "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Controllers\\FileController.cs",
+              "RelativeDocumentMoniker": "BrowserFile\\Controllers\\FileController.cs",
+              "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Controllers\\FileController.cs",
+              "RelativeToolTip": "BrowserFile\\Controllers\\FileController.cs",
+              "ViewState": "AQIAAGoAAAAAAAAAAAAswH8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T07:54:05.636Z"
             }
           ]
         }

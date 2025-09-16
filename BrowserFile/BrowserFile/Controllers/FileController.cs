@@ -104,7 +104,7 @@ namespace BrowserFile.Controllers
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> CreateFolder(FileViewModel fileViewModel, IFormFile file)
+        public async Task<IActionResult> UploadFile(FileViewModel fileViewModel, IFormFile file)
         {
             var folder = await _context.Folders.FirstOrDefaultAsync(f => f.Id == fileViewModel.CurrentFolderId && f.UserId == CurrentUserId);
 
@@ -119,8 +119,8 @@ namespace BrowserFile.Controllers
                 TempData["Error"] = "You do not have permission to create files in this folder.";
                 return RedirectToAction("Index", "Folder");
             }
-
-            if (file.Name == null || string.IsNullOrWhiteSpace(file.Name))
+            
+            if (file.FileName == null || string.IsNullOrWhiteSpace(file.FileName))
             {
                 TempData["Error"] = "File name is required.";
                 return RedirectToAction("Index", new { id = fileViewModel.CurrentFolderId });
@@ -392,39 +392,6 @@ namespace BrowserFile.Controllers
 
             TempData["Success"] = "Files deleted successfully.";
             return RedirectToAction("Index", new { id = currentFolderId });
-        }
-
-        [HttpPost]
-        [Authorize]
-        public async Task<IActionResult> MoveToTrash(string id, string folderId)
-        {
-            var file = await _context.StoredFiles.FirstOrDefaultAsync(f => f.Id == id && f.UserId == CurrentUserId);
-            if (file == null)
-            {
-                TempData["Error"] = "File not found.";
-                return RedirectToAction("Index", new { id = folderId });
-            }
-
-            if (file.UserId != CurrentUserId)
-            {
-                TempData["Error"] = "You do not have permission to delete this file.";
-                return RedirectToAction("Index", new { id = folderId });
-            }
-
-            try
-            {
-                file.IsInTrash = true;
-                _context.StoredFiles.Update(file);
-                await _context.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                TempData["Error"] = "An error occurred while moving the file to trash: " + ex.Message;
-                return RedirectToAction("Index", new { id = folderId });
-            }
-
-            TempData["Success"] = "File moved to trash successfully.";
-            return RedirectToAction("Index", new { id = folderId });
         }
 
         public async Task<string?> FileCreateHandler(IFormFile file, string fileId)

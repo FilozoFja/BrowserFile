@@ -14,7 +14,6 @@ namespace BrowserFile.Models.Entities
         public string FileExtension { get; set; } = string.Empty;
         public required string FilePath { get; set; }
         public bool IsStarred { get; set; } = false;
-        public bool IsInTrash { get; set; } = false;
         public bool IsShared { get; set; } = false;
 
         public required string UserId { get; set; }

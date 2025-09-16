@@ -116,6 +116,13 @@ namespace BrowserFile.Controllers
                 TempData["Error"] = "Folder not found or you do not have permission to delete it";
                 return RedirectToAction("Index");
             }
+
+            if(folder.StoredFiles.Any())
+            {
+                TempData["Error"] = "Cannot delete a folder that contains files. Please remove the files first.";
+                return RedirectToAction("Index");
+            }
+
             try
             {
                 _context.Folders.Remove(folder);
