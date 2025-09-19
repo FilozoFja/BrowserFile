@@ -16,12 +16,15 @@ namespace BrowserFile.Controllers
         private readonly IConfiguration _configuration;
         private string CurrentUserId => User?.FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty;
         private readonly IMapper _mapper;
+        private readonly ILogger<FileController> _logger;
 
-        public FileController(ApplicationDbContext context, IConfiguration configuration, IMapper mapper)
+        public FileController(ApplicationDbContext context, IConfiguration configuration, 
+                                IMapper mapper, ILogger<FileController> logger)
         {
             _context = context;
             _configuration = configuration;
             _mapper = mapper;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -70,6 +73,7 @@ namespace BrowserFile.Controllers
             var stream = new FileStream(fullFilePath, FileMode.Open, FileAccess.Read);
             var contentType = GetContentType(file.FileExtension) ?? "application/octet-stream";
 
+            _logger.LogInformation("File with id {FileId} downloaded by {UserId}",id,contentType);
             return File(stream, contentType, file.Name);
         }
         [HttpGet]
@@ -160,6 +164,7 @@ namespace BrowserFile.Controllers
                 return RedirectToAction("Index", new { id = fileViewModel.CurrentFolderId });
             }
 
+            _logger.LogInformation("File with id {FileId}, and patch {FilePatch} uploaded by {UserId}", fileId, filePath, CurrentUserId);
             TempData["Success"] = "File created successfully.";
             return RedirectToAction("Index", new { id = fileViewModel.CurrentFolderId });
         }
@@ -198,6 +203,7 @@ namespace BrowserFile.Controllers
                 return RedirectToAction("Index", new { id = folderId });
             }
 
+            _logger.LogInformation("File with id {fileId}, removed by {userid}",file.Id, CurrentUserId);
             TempData["Success"] = "File deleted successfully.";
             return RedirectToAction("Index", new { id = folderId });
         }
@@ -269,7 +275,7 @@ namespace BrowserFile.Controllers
                 TempData["Error"] = "An error occurred while renaming the file: " + ex.Message;
                 return RedirectToAction("Index", new { id = folderId });
             }
-
+            _logger.LogInformation("File with id {fileId} renamed by user {userId}", file.Id, CurrentUserId);
             TempData["Success"] = "File renamed successfully.";
             return RedirectToAction("Index", new { id = folderId });
         }

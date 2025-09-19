@@ -5,6 +5,7 @@ using BrowserFile.Models.Entities;
 using BrowserFile.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using System.Security.Claims;
 
@@ -109,9 +110,11 @@ namespace BrowserFile.Controllers
                 return RedirectToAction("Index");
             }
 
-            var folder = _context.Folders.FirstOrDefault(f => f.Id == id && f.UserId == CurrentUserId);
+            var folder = _context.Folders
+                        .Include(f => f.StoredFiles)   
+                        .FirstOrDefault(f => f.Id == id && f.UserId == CurrentUserId);
 
-            if(folder == null)
+            if (folder == null)
             {
                 TempData["Error"] = "Folder not found or you do not have permission to delete it";
                 return RedirectToAction("Index");
@@ -122,6 +125,7 @@ namespace BrowserFile.Controllers
                 TempData["Error"] = "Cannot delete a folder that contains files. Please remove the files first.";
                 return RedirectToAction("Index");
             }
+            
 
             try
             {

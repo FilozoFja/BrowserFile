@@ -1,13 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Coding\\BrowserFile\\BrowserFile\\",
+  "WorkspaceRootPath": "C:\\Users\\korne\\Documents\\GitHub\\BrowserFile\\BrowserFile\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|d:\\coding\\browserfile\\browserfile\\browserfile\\controllers\\foldercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\controllers\\foldercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|d:\\coding\\browserfile\\browserfile\\browserfile\\controllers\\filecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|c:\\users\\korne\\documents\\github\\browserfile\\browserfile\\browserfile\\controllers\\filecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\controllers\\filecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -18,44 +14,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1999510690:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FolderController.cs",
-              "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Controllers\\FolderController.cs",
-              "RelativeDocumentMoniker": "BrowserFile\\Controllers\\FolderController.cs",
-              "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Controllers\\FolderController.cs",
-              "RelativeToolTip": "BrowserFile\\Controllers\\FolderController.cs",
-              "ViewState": "AQIAALwAAAAAAAAAAAAAwMwAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-16T12:20:19.726Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "FileController.cs",
-              "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Controllers\\FileController.cs",
+              "DocumentMoniker": "C:\\Users\\korne\\Documents\\GitHub\\BrowserFile\\BrowserFile\\BrowserFile\\Controllers\\FileController.cs",
               "RelativeDocumentMoniker": "BrowserFile\\Controllers\\FileController.cs",
-              "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Controllers\\FileController.cs",
+              "ToolTip": "C:\\Users\\korne\\Documents\\GitHub\\BrowserFile\\BrowserFile\\BrowserFile\\Controllers\\FileController.cs",
               "RelativeToolTip": "BrowserFile\\Controllers\\FileController.cs",
-              "ViewState": "AQIAAGoAAAAAAAAAAAAswH8AAAAAAAAA",
+              "ViewState": "AgIAAJIAAAAAAAAAAAAUwJkAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T07:54:05.636Z"
+              "WhenOpened": "2025-09-19T05:37:26.367Z",
+              "EditorCaption": ""
             }
           ]
         }

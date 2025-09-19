@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PytAg2GVaT0=",
+  "dgSpecHash": "yEXXiZHFWqY=",
   "success": true,
-  "projectFilePath": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj",
+  "projectFilePath": "C:\\Users\\korne\\Documents\\GitHub\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\korne\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\korne\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
