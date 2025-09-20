@@ -17,6 +17,11 @@ namespace BrowserFile.Controllers
         [HttpGet]
         public IActionResult Login()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return View();
         }
         
@@ -24,7 +29,7 @@ namespace BrowserFile.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel login)
         {
-            var result = await _signInManager.PasswordSignInAsync(login.Email, login.Password, false, true);
+            var result = await _signInManager.PasswordSignInAsync(login.Name, login.Password, false, false);
             if (result.Succeeded)
             {
                 return RedirectToAction("Index", "Home");

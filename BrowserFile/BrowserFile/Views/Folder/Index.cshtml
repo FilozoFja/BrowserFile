@@ -1,0 +1,202 @@
+﻿@model BrowserFile.Models.ViewModels.FolderViewModel;
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+
+<ul class="nav nav-pills pt-2">
+    <li class="nav-item">
+        <a class="nav-link active" data-bs-toggle="pill" href="#mainPage">Main page</a>
+    </li>
+    <li>
+        <a class="nav-link" data-bs-toggle="pill" href="#createFolder">Create folder</a>
+    </li>
+    <li>
+        <a class="nav-link" data-bs-toggle="pill" href="#editFolder">Edit folder</a>
+    </li>
+    <li>
+        <a class="nav-link" data-bs-toggle="pill" href="#deleteFolder">Delete folder</a>
+    </li>
+</ul>
+
+
+
+<div class="tab-content mt-3">
+    <div class="tab-pane fade show active" id="mainPage">
+        <h3>Main page content</h3>
+        @if (Model.Folders.Any())
+        {
+            <div class="row">
+                @foreach (var folder in Model.Folders)
+                {
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-2">
+                                    @if (folder.Icon != null)
+                                    {
+                                        <div class="pe-2">
+                                            @Html.Raw(System.IO.File.ReadAllText("wwwroot" + @folder.Icon.Url))
+                                        </div>
+                                    }
+                                    <h5 class="card-title mb-0">@folder.Name</h5>
+                                </div>
+                                <p class="card-text">@folder.Description</p>
+                                <small class="text-muted">Tag: @folder.Tag</small><br />
+                                <small class="text-muted">Created: @folder.CreatedAt.ToString("dd/MM/yyyy")</small>
+                                <div class="mt-2">
+                                    <a asp-controller="File" asp-action="Index" asp-route-id="@folder.Id" class="btn btn-primary btn-sm">Open folder</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div> 
+        }
+        else
+        {
+            <p>Nie masz żadnych folderów do wyświetlenia.</p>
+        }
+    </div>
+
+    <div class="tab-pane fade w-50" id="createFolder">
+        <h3>Create folder</h3>
+        <form asp-action="Create" asp-controller="Folder" method="post">
+            <div class="mb-3">
+                <label asp-for="FolderToCreate.Name" class="form-label"></label>
+                <input asp-for="FolderToCreate.Name" class="form-control" placeholder="Enter folder name" />
+                <span asp-validation-for="FolderToCreate.Name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="FolderToCreate.Description" class="form-label"></label>
+                <textarea asp-for="FolderToCreate.Description" class="form-control" placeholder="Enter description"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="FolderToCreate.Tag" class="form-label"></label>
+                <input asp-for="FolderToCreate.Tag" class="form-control" placeholder="Enter tag" />
+                <span asp-validation-for="FolderToCreate.Tag" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="FolderToCreate.IconId" class="form-label">Choose an icon:</label>
+                <br />
+                @foreach (var icon in Model.Icons)
+                {
+                    <div class="icon-selector">
+                        <input type="radio" asp-for="FolderToCreate.IconId" value="@icon.Id" id="icon-@icon.Id" />
+                        <label for="icon-@icon.Id">
+                            @Html.Raw(System.IO.File.ReadAllText("wwwroot" + icon.Url))
+                        </label>
+                    </div>
+                }
+            </div>
+
+            <br/>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+    </div>
+
+    <div class="tab-pane fade" id="editFolder">
+        <h3>Edit folder</h3>
+        <div class="row">
+            @foreach (var folder in Model.Folders)
+            {
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-2">
+                                @if (folder.Icon != null)
+                                {
+                                    <div class="pe-2">
+                                        @Html.Raw(System.IO.File.ReadAllText("wwwroot" + @folder.Icon.Url))
+                                    </div>
+                                }
+                                <h5 class="card-title mb-0">@folder.Name</h5>
+                            </div>
+                            <p class="card-text">@folder.Description</p>
+                            <small class="text-muted">Tag: @folder.Tag</small><br />
+                            <small class="text-muted">Created: @folder.CreatedAt.ToString("dd/MM/yyyy")</small>
+                            <div class="mt-2">
+                                <a asp-controller="Folder" asp-action="Edit" asp-route-id="@folder.Id" class="btn btn-primary btn-sm">Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="deleteFolder">
+        <h3>Delete folder</h3>
+        @if (Model.Folders.Any())
+        {
+            <div class="row">
+                @foreach (var folder in Model.Folders)
+                {
+                    <div class="col-md-4 mb-3">
+                        <div class="card border-danger">
+                            <div class="card-body">
+                                    <div class="d-flex align-items-center mb-2">
+                                        @if (folder.Icon != null)
+                                        {
+                                            <div class="pe-2">
+                                                @Html.Raw(System.IO.File.ReadAllText("wwwroot" + @folder.Icon.Url))
+                                            </div>
+                                        }
+                                        <h5 class="card-title mb-0">@folder.Name</h5>
+                                    </div>
+                                    <p class="card-text">@folder.Description</p>
+                                    <small class="text-muted">Tag: @folder.Tag</small>
+                                    <div class="mt-2">
+                                    <form asp-action="Delete" asp-route-id="@folder.Id" method="post" style="display: inline;">
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="btn btn-danger btn-sm"
+                                                onclick="return confirm('Czy na pewno chcesz usunąć folder?')">
+                                            Delete
+                                        </button>
+                                    </form>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <p>Nie masz żadnych folderów do usunięcia.</p>
+        }
+    </div>
+</div>
+
+@{
+    ViewData["Title"] = "Folder";
+}
+<style>
+    .icon-selector {
+        display: inline-block;
+        margin: 5px;
+        cursor: pointer;
+    }
+
+        .icon-selector input[type="radio"] {
+            display: none;
+        }
+
+        .icon-selector label {
+            display: inline-block;
+            padding: 10px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+
+        .icon-selector input[type="radio"]:checked + label {
+            border-color: #007bff;
+            background-color: #e3f2fd;
+        }
+
+        .icon-selector label:hover {
+            border-color: #ccc;
+        }
+</style>

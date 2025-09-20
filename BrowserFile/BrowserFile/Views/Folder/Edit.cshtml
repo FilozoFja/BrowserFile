@@ -1,0 +1,67 @@
+﻿@model BrowserFile.Models.ViewModels.EditFolderViewModel
+
+<div class="w-50">
+    <h3>Edit folder</h3>
+    <form asp-action="Edit" asp-controller="Folder" method="post">
+        <input type="hidden" asp-for="OriginalFolderId" />
+
+        <div class="mb-3">
+            <label asp-for="FolderToEdit.Name" class="form-label"></label>
+            <input asp-for="FolderToEdit.Name" class="form-control" />
+            <span asp-validation-for="FolderToEdit.Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="FolderToEdit.Description" class="form-label"></label>
+            <textarea asp-for="FolderToEdit.Description" class="form-control"></textarea>
+        </div>
+        <div class="mb-3">
+            <label asp-for="FolderToEdit.Tag" class="form-label"></label>
+            <input asp-for="FolderToEdit.Tag" class="form-control" />
+            <span asp-validation-for="FolderToEdit.Tag" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="FolderToEdit.IconId" class="form-label">Choose an icon:</label>
+            <br />
+            @foreach (var icon in Model.Icons)
+            {
+                <div class="icon-selector">
+                    <input type="radio" asp-for="FolderToEdit.IconId" value="@icon.Id" id="icon-@icon.Id" />
+                    <label for="icon-@icon.Id">
+                        @Html.Raw(System.IO.File.ReadAllText("wwwroot" + icon.Url))
+                    </label>
+                </div>
+            }
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+
+<style>
+    .icon-selector {
+        display: inline-block;
+        margin: 5px;
+        cursor: pointer;
+    }
+
+        .icon-selector input[type="radio"] {
+            display: none;
+        }
+
+        .icon-selector label {
+            display: inline-block;
+            padding: 10px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+
+        .icon-selector input[type="radio"]:checked + label {
+            border-color: #007bff;
+            background-color: #e3f2fd;
+        }
+
+        .icon-selector label:hover {
+            border-color: #ccc;
+        }
+</style>
