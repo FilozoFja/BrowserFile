@@ -22,6 +22,7 @@ namespace BrowserFile.Models.Entities
         public virtual ApplicationUser User { get; set; } = null!;
         [ForeignKey("FolderId")]
         public virtual Folder Folder { get; set; } = null!;
+        public virtual ICollection<SharedLink>? SharedLink { get; set; } = null;
         
     }
 }

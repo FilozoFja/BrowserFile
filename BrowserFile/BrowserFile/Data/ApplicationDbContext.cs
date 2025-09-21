@@ -14,6 +14,7 @@ namespace BrowserFile.Data
         public DbSet<Folder> Folders { get; set; }
         public DbSet<Icon> Icons { get; set; }
         public DbSet<StoredFile> StoredFiles { get; set; }
+        public DbSet<SharedLink> SharedLinks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -55,6 +56,11 @@ namespace BrowserFile.Data
                 .HasForeignKey(f => f.FolderId)
                 .OnDelete(DeleteBehavior.Cascade);
             
+            builder.Entity<SharedLink>()
+                .HasOne(sl => sl.File)
+                .WithMany(f => f.SharedLink)
+                .HasForeignKey(sl => sl.FileId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

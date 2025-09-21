@@ -70,7 +70,7 @@ namespace BrowserFile.Controllers
                 return RedirectToAction("Index", "Folder");
             }
 
-            var stream = new FileStream(fullFilePath, FileMode.Open, FileAccess.Read);
+            using var stream = new FileStream(fullFilePath, FileMode.Open, FileAccess.Read);
             var contentType = GetContentType(file.FileExtension) ?? "application/octet-stream";
 
             _logger.LogInformation("File with id {FileId} downloaded by {UserId}",id,contentType);
@@ -101,7 +101,7 @@ namespace BrowserFile.Controllers
                 TempData["Error"] = "File not found on server.";
                 return RedirectToAction("Index", "Folder");
             }
-            var stream = new FileStream(fullFilePath, FileMode.Open, FileAccess.Read);
+            using var stream = new FileStream(fullFilePath, FileMode.Open, FileAccess.Read);
             var contentType = GetContentType(file.FileExtension) ?? "application/octet-stream";
             return File(stream, contentType);
         }

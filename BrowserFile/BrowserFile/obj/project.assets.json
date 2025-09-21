@@ -868,6 +868,28 @@
           "lib/netstandard2.0/Mono.TextTemplating.dll": {}
         }
       },
+      "Portable.BouncyCastle/1.9.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Scrypt.NET/1.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.4/Scrypt.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/Scrypt.dll": {}
+        }
+      },
       "Serilog/3.1.1": {
         "type": "package",
         "compile": {
@@ -2871,6 +2893,34 @@
         "mono.texttemplating.nuspec"
       ]
     },
+    "Portable.BouncyCastle/1.9.0": {
+      "sha512": "eZZBCABzVOek+id9Xy04HhmgykF0wZg9wpByzrWN7q8qEI0Qen9b7tfd7w8VA3dOeesumMG7C5ZPy0jk7PSRHw==",
+      "type": "package",
+      "path": "portable.bouncycastle/1.9.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/BouncyCastle.Crypto.dll",
+        "lib/net40/BouncyCastle.Crypto.xml",
+        "lib/netstandard2.0/BouncyCastle.Crypto.dll",
+        "lib/netstandard2.0/BouncyCastle.Crypto.xml",
+        "portable.bouncycastle.1.9.0.nupkg.sha512",
+        "portable.bouncycastle.nuspec"
+      ]
+    },
+    "Scrypt.NET/1.3.0": {
+      "sha512": "vE6x8kHoVP5jDM5JjwdiFDJzlFAf+bkBUEkLdZyGDROXdNygrn+8NdFTxlE5V6FbeZ6TDAKx56RurldjinZkDQ==",
+      "type": "package",
+      "path": "scrypt.net/1.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/Scrypt.dll",
+        "lib/netstandard1.4/Scrypt.dll",
+        "scrypt.net.1.3.0.nupkg.sha512",
+        "scrypt.net.nuspec"
+      ]
+    },
     "Serilog/3.1.1": {
       "sha512": "P6G4/4Kt9bT635bhuwdXlJ2SCqqn2nhh4gqFqQueCOr9bK/e7W9ll/IoX1Ter948cV2Z/5+5v8pAfJYUISY03A==",
       "type": "package",
@@ -3556,6 +3606,8 @@
       "Microsoft.AspNetCore.Identity.UI >= 8.0.19",
       "Microsoft.EntityFrameworkCore.Sqlite >= 8.0.19",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.19",
+      "Portable.BouncyCastle >= 1.9.0",
+      "Scrypt.NET >= 1.3.0",
       "Serilog.AspNetCore >= 8.0.3"
     ]
   },
@@ -3566,11 +3618,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\korne\\Documents\\GitHub\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj",
+      "projectUniqueName": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj",
       "projectName": "BrowserFile",
-      "projectPath": "C:\\Users\\korne\\Documents\\GitHub\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj",
+      "projectPath": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj",
       "packagesPath": "C:\\Users\\korne\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\korne\\Documents\\GitHub\\BrowserFile\\BrowserFile\\BrowserFile\\obj\\",
+      "outputPath": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3585,6 +3637,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3602,8 +3655,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.300"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -3635,6 +3687,14 @@
             "target": "Package",
             "version": "[8.0.19, )"
           },
+          "Portable.BouncyCastle": {
+            "target": "Package",
+            "version": "[1.9.0, )"
+          },
+          "Scrypt.NET": {
+            "target": "Package",
+            "version": "[1.3.0, )"
+          },
           "Serilog.AspNetCore": {
             "target": "Package",
             "version": "[8.0.3, )"
@@ -3659,7 +3719,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

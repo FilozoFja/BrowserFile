@@ -755,3 +755,5 @@ C:\Users\korne\Documents\GitHub\BrowserFile\BrowserFile\BrowserFile\obj\Debug\ne
 C:\Users\korne\Documents\GitHub\BrowserFile\BrowserFile\BrowserFile\obj\Debug\net8.0\BrowserFile.pdb
 C:\Users\korne\Documents\GitHub\BrowserFile\BrowserFile\BrowserFile\obj\Debug\net8.0\BrowserFile.genruntimeconfig.cache
 C:\Users\korne\Documents\GitHub\BrowserFile\BrowserFile\BrowserFile\obj\Debug\net8.0\ref\BrowserFile.dll
+D:\Coding\BrowserFile\BrowserFile\BrowserFile\bin\Debug\net8.0\BouncyCastle.Crypto.dll
+D:\Coding\BrowserFile\BrowserFile\BrowserFile\bin\Debug\net8.0\Scrypt.dll

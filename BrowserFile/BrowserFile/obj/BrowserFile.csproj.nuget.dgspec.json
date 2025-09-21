@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\korne\\Documents\\GitHub\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj": {}
+    "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj": {}
   },
   "projects": {
-    "C:\\Users\\korne\\Documents\\GitHub\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj": {
+    "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\korne\\Documents\\GitHub\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj",
+        "projectUniqueName": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj",
         "projectName": "BrowserFile",
-        "projectPath": "C:\\Users\\korne\\Documents\\GitHub\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj",
+        "projectPath": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj",
         "packagesPath": "C:\\Users\\korne\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\korne\\Documents\\GitHub\\BrowserFile\\BrowserFile\\BrowserFile\\obj\\",
+        "outputPath": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,8 +44,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -76,6 +76,14 @@
               "target": "Package",
               "version": "[8.0.19, )"
             },
+            "Portable.BouncyCastle": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "Scrypt.NET": {
+              "target": "Package",
+              "version": "[1.3.0, )"
+            },
             "Serilog.AspNetCore": {
               "target": "Package",
               "version": "[8.0.3, )"
@@ -100,7 +108,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

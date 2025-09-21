@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yEXXiZHFWqY=",
+  "dgSpecHash": "FNzJI004zlE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\korne\\Documents\\GitHub\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj",
+  "projectFilePath": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\BrowserFile.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\korne\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\korne\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
@@ -45,6 +45,8 @@
     "C:\\Users\\korne\\.nuget\\packages\\microsoft.extensions.options\\8.0.2\\microsoft.extensions.options.8.0.2.nupkg.sha512",
     "C:\\Users\\korne\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "C:\\Users\\korne\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\korne\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
+    "C:\\Users\\korne\\.nuget\\packages\\scrypt.net\\1.3.0\\scrypt.net.1.3.0.nupkg.sha512",
     "C:\\Users\\korne\\.nuget\\packages\\serilog\\3.1.1\\serilog.3.1.1.nupkg.sha512",
     "C:\\Users\\korne\\.nuget\\packages\\serilog.aspnetcore\\8.0.3\\serilog.aspnetcore.8.0.3.nupkg.sha512",
     "C:\\Users\\korne\\.nuget\\packages\\serilog.extensions.hosting\\8.0.0\\serilog.extensions.hosting.8.0.0.nupkg.sha512",
