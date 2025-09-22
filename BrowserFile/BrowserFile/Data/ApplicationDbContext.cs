@@ -33,10 +33,6 @@ namespace BrowserFile.Data
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<Folder>()
-                .Property(f => f.CreatedAt)
-                .HasDefaultValueSql("GETUTCDATE()");
-
-            builder.Entity<Folder>()
                 .HasIndex(f => new { f.UserId, f.Name })
                 .IsUnique();
 
@@ -45,10 +41,6 @@ namespace BrowserFile.Data
                 .WithMany(u => u.StoredFiles)
                 .HasForeignKey(f => f.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
-
-            builder.Entity<StoredFile>()
-                .Property(f => f.CreatedAt)
-                .HasDefaultValueSql("GETUTCDATE()");
 
             builder.Entity<StoredFile>()
                 .HasOne(f => f.Folder)

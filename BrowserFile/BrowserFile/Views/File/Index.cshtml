@@ -103,12 +103,15 @@
                                                 break;
                                         }
                                     </div>
-                                    @if (file.IsStarred)
-                                    {
-                                        <div class="mt-1">
-                                            <i class="fas fa-star text-warning"></i>
-                                        </div>
-                                    }
+                                    <div>
+                                        @if (file.IsStarred)
+                                        {
+                                            <i class="fas fa-star text-warning pr-5"></i>
+                                        }
+                                        <a asp-action="ShareSettings" asp-controller="Sharing" asp-route-id="@file.Id">
+                                            <i class="fas fa-share-alt text-secondary"></i>
+                                        </a>
+                                    </div>
                                 </div>
                                 <h6 class="card-title text-truncate" title="@file.Name">@file.Name</h6>
                                 <small class="text-muted d-block">Size: @file.Size</small>

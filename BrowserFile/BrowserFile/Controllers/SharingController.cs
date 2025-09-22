@@ -36,19 +36,35 @@ namespace BrowserFile.Controllers
         public async Task<IActionResult> ShareSettings(string id)
         {
             var file = await _context.StoredFiles.FirstOrDefaultAsync(x => x.Id == id && x.UserId == CurrentUser);
-
             if (file == null)
             {
                 TempData["ErrorMessage"] = "File not found or you do not have permission to edit its sharing settings.";
                 return NotFound();
             }
 
+            var activeLink = file.IsShared ? await _context.SharedLinks
+                .FirstOrDefaultAsync(x => x.FileId == file.Id && x.ExpiresAt > DateTime.Now) : null;
+
+            var sharingHistory = await _context.SharedLinks
+                .Where(x => x.FileId == file.Id)
+                .OrderByDescending(x => x.ExpiresAt)
+                .Take(10) 
+                .ToListAsync();
+
             var vm = new ShareSettingsViewModel
             {
                 File = file,
-                SharedLink = file.IsShared ? await _context.SharedLinks
-                                .FirstOrDefaultAsync(x => x.FileId == file.Id && x.ExpiresAt > DateTime.UtcNow) : null
+                SharedLink = activeLink,
+                SharingHistory = sharingHistory,
+                ExpirationDate = DateTime.Now.AddDays(1)
             };
+
+            if (activeLink != null)
+            {
+                vm.ShareUrl = Url.Action("Download", "SharedFiles",
+                    new { token = activeLink.Token }, Request.Scheme);
+            }
+
             return View(vm);
         }
 
@@ -58,6 +74,20 @@ namespace BrowserFile.Controllers
         {
             if (!ModelState.IsValid)
             {
+                var fileForView = await _context.StoredFiles.FirstOrDefaultAsync(x => x.Id == id && x.UserId == CurrentUser);
+                if (fileForView == null)
+                {
+                    TempData["ErrorMessage"] = "File not found.";
+                    return RedirectToAction("Index");
+                }
+
+                model.File = fileForView;
+                model.SharingHistory = await _context.SharedLinks
+                    .Where(x => x.FileId == fileForView.Id)
+                    .OrderByDescending(x => x.ExpiresAt)
+                    .Take(10)
+                    .ToListAsync();
+                TempData["ErrorMessage"] = "Something went wrong";
                 return View("ShareSettings", model);
             }
 
@@ -82,7 +112,7 @@ namespace BrowserFile.Controllers
                 }
                 catch(Exception ex)
                 {
-                    TempData["ErrorMessage"] = "An error occurred while updating the existing link: " + ex.Message;
+                    TempData["ErrorMessage"] = "An error occurred while updating the existing link: ";
                     return RedirectToAction("ShareSettings", new { id = file.Id });
                 }
             }
@@ -109,7 +139,7 @@ namespace BrowserFile.Controllers
             }
             catch(Exception ex)
             {
-                TempData["ErrorMessage"] = "An error occurred while creating the sharing link: " + ex.Message;
+                TempData["ErrorMessage"] = "An error occurred while creating the sharing link";
                 return RedirectToAction("ShareSettings", new { id = file.Id });
             }
 

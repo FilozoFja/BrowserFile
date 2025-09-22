@@ -3,36 +3,24 @@
   "WorkspaceRootPath": "D:\\Coding\\BrowserFile\\BrowserFile\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Migrations\\20250921142328_SharedLinkRelationOneToManyChange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BrowserFile\\Migrations\\20250921142328_SharedLinkRelationOneToManyChange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|d:\\coding\\browserfile\\browserfile\\browserfile\\controllers\\sharingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\controllers\\sharingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|d:\\coding\\browserfile\\browserfile\\browserfile\\views\\sharing\\sharesettings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\views\\sharing\\sharesettings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|d:\\coding\\browserfile\\browserfile\\browserfile\\models\\entities\\sharedlink.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\models\\entities\\sharedlink.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|d:\\coding\\browserfile\\browserfile\\browserfile\\controllers\\sharingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\controllers\\sharingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|d:\\coding\\browserfile\\browserfile\\browserfile\\models\\entities\\storedfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\models\\entities\\storedfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|d:\\coding\\browserfile\\browserfile\\browserfile\\models\\viewmodels\\fileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\models\\viewmodels\\fileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|d:\\coding\\browserfile\\browserfile\\browserfile\\models\\viewmodels\\sharesettingsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\models\\viewmodels\\sharesettingsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|d:\\coding\\browserfile\\browserfile\\browserfile\\models\\entities\\folder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\models\\entities\\folder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|d:\\coding\\browserfile\\browserfile\\browserfile\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|d:\\coding\\browserfile\\browserfile\\browserfile\\views\\sharing\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE9286C6-3B7F-40BC-9521-36A83F994EE0}|BrowserFile\\BrowserFile.csproj|solutionrelative:browserfile\\views\\sharing\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,99 +30,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 7,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20250921142328_SharedLinkRelationOneToManyChange.cs",
-              "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Migrations\\20250921142328_SharedLinkRelationOneToManyChange.cs",
-              "RelativeDocumentMoniker": "BrowserFile\\Migrations\\20250921142328_SharedLinkRelationOneToManyChange.cs",
-              "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Migrations\\20250921142328_SharedLinkRelationOneToManyChange.cs",
-              "RelativeToolTip": "BrowserFile\\Migrations\\20250921142328_SharedLinkRelationOneToManyChange.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T14:23:28.941Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SharingController.cs",
-              "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Controllers\\SharingController.cs",
-              "RelativeDocumentMoniker": "BrowserFile\\Controllers\\SharingController.cs",
-              "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Controllers\\SharingController.cs",
-              "RelativeToolTip": "BrowserFile\\Controllers\\SharingController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T14:19:07.799Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SharedLink.cs",
-              "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Models\\Entities\\SharedLink.cs",
-              "RelativeDocumentMoniker": "BrowserFile\\Models\\Entities\\SharedLink.cs",
-              "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Models\\Entities\\SharedLink.cs",
-              "RelativeToolTip": "BrowserFile\\Models\\Entities\\SharedLink.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T14:19:02.818Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ShareSettings.cshtml",
-              "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Views\\Sharing\\ShareSettings.cshtml",
-              "RelativeDocumentMoniker": "BrowserFile\\Views\\Sharing\\ShareSettings.cshtml",
-              "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Views\\Sharing\\ShareSettings.cshtml",
-              "RelativeToolTip": "BrowserFile\\Views\\Sharing\\ShareSettings.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAA8AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-21T14:18:44.968Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ShareSettingsViewModel.cs",
-              "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Models\\ViewModels\\ShareSettingsViewModel.cs",
-              "RelativeDocumentMoniker": "BrowserFile\\Models\\ViewModels\\ShareSettingsViewModel.cs",
-              "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Models\\ViewModels\\ShareSettingsViewModel.cs",
-              "RelativeToolTip": "BrowserFile\\Models\\ViewModels\\ShareSettingsViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T14:18:14.943Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Folder.cs",
-              "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Models\\Entities\\Folder.cs",
-              "RelativeDocumentMoniker": "BrowserFile\\Models\\Entities\\Folder.cs",
-              "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Models\\Entities\\Folder.cs",
-              "RelativeToolTip": "BrowserFile\\Models\\Entities\\Folder.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T14:17:01.561Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "StoredFile.cs",
-              "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Models\\Entities\\StoredFile.cs",
-              "RelativeDocumentMoniker": "BrowserFile\\Models\\Entities\\StoredFile.cs",
-              "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Models\\Entities\\StoredFile.cs",
-              "RelativeToolTip": "BrowserFile\\Models\\Entities\\StoredFile.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAQwBgAAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T14:16:31.705Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -149,15 +46,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "BrowserFile\\Data\\ApplicationDbContext.cs",
-              "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "BrowserFile\\Data\\ApplicationDbContext.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAADoAAAAoAAAA",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Views\\Sharing\\Index.cshtml",
+              "RelativeDocumentMoniker": "BrowserFile\\Views\\Sharing\\Index.cshtml",
+              "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Views\\Sharing\\Index.cshtml",
+              "RelativeToolTip": "BrowserFile\\Views\\Sharing\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-22T15:22:22.415Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ShareSettingsViewModel.cs",
+              "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Models\\ViewModels\\ShareSettingsViewModel.cs",
+              "RelativeDocumentMoniker": "BrowserFile\\Models\\ViewModels\\ShareSettingsViewModel.cs",
+              "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Models\\ViewModels\\ShareSettingsViewModel.cs",
+              "RelativeToolTip": "BrowserFile\\Models\\ViewModels\\ShareSettingsViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T14:16:17.102Z",
+              "WhenOpened": "2025-09-22T15:16:09.508Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FileViewModel.cs",
+              "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Models\\ViewModels\\FileViewModel.cs",
+              "RelativeDocumentMoniker": "BrowserFile\\Models\\ViewModels\\FileViewModel.cs",
+              "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Models\\ViewModels\\FileViewModel.cs",
+              "RelativeToolTip": "BrowserFile\\Models\\ViewModels\\FileViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-22T15:10:14.995Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ShareSettings.cshtml",
+              "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Views\\Sharing\\ShareSettings.cshtml",
+              "RelativeDocumentMoniker": "BrowserFile\\Views\\Sharing\\ShareSettings.cshtml",
+              "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Views\\Sharing\\ShareSettings.cshtml",
+              "RelativeToolTip": "BrowserFile\\Views\\Sharing\\ShareSettings.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-22T15:16:15.805Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SharingController.cs",
+              "DocumentMoniker": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Controllers\\SharingController.cs",
+              "RelativeDocumentMoniker": "BrowserFile\\Controllers\\SharingController.cs",
+              "ToolTip": "D:\\Coding\\BrowserFile\\BrowserFile\\BrowserFile\\Controllers\\SharingController.cs",
+              "RelativeToolTip": "BrowserFile\\Controllers\\SharingController.cs",
+              "ViewState": "AQIAABcAAAAAAAAAAAAwwEcAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-21T14:19:07.799Z",
               "EditorCaption": ""
             }
           ]
