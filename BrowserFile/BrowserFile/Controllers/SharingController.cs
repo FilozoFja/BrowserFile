@@ -22,6 +22,7 @@ namespace BrowserFile.Controllers
         }
 
         [Authorize]
+        [HttpGet("share")]
         public async Task<IActionResult> Index()
         {
             var sharedFiles = await _context.StoredFiles
@@ -30,7 +31,12 @@ namespace BrowserFile.Controllers
                     && x.IsShared 
                     && x.SharedLink != null)
                 .ToListAsync();
-            return View(sharedFiles);
+            var vm = new ShareViewModel
+            {
+                SharedFiles = sharedFiles
+            };
+
+            return View(vm);
         }
 
         [Authorize]
@@ -63,8 +69,7 @@ namespace BrowserFile.Controllers
 
             if (activeLink != null)
             {
-                vm.ShareUrl = Url.Action("Download", "SharedFiles",
-                    new { token = activeLink.Token }, Request.Scheme);
+                vm.ShareUrl = $"{Request.Scheme}://{Request.Host}/share/{activeLink.Token}";
             }
 
             return View(vm);

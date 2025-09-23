@@ -70,11 +70,8 @@ namespace BrowserFile.Controllers
             }
             else
             {
-                var stream = new FileStream(fileSharing.File.FilePath, FileMode.Open, FileAccess.Read);
-                var contentType = GetContentType(fileSharing.File.FileExtension) ?? "application/octet-stream";
-
-                _logger.LogInformation("File with id {FileId} downloaded by {UserId}", id, contentType);
-                return File(stream, contentType, fileSharing.File.Name);
+                TempData["ErrorMessage"] = "Wrong password.";
+                return Unauthorized();
             }
 
         }

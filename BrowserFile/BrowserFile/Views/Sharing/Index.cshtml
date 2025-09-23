@@ -1,5 +1,91 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model BrowserFile.Models.ViewModels.ShareViewModel;
 @{
+    ViewData["Title"] = "File Sharing";
 }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+
+
+
+<div class="tab-content mt-3">
+    <div class="tab-pane fade show active">
+        @if (Model.SharedFiles.Any())
+        {
+            <div id="filesGrid" class="row">
+                @foreach (var file in Model.SharedFiles)
+                {
+                    <div class="col-md-4 col-lg-3 mb-3">
+                        <div class="card h-100 file-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <div class="file-icon">
+                                        @switch (file.FileExtension?.ToLower())
+                                        {
+                                            case ".pdf":
+                                                <i class="fas fa-file-pdf text-danger fa-2x"></i>
+                                                break;
+                                            case ".doc":
+                                            case ".docx":
+                                                <i class="fas fa-file-word text-primary fa-2x"></i>
+                                                break;
+                                            case ".xls":
+                                            case ".xlsx":
+                                                <i class="fas fa-file-excel text-success fa-2x"></i>
+                                                break;
+                                            case ".jpg":
+                                            case ".jpeg":
+                                            case ".png":
+                                            case ".gif":
+                                                <i class="fas fa-file-image text-info fa-2x"></i>
+                                                break;
+                                            case ".zip":
+                                            case ".rar":
+                                                <i class="fas fa-file-archive text-warning fa-2x"></i>
+                                                break;
+                                            default:
+                                                <i class="fas fa-file text-secondary fa-2x"></i>
+                                                break;
+                                        }
+                                    </div>
+                                </div>
+                                <h6 class="card-title text-truncate" title="@file.Name">@file.Name</h6>
+                                <small class="text-muted d-block">Size: @file.Size</small>
+                                <small class="text-muted d-block">Extension: @file.FileExtension</small>
+                            </div>
+                            <div class="card-footer p-2 bg-light">
+                                <div class="btn-group w-100" role="group">
+                                    <button class="btn btn-outline-secondary" type="button" onclick="copyToClipboard()">
+                                        <i class="fas fa-copy"></i> Copy
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <p>No files available for sharing.</p>
+        }
+    </div>
+</div>
+
+<script>
+    function copyToClipboard() {
+        const linkInput = document.getElementById('shareLink');
+        linkInput.select();
+        linkInput.setSelectionRange(0, 99999);
+
+        navigator.clipboard.writeText(linkInput.value).then(function () {
+            toastr.success('Link copied to clipboard!');
+        }).catch(function () {
+            document.execCommand('copy');
+            toastr.success('Link copied to clipboard!');
+        });
+    }
+</script>
+
