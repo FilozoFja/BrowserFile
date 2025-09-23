@@ -1,0 +1,11 @@
+﻿@model string;
+
+@{
+}
+
+<div class="d-flex justify-content-center align-items-center" style="min-height:80vh">
+    <form method="get" action="/share/@Model/download">
+        <input type="password" name="password" placeholder="Hasło (opcjonalnie)" />
+        <button type="submit">Pobierz</button>
+    </form>
+</div>

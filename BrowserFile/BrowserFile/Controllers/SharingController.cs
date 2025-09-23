@@ -13,10 +13,12 @@ namespace BrowserFile.Controllers
     {
         private readonly ApplicationDbContext _context;
         private string CurrentUser => User?.FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty;
+        private readonly ILogger<SharingController> _logger;
         
-        public SharingController(ApplicationDbContext context)
+        public SharingController(ApplicationDbContext context, ILogger<SharingController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         [Authorize]
@@ -143,6 +145,7 @@ namespace BrowserFile.Controllers
                 return RedirectToAction("ShareSettings", new { id = file.Id });
             }
 
+            _logger.LogInformation("User {UserId} created a new sharing link for file {FileId}", CurrentUser, file.Id);
             TempData["SuccessMessage"] = "Sharing link created successfully.";
             return RedirectToAction("Index");
         }

@@ -11,6 +11,7 @@ namespace BrowserFile.Models.Entities
         public required string FileId { get; set; }
         [Required]
         public required string Token { get; set; }
+        public string? Alias { get; set; } = null;
         public DateTime ExpiresAt { get; set; }
         public string? PasswordHash { get; set; }
         public bool OneTime { get; set; } = false;
