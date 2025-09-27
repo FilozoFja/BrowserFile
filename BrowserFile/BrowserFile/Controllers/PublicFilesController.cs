@@ -1,7 +1,9 @@
 ﻿using BrowserFile.Data;
+using BrowserFile.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Text;
+using Scrypt;
+using System.Security.Cryptography;
 
 namespace BrowserFile.Controllers
 {
@@ -9,71 +11,118 @@ namespace BrowserFile.Controllers
     {
         private readonly ILogger<PublicFilesController> _logger;
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _environment;
 
-        public PublicFilesController(ILogger<PublicFilesController> logger, ApplicationDbContext context)
+        public PublicFilesController(ILogger<PublicFilesController> logger,
+                                    ApplicationDbContext context,
+                                    IWebHostEnvironment environment)
         {
             _logger = logger;
             _context = context;
+            _environment = environment;
         }
 
-        [HttpGet("share/{id}")]
-        public async Task<IActionResult> Index(string id)
+        [HttpGet("share/{token}")]
+        public async Task<IActionResult> Index(string token)
         {
-            var fileSharing = await _context.SharedLinks
-                        .Include(x => x.File)
-                        .FirstOrDefaultAsync(x => (x.Token == id || x.Alias == id) 
-                        && x.ExpiresAt > DateTime.Now 
-                        && (x.OneTime == false 
-                        || (x.OneTime == true && x.Used == 0)));
+            if (string.IsNullOrWhiteSpace(token) || !IsValidToken(token))
+            {
+                return NotFound();
+            }
+
+            var fileSharing = await GetValidSharedLinkAsync(token);
+
+            if (fileSharing == null)
+            {
+                await Task.Delay(TimeSpan.FromMilliseconds(100 + RandomNumberGenerator.GetInt32(0, 50)));
+                return NotFound();
+            }
+
+            var viewModel = new PublicFileViewModel
+            {
+                Token = token,
+                FileName = fileSharing.File.Name,
+                FileSize = fileSharing.File.Size,
+                IsRequiredPassword = !string.IsNullOrEmpty(fileSharing.PasswordHash),
+                IsOneTime = fileSharing.OneTime
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpGet("share/{token}/download")]
+        public async Task<IActionResult> DownloadFile(string token, string? password)
+        {
+            if (string.IsNullOrWhiteSpace(token) || !IsValidToken(token))
+            {
+                return NotFound();
+            }
+
+            var fileSharing = await GetValidSharedLinkAsync(token);
 
             if (fileSharing == null || fileSharing.File == null)
             {
-                TempData["ErrorMessage"] = "Nice try.";
-                return Redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+                await Task.Delay(TimeSpan.FromMilliseconds(100 + RandomNumberGenerator.GetInt32(0, 50)));
+                return NotFound();
             }
 
-            return View("Index",id);
+            if (fileSharing.HasPassword)
+            {
+                if (string.IsNullOrEmpty(password))
+                {
+                    TempData["ErrorMessage"] = "Password is required to download this file.";
+                    return RedirectToAction("Index", new { token = token });
+                }
+
+                var encoder = new ScryptEncoder();
+                if (!encoder.Compare(password, fileSharing.PasswordHash))
+                {
+                    await Task.Delay(TimeSpan.FromSeconds(1));
+
+                    _logger.LogWarning("Invalid password attempt for shared link {Token} from IP {IP}",
+                        token, HttpContext.Connection.RemoteIpAddress);
+
+                    TempData["ErrorMessage"] = "Invalid password.";
+                    return RedirectToAction("Index", new { token });
+                }
+            }
+            var fileResult = await GetSecureFileAsync(fileSharing.File);
+
+            if (fileResult == null)
+            {
+                _logger.LogError("File not found on disk for shared link {Token}: {FilePath}", 
+                    token, fileSharing.File.FilePath);
+                TempData["ErrorMessage"] = "File is no longer available.";
+                return RedirectToAction("Index", new { token });
+            }
+
+            if (fileSharing.OneTime)
+            {
+                await MarkAsUsedAsync(fileSharing);
+            }
+
+            _logger.LogInformation("File {FileName} (ID: {FileId}) downloaded via shared link {Token} from IP {IP}", 
+                fileSharing.File.Name, fileSharing.File.Id, token, HttpContext.Connection.RemoteIpAddress);
+
+            var contentType = GetContentType(fileSharing.File.FileExtension);
+            
+            return File(fileResult.FileStream, contentType, fileSharing.File.Name, enableRangeProcessing: true);
+
         }
 
-        [HttpGet("share/{id}/download")]
-        public async Task<IActionResult> DownloadFile(string id, string? password)
+        private async Task MarkAsUsedAsync(SharedLink sharedLink)
         {
-            var fileSharing = await _context.SharedLinks
-                .Include(x => x.File)
-                .FirstOrDefaultAsync(x => (x.Token == id || x.Alias == id)
-                && x.ExpiresAt > DateTime.Now
-                && (x.OneTime == false
-                || (x.OneTime == true && x.Used == 0)));
-
-            if (fileSharing == null || fileSharing.File == null)
+            try
             {
-                TempData["ErrorMessage"] = "File is not existing.";
-                return RedirectToAction("https://www.google.com/");
+                sharedLink.Used = 1;
+                sharedLink.ExpiresAt = DateTime.Now;
+                _context.SharedLinks.Update(sharedLink);
+                await _context.SaveChangesAsync();
             }
-
-            if(password == null && fileSharing.PasswordHash == null)
+            catch (Exception ex)
             {
-                var stream = new FileStream(fileSharing.File.FilePath, FileMode.Open, FileAccess.Read);
-                var contentType = GetContentType(fileSharing.File.FileExtension) ?? "application/octet-stream";
-
-                _logger.LogInformation("File with id {FileId} downloaded by {UserId}", id, contentType);
-                return File(stream, contentType, fileSharing.File.Name);
+                _logger.LogError(ex, "Failed to mark shared link {Token} as used", sharedLink.Token);
             }
-
-            if(Encoder.Equals(password, fileSharing.PasswordHash))
-            {
-                var stream = new FileStream(fileSharing.File.FilePath, FileMode.Open, FileAccess.Read);
-                var contentType = GetContentType(fileSharing.File.FileExtension) ?? "application/octet-stream";
-
-                _logger.LogInformation("File with id {FileId} downloaded by {UserId}", id, contentType);
-                return File(stream, contentType, fileSharing.File.Name);
-            }
-            else
-            {
-                TempData["ErrorMessage"] = "Wrong password.";
-                return Unauthorized();
-            }
-
         }
 
         private string GetContentType(string extension)
@@ -93,6 +142,74 @@ namespace BrowserFile.Controllers
                 ".txt" => "text/plain",
                 _ => "application/octet-stream"
             };
+        }
+
+        private async Task<SharedLink?> GetValidSharedLinkAsync(string token)
+        {
+            return await _context.SharedLinks
+                        .Include(x => x.File)
+                        .FirstOrDefaultAsync(x => (x.Token == token || x.Alias == token)
+                        && x.ExpiresAt > DateTime.Now
+                        && (x.OneTime == false
+                        || (x.OneTime == true && x.Used == 0)));
+        }
+
+        private static bool IsValidToken(string token)
+        {
+            return token.Length <= 100 &&
+                    token.All(c => char.IsLetterOrDigit(c) || c == '-' || c == '_');
+        }
+
+        private async Task<SecureFileResult?> GetSecureFileAsync(StoredFile file)
+        {
+            try
+            {
+                var safePath = GetSafeFilePath(file.FilePath);
+                if (safePath == null)
+                {
+                    _logger.LogWarning("Potential path traversal attempt: {FilePath}", file.FilePath);
+                    return null;
+                }
+
+                if (!System.IO.File.Exists(safePath))
+                {
+                    return null;
+                }
+
+                var fileStream = new FileStream(safePath, FileMode.Open, FileAccess.Read, FileShare.Read);
+                return new SecureFileResult { FileStream = fileStream };
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error accessing file {FilePath}", file.FilePath);
+                return null;
+            }
+        }
+
+        public class SecureFileResult
+        {
+            public FileStream FileStream { get; set; } = null!;
+        }
+        
+        private string? GetSafeFilePath(string filePath)
+        {
+            try
+            {
+                var uploadsPath = Path.Combine(_environment.ContentRootPath, "uploads");
+
+                var normalizedPath = Path.GetFullPath(Path.Combine(uploadsPath, filePath));
+
+                if (!normalizedPath.StartsWith(Path.GetFullPath(uploadsPath)))
+                {
+                    return null; 
+                }
+
+                return normalizedPath;
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }

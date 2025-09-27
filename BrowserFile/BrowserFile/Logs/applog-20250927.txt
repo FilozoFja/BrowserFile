@@ -1,0 +1,1198 @@
+2025-09-27 08:02:07.669 +00:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2025-09-27 08:02:08.062 +00:00 [DBG] The index {'UserId'} was not created on entity type 'Folder' as the properties are already covered by the index {'UserId', 'Name'}.
+2025-09-27 08:02:08.063 +00:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserRole<string>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+2025-09-27 08:02:08.064 +00:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserToken<string>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+2025-09-27 08:02:08.380 +00:00 [DBG] Entity Framework Core 8.0.19 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:8.0.19' with options: None
+2025-09-27 08:02:08.449 +00:00 [DBG] Compiling query expression: 
+'DbSet<ApplicationUser>()
+    .Where(u => u.NormalizedEmail == __normalizedEmail_0)
+    .SingleOrDefault()'
+2025-09-27 08:02:08.760 +00:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<ApplicationUser>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: ApplicationUser.Id (string) Required PK AfterSave:Throw, 0], [Property: ApplicationUser.AccessFailedCount (int) Required, 1], [Property: ApplicationUser.ConcurrencyStamp (string) Concurrency, 2], [Property: ApplicationUser.Email (string) MaxLength(256), 3], [Property: ApplicationUser.EmailConfirmed (bool) Required, 4], [Property: ApplicationUser.LockoutEnabled (bool) Required, 5], [Property: ApplicationUser.LockoutEnd (DateTimeOffset?), 6], [Property: ApplicationUser.NormalizedEmail (string) Index MaxLength(256), 7], [Property: ApplicationUser.NormalizedUserName (string) Index MaxLength(256), 8], [Property: ApplicationUser.PasswordHash (string), 9], [Property: ApplicationUser.PhoneNumber (string), 10], [Property: ApplicationUser.PhoneNumberConfirmed (bool) Required, 11], [Property: ApplicationUser.SecurityStamp (string), 12], [Property: ApplicationUser.TwoFactorEnabled (bool) Required, 13], [Property: ApplicationUser.UserName (string) MaxLength(256), 14] }
+        SELECT TOP(2) a.Id, a.AccessFailedCount, a.ConcurrencyStamp, a.Email, a.EmailConfirmed, a.LockoutEnabled, a.LockoutEnd, a.NormalizedEmail, a.NormalizedUserName, a.PasswordHash, a.PhoneNumber, a.PhoneNumberConfirmed, a.SecurityStamp, a.TwoFactorEnabled, a.UserName
+        FROM AspNetUsers AS a
+        WHERE a.NormalizedEmail == @__normalizedEmail_0), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, ApplicationUser>, 
+    BrowserFile.Data.ApplicationDbContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+2025-09-27 08:02:08.849 +00:00 [DBG] Creating DbConnection.
+2025-09-27 08:02:08.879 +00:00 [DBG] Created DbConnection. (31ms).
+2025-09-27 08:02:08.891 +00:00 [DBG] Opening connection to database 'main' on server 'MyApp.db'.
+2025-09-27 08:02:08.916 +00:00 [DBG] Opened connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:08.932 +00:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-09-27 08:02:08.944 +00:00 [DBG] Created DbCommand for 'ExecuteReader' (14ms).
+2025-09-27 08:02:08.953 +00:00 [DBG] Initialized DbCommand for 'ExecuteReader' (29ms).
+2025-09-27 08:02:08.965 +00:00 [DBG] Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 17)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-09-27 08:02:09.008 +00:00 [INF] Executed DbCommand (35ms) [Parameters=[@__normalizedEmail_0='?' (Size = 17)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-09-27 08:02:09.122 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'ApplicationUser' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:09.310 +00:00 [DBG] Closing data reader to 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:09.321 +00:00 [DBG] A data reader for 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db' is being disposed after spending 304ms reading results.
+2025-09-27 08:02:09.325 +00:00 [DBG] Closing connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:09.328 +00:00 [DBG] Closed connection to database 'main' on server 'MyApp.db' (3ms).
+2025-09-27 08:02:09.332 +00:00 [DBG] Compiling query expression: 
+'DbSet<Icon>()
+    .Any()'
+2025-09-27 08:02:09.338 +00:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Icons AS i)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    BrowserFile.Data.ApplicationDbContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2025-09-27 08:02:09.343 +00:00 [DBG] Opening connection to database 'main' on server 'MyApp.db'.
+2025-09-27 08:02:09.344 +00:00 [DBG] Opened connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:09.344 +00:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-09-27 08:02:09.344 +00:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2025-09-27 08:02:09.344 +00:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2025-09-27 08:02:09.344 +00:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Icons" AS "i")
+2025-09-27 08:02:09.344 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Icons" AS "i")
+2025-09-27 08:02:09.345 +00:00 [DBG] Closing data reader to 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:09.345 +00:00 [DBG] A data reader for 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db' is being disposed after spending 0ms reading results.
+2025-09-27 08:02:09.345 +00:00 [DBG] Closing connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:09.347 +00:00 [DBG] Closed connection to database 'main' on server 'MyApp.db' (1ms).
+2025-09-27 08:02:09.348 +00:00 [DBG] 'ApplicationDbContext' disposed.
+2025-09-27 08:02:09.351 +00:00 [DBG] Disposing connection to database 'main' on server 'MyApp.db'.
+2025-09-27 08:02:09.352 +00:00 [DBG] Disposed connection to database 'main' on server 'MyApp.db' (1ms).
+2025-09-27 08:02:09.418 +00:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2025-09-27 08:02:09.434 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Account/Login.cshtml'.
+2025-09-27 08:02:09.436 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/File/Index.cshtml'.
+2025-09-27 08:02:09.439 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Folder/Edit.cshtml'.
+2025-09-27 08:02:09.439 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Folder/Index.cshtml'.
+2025-09-27 08:02:09.441 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Home/Index.cshtml'.
+2025-09-27 08:02:09.441 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Home/Privacy.cshtml'.
+2025-09-27 08:02:09.441 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/PublicFiles/Index.cshtml'.
+2025-09-27 08:02:09.441 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Error.cshtml'.
+2025-09-27 08:02:09.441 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_LoginPartial.cshtml'.
+2025-09-27 08:02:09.441 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_ValidationScriptsPartial.cshtml'.
+2025-09-27 08:02:09.441 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Sharing/Index.cshtml'.
+2025-09-27 08:02:09.442 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Sharing/ShareSettings.cshtml'.
+2025-09-27 08:02:09.445 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/_ViewImports.cshtml'.
+2025-09-27 08:02:09.445 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/_ViewStart.cshtml'.
+2025-09-27 08:02:09.446 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_Layout.cshtml'.
+2025-09-27 08:02:09.463 +00:00 [WRN] Storing keys in a directory '/home/codespace/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+2025-09-27 08:02:09.463 +00:00 [INF] User profile is available. Using '/home/codespace/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-09-27 08:02:09.515 +00:00 [DBG] Hosting starting
+2025-09-27 08:02:09.528 +00:00 [DBG] Repository contains no viable default key. Caller should generate a key with immediate activation.
+2025-09-27 08:02:09.528 +00:00 [DBG] Policy resolution states that a new key should be added to the key ring.
+2025-09-27 08:02:09.533 +00:00 [INF] Creating key {9756e286-c09d-445f-b02f-4f06d5381c4b} with creation date 2025-09-27 08:02:09Z, activation date 2025-09-27 08:02:09Z, and expiration date 2025-12-26 08:02:09Z.
+2025-09-27 08:02:09.550 +00:00 [DBG] Descriptor deserializer type for key {9756e286-c09d-445f-b02f-4f06d5381c4b} is 'Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60'.
+2025-09-27 08:02:09.559 +00:00 [DBG] No key escrow sink found. Not writing key {9756e286-c09d-445f-b02f-4f06d5381c4b} to escrow.
+2025-09-27 08:02:09.560 +00:00 [WRN] No XML encryptor configured. Key {9756e286-c09d-445f-b02f-4f06d5381c4b} may be persisted to storage in unencrypted form.
+2025-09-27 08:02:09.573 +00:00 [INF] Writing data to file '/home/codespace/.aspnet/DataProtection-Keys/key-9756e286-c09d-445f-b02f-4f06d5381c4b.xml'.
+2025-09-27 08:02:09.575 +00:00 [DBG] Key cache expiration token triggered by 'CreateNewKey' operation.
+2025-09-27 08:02:09.576 +00:00 [DBG] Reading data from file '/home/codespace/.aspnet/DataProtection-Keys/key-9756e286-c09d-445f-b02f-4f06d5381c4b.xml'.
+2025-09-27 08:02:09.583 +00:00 [DBG] Found key {9756e286-c09d-445f-b02f-4f06d5381c4b}.
+2025-09-27 08:02:09.588 +00:00 [DBG] Considering key {9756e286-c09d-445f-b02f-4f06d5381c4b} with expiration date 2025-12-26 08:02:09Z as default key.
+2025-09-27 08:02:09.592 +00:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2025-09-27 08:02:09.596 +00:00 [DBG] Using managed symmetric algorithm 'System.Security.Cryptography.Aes'.
+2025-09-27 08:02:09.599 +00:00 [DBG] Using managed keyed hash algorithm 'System.Security.Cryptography.HMACSHA256'.
+2025-09-27 08:02:09.605 +00:00 [DBG] Using key {9756e286-c09d-445f-b02f-4f06d5381c4b} as the default key.
+2025-09-27 08:02:09.606 +00:00 [DBG] Key ring with default key {9756e286-c09d-445f-b02f-4f06d5381c4b} was loaded during application startup.
+2025-09-27 08:02:09.693 +00:00 [INF] Now listening on: http://localhost:5196
+2025-09-27 08:02:09.693 +00:00 [DBG] Loaded hosting startup assembly BrowserFile
+2025-09-27 08:02:09.693 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-27 08:02:09.693 +00:00 [INF] Hosting environment: Development
+2025-09-27 08:02:09.694 +00:00 [INF] Content root path: /workspaces/BrowserFile/BrowserFile/BrowserFile
+2025-09-27 08:02:09.694 +00:00 [DBG] Hosting started
+2025-09-27 08:02:40.920 +00:00 [DBG] Connection id "0HNFTJGTLR8DI" accepted.
+2025-09-27 08:02:40.921 +00:00 [DBG] Connection id "0HNFTJGTLR8DI" started.
+2025-09-27 08:02:40.941 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5196/ - null null
+2025-09-27 08:02:40.943 +00:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2025-09-27 08:02:40.945 +00:00 [DBG] The request path / does not match a supported file type
+2025-09-27 08:02:40.946 +00:00 [WRN] Failed to determine the https port for redirect.
+2025-09-27 08:02:40.946 +00:00 [DBG] The request path / does not match a supported file type
+2025-09-27 08:02:40.961 +00:00 [DBG] 1 candidate(s) found for the request path '/'
+2025-09-27 08:02:40.961 +00:00 [DBG] Endpoint 'BrowserFile.Controllers.AccountController.Login (BrowserFile)' with route pattern '{controller=Account}/{action=Login}/{id?}' is valid for the request path '/'
+2025-09-27 08:02:40.962 +00:00 [DBG] Request matched endpoint 'BrowserFile.Controllers.AccountController.Login (BrowserFile)'
+2025-09-27 08:02:40.968 +00:00 [DBG] AuthenticationScheme: Identity.Application was not authenticated.
+2025-09-27 08:02:40.970 +00:00 [INF] Executing endpoint 'BrowserFile.Controllers.AccountController.Login (BrowserFile)'
+2025-09-27 08:02:40.979 +00:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller BrowserFile.Controllers.AccountController (BrowserFile).
+2025-09-27 08:02:40.980 +00:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-09-27 08:02:40.980 +00:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-09-27 08:02:40.981 +00:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2025-09-27 08:02:40.981 +00:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-09-27 08:02:40.981 +00:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-09-27 08:02:40.983 +00:00 [DBG] Executing controller factory for controller BrowserFile.Controllers.AccountController (BrowserFile)
+2025-09-27 08:02:40.987 +00:00 [DBG] Executed controller factory for controller BrowserFile.Controllers.AccountController (BrowserFile)
+2025-09-27 08:02:40.990 +00:00 [DBG] View lookup cache miss for view 'Login' in controller 'Account'.
+2025-09-27 08:02:40.994 +00:00 [INF] Executing ViewResult, running view Login.
+2025-09-27 08:02:40.996 +00:00 [DBG] The view path '/Views/Account/Login.cshtml' was found in 4.4659ms.
+2025-09-27 08:02:41.021 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (action=[Login],controller=[Account])
+2025-09-27 08:02:41.023 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in  and 
+2025-09-27 08:02:41.024 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /
+2025-09-27 08:02:41.030 +00:00 [DBG] A new antiforgery cookie token was created.
+2025-09-27 08:02:41.046 +00:00 [DBG] View lookup cache miss for view '_Layout' in controller 'Account'.
+2025-09-27 08:02:41.064 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (action=[Login],controller=[Account])
+2025-09-27 08:02:41.064 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in  and 
+2025-09-27 08:02:41.064 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /
+2025-09-27 08:02:41.068 +00:00 [DBG] The temp data cookie .AspNetCore.Mvc.CookieTempDataProvider was not found.
+2025-09-27 08:02:41.069 +00:00 [DBG] View lookup cache miss for view '_ValidationScriptsPartial' in controller 'Account'.
+2025-09-27 08:02:41.081 +00:00 [INF] Executed ViewResult - view Login executed in 92.1626ms.
+2025-09-27 08:02:41.082 +00:00 [INF] Executed action BrowserFile.Controllers.AccountController.Login (BrowserFile) in 100.5351ms
+2025-09-27 08:02:41.082 +00:00 [INF] Executed endpoint 'BrowserFile.Controllers.AccountController.Login (BrowserFile)'
+2025-09-27 08:02:41.085 +00:00 [INF] HTTP GET / responded 200 in 135.9295 ms
+2025-09-27 08:02:41.085 +00:00 [DBG] Connection id "0HNFTJGTLR8DI" completed keep alive response.
+2025-09-27 08:02:41.091 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5196/ - 200 null text/html; charset=utf-8 149.7717ms
+2025-09-27 08:02:41.478 +00:00 [DBG] Connection id "0HNFTJGTLR8DJ" accepted.
+2025-09-27 08:02:41.479 +00:00 [DBG] Connection id "0HNFTJGTLR8DJ" started.
+2025-09-27 08:02:41.539 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5196/css/site.css?v=r22M7xOahcMheWCkoVof2Nt7pQmj7mMSFKTei-SfmQ0 - null null
+2025-09-27 08:02:41.550 +00:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: '/workspaces/BrowserFile/BrowserFile/BrowserFile/wwwroot/css/site.css'
+2025-09-27 08:02:41.551 +00:00 [DBG] Connection id "0HNFTJGTLR8DJ" completed keep alive response.
+2025-09-27 08:02:41.551 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5196/css/site.css?v=r22M7xOahcMheWCkoVof2Nt7pQmj7mMSFKTei-SfmQ0 - 200 341 text/css 12.1688ms
+2025-09-27 08:02:41.657 +00:00 [DBG] Connection id "0HNFTJGTLR8DK" accepted.
+2025-09-27 08:02:41.657 +00:00 [DBG] Connection id "0HNFTJGTLR8DK" started.
+2025-09-27 08:02:41.750 +00:00 [DBG] Connection id "0HNFTJGTLR8DL" accepted.
+2025-09-27 08:02:41.751 +00:00 [DBG] Connection id "0HNFTJGTLR8DL" started.
+2025-09-27 08:02:41.824 +00:00 [DBG] Connection id "0HNFTJGTLR8DM" accepted.
+2025-09-27 08:02:41.824 +00:00 [DBG] Connection id "0HNFTJGTLR8DM" started.
+2025-09-27 08:02:41.889 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5196/js/site.js?v=y_Ngd8W21UpuCUhEqGbUKDEqFnNfTjAfb24GhJJGUyM - null null
+2025-09-27 08:02:41.899 +00:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: '/workspaces/BrowserFile/BrowserFile/BrowserFile/wwwroot/js/site.js'
+2025-09-27 08:02:41.899 +00:00 [DBG] Connection id "0HNFTJGTLR8DK" completed keep alive response.
+2025-09-27 08:02:41.900 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5196/js/site.js?v=y_Ngd8W21UpuCUhEqGbUKDEqFnNfTjAfb24GhJJGUyM - 200 227 text/javascript 10.9287ms
+2025-09-27 08:02:41.922 +00:00 [DBG] Connection id "0HNFTJGTLR8DN" accepted.
+2025-09-27 08:02:41.923 +00:00 [DBG] Connection id "0HNFTJGTLR8DN" started.
+2025-09-27 08:02:41.946 +00:00 [DBG] Connection id "0HNFTJGTLR8DO" accepted.
+2025-09-27 08:02:41.949 +00:00 [DBG] Connection id "0HNFTJGTLR8DO" started.
+2025-09-27 08:02:41.985 +00:00 [DBG] Connection id "0HNFTJGTLR8DP" accepted.
+2025-09-27 08:02:41.987 +00:00 [DBG] Connection id "0HNFTJGTLR8DP" started.
+2025-09-27 08:02:41.998 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5196/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2025-09-27 08:02:42.009 +00:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: '/workspaces/BrowserFile/BrowserFile/BrowserFile/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js'
+2025-09-27 08:02:42.010 +00:00 [DBG] Connection id "0HNFTJGTLR8DL" completed keep alive response.
+2025-09-27 08:02:42.010 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5196/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 200 78468 text/javascript 12.1576ms
+2025-09-27 08:02:42.037 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5196/lib/jquery-validation/dist/jquery.validate.min.js - null null
+2025-09-27 08:02:42.046 +00:00 [INF] Sending file. Request path: '/lib/jquery-validation/dist/jquery.validate.min.js'. Physical path: '/workspaces/BrowserFile/BrowserFile/BrowserFile/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js'
+2025-09-27 08:02:42.046 +00:00 [DBG] Connection id "0HNFTJGTLR8DM" completed keep alive response.
+2025-09-27 08:02:42.047 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5196/lib/jquery-validation/dist/jquery.validate.min.js - 200 24601 text/javascript 9.4184ms
+2025-09-27 08:02:42.106 +00:00 [DBG] Connection id "0HNFTJGTLR8DQ" accepted.
+2025-09-27 08:02:42.109 +00:00 [DBG] Connection id "0HNFTJGTLR8DQ" started.
+2025-09-27 08:02:42.143 +00:00 [DBG] Connection id "0HNFTJGTLR8DR" accepted.
+2025-09-27 08:02:42.145 +00:00 [DBG] Connection id "0HNFTJGTLR8DR" started.
+2025-09-27 08:02:42.172 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5196/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2025-09-27 08:02:42.198 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5196/BrowserFile.styles.css?v=2m6MVetdIcyMKCn_U873X80Dg75YBjV5ndgu40Bs_58 - null null
+2025-09-27 08:02:42.198 +00:00 [INF] Sending file. Request path: '/BrowserFile.styles.css'. Physical path: '/workspaces/BrowserFile/BrowserFile/BrowserFile/obj/Debug/net8.0/scopedcss/bundle/BrowserFile.styles.css'
+2025-09-27 08:02:42.199 +00:00 [DBG] Connection id "0HNFTJGTLR8DO" completed keep alive response.
+2025-09-27 08:02:42.201 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5196/BrowserFile.styles.css?v=2m6MVetdIcyMKCn_U873X80Dg75YBjV5ndgu40Bs_58 - 200 1080 text/css 3.3042ms
+2025-09-27 08:02:42.196 +00:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: '/workspaces/BrowserFile/BrowserFile/BrowserFile/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css'
+2025-09-27 08:02:42.202 +00:00 [DBG] Connection id "0HNFTJGTLR8DN" completed keep alive response.
+2025-09-27 08:02:42.203 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5196/lib/bootstrap/dist/css/bootstrap.min.css - 200 162720 text/css 31.1587ms
+2025-09-27 08:02:42.212 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5196/images/bootstrap-logo.svg - null null
+2025-09-27 08:02:42.213 +00:00 [DBG] The request path /images/bootstrap-logo.svg does not match an existing file
+2025-09-27 08:02:42.215 +00:00 [DBG] The request path /images/bootstrap-logo.svg does not match an existing file
+2025-09-27 08:02:42.217 +00:00 [DBG] No candidates found for the request path '/images/bootstrap-logo.svg'
+2025-09-27 08:02:42.217 +00:00 [DBG] Request did not match any endpoints
+2025-09-27 08:02:42.222 +00:00 [DBG] AuthenticationScheme: Identity.Application was not authenticated.
+2025-09-27 08:02:42.222 +00:00 [INF] HTTP GET /images/bootstrap-logo.svg responded 404 in 7.6636 ms
+2025-09-27 08:02:42.224 +00:00 [DBG] Connection id "0HNFTJGTLR8DP" completed keep alive response.
+2025-09-27 08:02:42.224 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5196/images/bootstrap-logo.svg - 404 0 null 11.8935ms
+2025-09-27 08:02:42.225 +00:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5196/images/bootstrap-logo.svg, Response status code: 404
+2025-09-27 08:02:42.257 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5196/lib/jquery/dist/jquery.min.js - null null
+2025-09-27 08:02:42.260 +00:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: '/workspaces/BrowserFile/BrowserFile/BrowserFile/wwwroot/lib/jquery/dist/jquery.min.js'
+2025-09-27 08:02:42.260 +00:00 [DBG] Connection id "0HNFTJGTLR8DQ" completed keep alive response.
+2025-09-27 08:02:42.261 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5196/lib/jquery/dist/jquery.min.js - 200 89501 text/javascript 4.5452ms
+2025-09-27 08:02:42.265 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5196/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - null null
+2025-09-27 08:02:42.267 +00:00 [INF] Sending file. Request path: '/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js'. Physical path: '/workspaces/BrowserFile/BrowserFile/BrowserFile/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js'
+2025-09-27 08:02:42.267 +00:00 [DBG] Connection id "0HNFTJGTLR8DR" completed keep alive response.
+2025-09-27 08:02:42.269 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5196/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - 200 5824 text/javascript 3.6012ms
+2025-09-27 08:02:42.529 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5196/favicon.ico - null null
+2025-09-27 08:02:42.535 +00:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: '/workspaces/BrowserFile/BrowserFile/BrowserFile/wwwroot/favicon.ico'
+2025-09-27 08:02:42.537 +00:00 [DBG] Connection id "0HNFTJGTLR8DI" completed keep alive response.
+2025-09-27 08:02:42.537 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5196/favicon.ico - 200 5430 image/x-icon 8.0494ms
+2025-09-27 08:02:48.385 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5196/ - application/x-www-form-urlencoded 214
+2025-09-27 08:02:48.386 +00:00 [DBG] POST requests are not supported
+2025-09-27 08:02:48.386 +00:00 [DBG] POST requests are not supported
+2025-09-27 08:02:48.386 +00:00 [DBG] 1 candidate(s) found for the request path '/'
+2025-09-27 08:02:48.386 +00:00 [DBG] Endpoint 'BrowserFile.Controllers.AccountController.Login (BrowserFile)' with route pattern '{controller=Account}/{action=Login}/{id?}' is valid for the request path '/'
+2025-09-27 08:02:48.386 +00:00 [DBG] Request matched endpoint 'BrowserFile.Controllers.AccountController.Login (BrowserFile)'
+2025-09-27 08:02:48.389 +00:00 [DBG] AuthenticationScheme: Identity.Application was not authenticated.
+2025-09-27 08:02:48.389 +00:00 [INF] Executing endpoint 'BrowserFile.Controllers.AccountController.Login (BrowserFile)'
+2025-09-27 08:02:48.399 +00:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BrowserFile.Models.ViewModels.LoginViewModel) on controller BrowserFile.Controllers.AccountController (BrowserFile).
+2025-09-27 08:02:48.399 +00:00 [DBG] Execution plan of authorization filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.ValidateAntiforgeryTokenAuthorizationFilter"]
+2025-09-27 08:02:48.399 +00:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-09-27 08:02:48.399 +00:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2025-09-27 08:02:48.399 +00:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-09-27 08:02:48.399 +00:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-09-27 08:02:48.403 +00:00 [DBG] Connection id "0HNFTJGTLR8DR", Request id "0HNFTJGTLR8DR:00000002": started reading request body.
+2025-09-27 08:02:48.403 +00:00 [DBG] Connection id "0HNFTJGTLR8DR", Request id "0HNFTJGTLR8DR:00000002": done reading request body.
+2025-09-27 08:02:48.407 +00:00 [DBG] Antiforgery successfully validated a request.
+2025-09-27 08:02:48.407 +00:00 [DBG] Executing controller factory for controller BrowserFile.Controllers.AccountController (BrowserFile)
+2025-09-27 08:02:48.408 +00:00 [DBG] Executed controller factory for controller BrowserFile.Controllers.AccountController (BrowserFile)
+2025-09-27 08:02:48.412 +00:00 [DBG] Attempting to bind parameter 'login' of type 'BrowserFile.Models.ViewModels.LoginViewModel' ...
+2025-09-27 08:02:48.414 +00:00 [DBG] Attempting to bind parameter 'login' of type 'BrowserFile.Models.ViewModels.LoginViewModel' using the name '' in request data ...
+2025-09-27 08:02:48.417 +00:00 [DBG] Attempting to bind property 'BrowserFile.Models.ViewModels.LoginViewModel.Name' of type 'System.String' using the name 'Name' in request data ...
+2025-09-27 08:02:48.417 +00:00 [DBG] Done attempting to bind property 'BrowserFile.Models.ViewModels.LoginViewModel.Name' of type 'System.String'.
+2025-09-27 08:02:48.419 +00:00 [DBG] Attempting to bind property 'BrowserFile.Models.ViewModels.LoginViewModel.Password' of type 'System.String' using the name 'Password' in request data ...
+2025-09-27 08:02:48.419 +00:00 [DBG] Done attempting to bind property 'BrowserFile.Models.ViewModels.LoginViewModel.Password' of type 'System.String'.
+2025-09-27 08:02:48.420 +00:00 [DBG] Done attempting to bind parameter 'login' of type 'BrowserFile.Models.ViewModels.LoginViewModel'.
+2025-09-27 08:02:48.420 +00:00 [DBG] Done attempting to bind parameter 'login' of type 'BrowserFile.Models.ViewModels.LoginViewModel'.
+2025-09-27 08:02:48.420 +00:00 [DBG] Attempting to validate the bound parameter 'login' of type 'BrowserFile.Models.ViewModels.LoginViewModel' ...
+2025-09-27 08:02:48.424 +00:00 [DBG] Done attempting to validate the bound parameter 'login' of type 'BrowserFile.Models.ViewModels.LoginViewModel'.
+2025-09-27 08:02:48.467 +00:00 [DBG] Entity Framework Core 8.0.19 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:8.0.19' with options: None
+2025-09-27 08:02:48.469 +00:00 [DBG] Compiling query expression: 
+'DbSet<ApplicationUser>()
+    .FirstOrDefault(u => u.NormalizedUserName == __normalizedUserName_0)'
+2025-09-27 08:02:48.477 +00:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<ApplicationUser>(
+    asyncEnumerable: new SingleQueryingEnumerable<ApplicationUser>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: ApplicationUser.Id (string) Required PK AfterSave:Throw, 0], [Property: ApplicationUser.AccessFailedCount (int) Required, 1], [Property: ApplicationUser.ConcurrencyStamp (string) Concurrency, 2], [Property: ApplicationUser.Email (string) MaxLength(256), 3], [Property: ApplicationUser.EmailConfirmed (bool) Required, 4], [Property: ApplicationUser.LockoutEnabled (bool) Required, 5], [Property: ApplicationUser.LockoutEnd (DateTimeOffset?), 6], [Property: ApplicationUser.NormalizedEmail (string) Index MaxLength(256), 7], [Property: ApplicationUser.NormalizedUserName (string) Index MaxLength(256), 8], [Property: ApplicationUser.PasswordHash (string), 9], [Property: ApplicationUser.PhoneNumber (string), 10], [Property: ApplicationUser.PhoneNumberConfirmed (bool) Required, 11], [Property: ApplicationUser.SecurityStamp (string), 12], [Property: ApplicationUser.TwoFactorEnabled (bool) Required, 13], [Property: ApplicationUser.UserName (string) MaxLength(256), 14] }
+            SELECT TOP(1) a.Id, a.AccessFailedCount, a.ConcurrencyStamp, a.Email, a.EmailConfirmed, a.LockoutEnabled, a.LockoutEnd, a.NormalizedEmail, a.NormalizedUserName, a.PasswordHash, a.PhoneNumber, a.PhoneNumberConfirmed, a.SecurityStamp, a.TwoFactorEnabled, a.UserName
+            FROM AspNetUsers AS a
+            WHERE a.NormalizedUserName == @__normalizedUserName_0), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, ApplicationUser>, 
+        BrowserFile.Data.ApplicationDbContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2025-09-27 08:02:48.486 +00:00 [DBG] Creating DbConnection.
+2025-09-27 08:02:48.487 +00:00 [DBG] Created DbConnection. (0ms).
+2025-09-27 08:02:48.488 +00:00 [DBG] Opening connection to database 'main' on server 'MyApp.db'.
+2025-09-27 08:02:48.490 +00:00 [DBG] Opened connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:48.490 +00:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-09-27 08:02:48.490 +00:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2025-09-27 08:02:48.490 +00:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2025-09-27 08:02:48.491 +00:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2025-09-27 08:02:48.493 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2025-09-27 08:02:48.494 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'ApplicationUser' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:48.497 +00:00 [DBG] Closing data reader to 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:48.497 +00:00 [DBG] A data reader for 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db' is being disposed after spending 4ms reading results.
+2025-09-27 08:02:48.499 +00:00 [DBG] Closing connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:48.500 +00:00 [DBG] Closed connection to database 'main' on server 'MyApp.db' (0ms).
+2025-09-27 08:02:48.614 +00:00 [DBG] Compiling query expression: 
+'DbSet<IdentityUserClaim<string>>()
+    .Where(uc => uc.UserId.Equals(__user_Id_0))
+    .Select(c => c.ToClaim())'
+2025-09-27 08:02:48.633 +00:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Claim>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: IdentityUserClaim<string>.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: IdentityUserClaim<string>.ClaimType (string), 1], [Property: IdentityUserClaim<string>.ClaimValue (string), 2], [Property: IdentityUserClaim<string>.UserId (string) Required FK Index, 3] }
+        SELECT a.Id, a.ClaimType, a.ClaimValue, a.UserId
+        FROM AspNetUserClaims AS a
+        WHERE a.UserId == @__user_Id_0), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Claim>, 
+    BrowserFile.Data.ApplicationDbContext, 
+    False, 
+    False, 
+    True
+)'
+2025-09-27 08:02:48.634 +00:00 [DBG] Opening connection to database 'main' on server 'MyApp.db'.
+2025-09-27 08:02:48.635 +00:00 [DBG] Opened connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:48.635 +00:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-09-27 08:02:48.635 +00:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2025-09-27 08:02:48.635 +00:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2025-09-27 08:02:48.635 +00:00 [DBG] Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+FROM "AspNetUserClaims" AS "a"
+WHERE "a"."UserId" = @__user_Id_0
+2025-09-27 08:02:48.635 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+FROM "AspNetUserClaims" AS "a"
+WHERE "a"."UserId" = @__user_Id_0
+2025-09-27 08:02:48.636 +00:00 [DBG] Closing data reader to 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:48.636 +00:00 [DBG] A data reader for 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db' is being disposed after spending 0ms reading results.
+2025-09-27 08:02:48.638 +00:00 [DBG] Closing connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:48.638 +00:00 [DBG] Closed connection to database 'main' on server 'MyApp.db' (0ms).
+2025-09-27 08:02:48.642 +00:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2025-09-27 08:02:48.642 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (action=[Index],controller=[Home])
+2025-09-27 08:02:48.643 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Home/Index and 
+2025-09-27 08:02:48.643 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Home/Index
+2025-09-27 08:02:48.643 +00:00 [INF] Executing RedirectResult, redirecting to /Home/Index.
+2025-09-27 08:02:48.644 +00:00 [INF] Executed action BrowserFile.Controllers.AccountController.Login (BrowserFile) in 244.1474ms
+2025-09-27 08:02:48.644 +00:00 [INF] Executed endpoint 'BrowserFile.Controllers.AccountController.Login (BrowserFile)'
+2025-09-27 08:02:48.644 +00:00 [INF] HTTP POST / responded 302 in 258.2627 ms
+2025-09-27 08:02:48.644 +00:00 [DBG] Connection id "0HNFTJGTLR8DR" completed keep alive response.
+2025-09-27 08:02:48.644 +00:00 [DBG] 'ApplicationDbContext' disposed.
+2025-09-27 08:02:48.647 +00:00 [DBG] Disposing connection to database 'main' on server 'MyApp.db'.
+2025-09-27 08:02:48.647 +00:00 [DBG] Disposed connection to database 'main' on server 'MyApp.db' (0ms).
+2025-09-27 08:02:48.647 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5196/ - 302 0 null 262.183ms
+2025-09-27 08:02:48.725 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5196/Home/Index - null null
+2025-09-27 08:02:48.725 +00:00 [DBG] The request path /Home/Index does not match a supported file type
+2025-09-27 08:02:48.725 +00:00 [DBG] The request path /Home/Index does not match a supported file type
+2025-09-27 08:02:48.727 +00:00 [DBG] 1 candidate(s) found for the request path '/Home/Index'
+2025-09-27 08:02:48.727 +00:00 [DBG] Endpoint 'BrowserFile.Controllers.HomeController.Index (BrowserFile)' with route pattern '{controller=Account}/{action=Login}/{id?}' is valid for the request path '/Home/Index'
+2025-09-27 08:02:48.727 +00:00 [DBG] Request matched endpoint 'BrowserFile.Controllers.HomeController.Index (BrowserFile)'
+2025-09-27 08:02:48.731 +00:00 [DBG] AuthenticationScheme: Identity.Application was successfully authenticated.
+2025-09-27 08:02:48.734 +00:00 [DBG] Authorization was successful.
+2025-09-27 08:02:48.734 +00:00 [INF] Executing endpoint 'BrowserFile.Controllers.HomeController.Index (BrowserFile)'
+2025-09-27 08:02:48.736 +00:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BrowserFile.Controllers.HomeController (BrowserFile).
+2025-09-27 08:02:48.736 +00:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-09-27 08:02:48.736 +00:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-09-27 08:02:48.736 +00:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2025-09-27 08:02:48.736 +00:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-09-27 08:02:48.736 +00:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-09-27 08:02:48.736 +00:00 [DBG] Executing controller factory for controller BrowserFile.Controllers.HomeController (BrowserFile)
+2025-09-27 08:02:48.736 +00:00 [DBG] Executed controller factory for controller BrowserFile.Controllers.HomeController (BrowserFile)
+2025-09-27 08:02:48.737 +00:00 [DBG] View lookup cache miss for view 'Index' in controller 'Home'.
+2025-09-27 08:02:48.738 +00:00 [INF] Executing ViewResult, running view Index.
+2025-09-27 08:02:48.738 +00:00 [DBG] The view path '/Views/Home/Index.cshtml' was found in 1.1047ms.
+2025-09-27 08:02:48.741 +00:00 [DBG] View lookup cache miss for view '_Layout' in controller 'Home'.
+2025-09-27 08:02:48.743 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (area=[],action=[Index],controller=[Home])
+2025-09-27 08:02:48.743 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Home/Index and 
+2025-09-27 08:02:48.744 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Home/Index
+2025-09-27 08:02:48.744 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (area=[],action=[Privacy],controller=[Home])
+2025-09-27 08:02:48.745 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Home/Privacy and 
+2025-09-27 08:02:48.745 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Home/Privacy
+2025-09-27 08:02:48.746 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (area=[],action=[File],controller=[File])
+2025-09-27 08:02:48.746 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /File/File and 
+2025-09-27 08:02:48.746 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /File/File
+2025-09-27 08:02:48.747 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (area=[],action=[Index],controller=[Folder])
+2025-09-27 08:02:48.748 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Folder/Index and 
+2025-09-27 08:02:48.748 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Folder/Index
+2025-09-27 08:02:48.749 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (action=[Logout],controller=[Account])
+2025-09-27 08:02:48.749 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Account/Logout and 
+2025-09-27 08:02:48.750 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Account/Logout
+2025-09-27 08:02:48.751 +00:00 [DBG] An antiforgery cookie token was reused.
+2025-09-27 08:02:48.752 +00:00 [DBG] The temp data cookie .AspNetCore.Mvc.CookieTempDataProvider was not found.
+2025-09-27 08:02:48.752 +00:00 [INF] Executed ViewResult - view Index executed in 15.74ms.
+2025-09-27 08:02:48.753 +00:00 [INF] Executed action BrowserFile.Controllers.HomeController.Index (BrowserFile) in 17.0113ms
+2025-09-27 08:02:48.753 +00:00 [INF] Executed endpoint 'BrowserFile.Controllers.HomeController.Index (BrowserFile)'
+2025-09-27 08:02:48.754 +00:00 [INF] HTTP GET /Home/Index responded 200 in 28.1240 ms
+2025-09-27 08:02:48.754 +00:00 [DBG] Connection id "0HNFTJGTLR8DI" completed keep alive response.
+2025-09-27 08:02:48.754 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5196/Home/Index - 200 null text/html; charset=utf-8 29.5224ms
+2025-09-27 08:02:48.971 +00:00 [DBG] Connection id "0HNFTJGTLR8DS" accepted.
+2025-09-27 08:02:48.971 +00:00 [DBG] Connection id "0HNFTJGTLR8DS" started.
+2025-09-27 08:02:48.983 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5196/images/bootstrap-logo.svg - null null
+2025-09-27 08:02:48.983 +00:00 [DBG] The request path /images/bootstrap-logo.svg does not match an existing file
+2025-09-27 08:02:48.983 +00:00 [DBG] The request path /images/bootstrap-logo.svg does not match an existing file
+2025-09-27 08:02:48.983 +00:00 [DBG] No candidates found for the request path '/images/bootstrap-logo.svg'
+2025-09-27 08:02:48.984 +00:00 [DBG] Request did not match any endpoints
+2025-09-27 08:02:48.985 +00:00 [DBG] AuthenticationScheme: Identity.Application was successfully authenticated.
+2025-09-27 08:02:48.985 +00:00 [INF] HTTP GET /images/bootstrap-logo.svg responded 404 in 1.7063 ms
+2025-09-27 08:02:48.985 +00:00 [DBG] Connection id "0HNFTJGTLR8DS" completed keep alive response.
+2025-09-27 08:02:48.985 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5196/images/bootstrap-logo.svg - 404 0 null 2.3275ms
+2025-09-27 08:02:48.986 +00:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5196/images/bootstrap-logo.svg, Response status code: 404
+2025-09-27 08:02:50.397 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5196/Folder/Index - null null
+2025-09-27 08:02:50.398 +00:00 [DBG] The request path /Folder/Index does not match a supported file type
+2025-09-27 08:02:50.398 +00:00 [DBG] The request path /Folder/Index does not match a supported file type
+2025-09-27 08:02:50.398 +00:00 [DBG] 1 candidate(s) found for the request path '/Folder/Index'
+2025-09-27 08:02:50.398 +00:00 [DBG] Endpoint 'BrowserFile.Controllers.FolderController.Index (BrowserFile)' with route pattern '{controller=Account}/{action=Login}/{id?}' is valid for the request path '/Folder/Index'
+2025-09-27 08:02:50.398 +00:00 [DBG] Request matched endpoint 'BrowserFile.Controllers.FolderController.Index (BrowserFile)'
+2025-09-27 08:02:50.408 +00:00 [DBG] AuthenticationScheme: Identity.Application was successfully authenticated.
+2025-09-27 08:02:50.410 +00:00 [DBG] Authorization was successful.
+2025-09-27 08:02:50.410 +00:00 [INF] Executing endpoint 'BrowserFile.Controllers.FolderController.Index (BrowserFile)'
+2025-09-27 08:02:50.413 +00:00 [INF] Route matched with {action = "Index", controller = "Folder"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller BrowserFile.Controllers.FolderController (BrowserFile).
+2025-09-27 08:02:50.413 +00:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-09-27 08:02:50.413 +00:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-09-27 08:02:50.413 +00:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2025-09-27 08:02:50.414 +00:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-09-27 08:02:50.414 +00:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-09-27 08:02:50.414 +00:00 [DBG] Executing controller factory for controller BrowserFile.Controllers.FolderController (BrowserFile)
+2025-09-27 08:02:50.492 +00:00 [DBG] Executed controller factory for controller BrowserFile.Controllers.FolderController (BrowserFile)
+2025-09-27 08:02:50.503 +00:00 [DBG] Entity Framework Core 8.0.19 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:8.0.19' with options: None
+2025-09-27 08:02:50.505 +00:00 [DBG] Compiling query expression: 
+'DbSet<Folder>()
+    .Where(f => f.UserId == __CurrentUserId_0)'
+2025-09-27 08:02:50.509 +00:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Folder>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Folder.Id (string) Required PK AfterSave:Throw, 0], [Property: Folder.CreatedAt (DateTime) Required, 1], [Property: Folder.Description (string), 2], [Property: Folder.IconId (string) Required FK Index, 3], [Property: Folder.Name (string) Required Index, 4], [Property: Folder.Tag (string), 5], [Property: Folder.UserId (string) Required FK Index, 6] }
+        SELECT f.Id, f.CreatedAt, f.Description, f.IconId, f.Name, f.Tag, f.UserId
+        FROM Folders AS f
+        WHERE f.UserId == @__CurrentUserId_0), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Folder>, 
+    BrowserFile.Data.ApplicationDbContext, 
+    False, 
+    False, 
+    True
+)'
+2025-09-27 08:02:50.509 +00:00 [DBG] Creating DbConnection.
+2025-09-27 08:02:50.509 +00:00 [DBG] Created DbConnection. (0ms).
+2025-09-27 08:02:50.509 +00:00 [DBG] Opening connection to database 'main' on server 'MyApp.db'.
+2025-09-27 08:02:50.509 +00:00 [DBG] Opened connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:50.509 +00:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-09-27 08:02:50.509 +00:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2025-09-27 08:02:50.510 +00:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2025-09-27 08:02:50.510 +00:00 [DBG] Executing DbCommand [Parameters=[@__CurrentUserId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "f"."Id", "f"."CreatedAt", "f"."Description", "f"."IconId", "f"."Name", "f"."Tag", "f"."UserId"
+FROM "Folders" AS "f"
+WHERE "f"."UserId" = @__CurrentUserId_0
+2025-09-27 08:02:50.510 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__CurrentUserId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "f"."Id", "f"."CreatedAt", "f"."Description", "f"."IconId", "f"."Name", "f"."Tag", "f"."UserId"
+FROM "Folders" AS "f"
+WHERE "f"."UserId" = @__CurrentUserId_0
+2025-09-27 08:02:50.525 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Folder' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.534 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Folder' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.534 +00:00 [DBG] Closing data reader to 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:50.534 +00:00 [DBG] A data reader for 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db' is being disposed after spending 24ms reading results.
+2025-09-27 08:02:50.534 +00:00 [DBG] Closing connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:50.534 +00:00 [DBG] Closed connection to database 'main' on server 'MyApp.db' (0ms).
+2025-09-27 08:02:50.535 +00:00 [DBG] Compiling query expression: 
+'DbSet<Icon>()'
+2025-09-27 08:02:50.538 +00:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Icon>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Icon.Id (string) Required PK AfterSave:Throw, 0], [Property: Icon.Name (string) Required, 1], [Property: Icon.Url (string) Required, 2] }
+        SELECT i.Id, i.Name, i.Url
+        FROM Icons AS i), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Icon>, 
+    BrowserFile.Data.ApplicationDbContext, 
+    False, 
+    False, 
+    True
+)'
+2025-09-27 08:02:50.539 +00:00 [DBG] Opening connection to database 'main' on server 'MyApp.db'.
+2025-09-27 08:02:50.539 +00:00 [DBG] Opened connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:50.539 +00:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-09-27 08:02:50.539 +00:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2025-09-27 08:02:50.539 +00:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2025-09-27 08:02:50.539 +00:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "i"."Id", "i"."Name", "i"."Url"
+FROM "Icons" AS "i"
+2025-09-27 08:02:50.539 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "i"."Id", "i"."Name", "i"."Url"
+FROM "Icons" AS "i"
+2025-09-27 08:02:50.544 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Icon' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.549 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Icon' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.549 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Icon' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.549 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Icon' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.556 +00:00 [DBG] The navigation 'Folder.Icon' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.562 +00:00 [DBG] The navigation 'Folder.Icon' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.562 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Icon' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.562 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Icon' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.562 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Icon' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.562 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Icon' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.562 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Icon' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.562 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Icon' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.563 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Icon' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.563 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Icon' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.563 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Icon' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.563 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Icon' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.563 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Icon' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.563 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Icon' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.563 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Icon' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.563 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Icon' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.563 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Icon' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.563 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Icon' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:50.563 +00:00 [DBG] Closing data reader to 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:50.563 +00:00 [DBG] A data reader for 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db' is being disposed after spending 24ms reading results.
+2025-09-27 08:02:50.563 +00:00 [DBG] Closing connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:50.563 +00:00 [DBG] Closed connection to database 'main' on server 'MyApp.db' (0ms).
+2025-09-27 08:02:50.564 +00:00 [DBG] View lookup cache miss for view 'Index' in controller 'Folder'.
+2025-09-27 08:02:50.564 +00:00 [INF] Executing ViewResult, running view Index.
+2025-09-27 08:02:50.565 +00:00 [DBG] The view path '/Views/Folder/Index.cshtml' was found in 0.8044ms.
+2025-09-27 08:02:50.571 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (id=[c92ab5e4-d789-4318-93c8-f5517ad4670b],action=[Index],controller=[File])
+2025-09-27 08:02:50.572 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /File/Index/c92ab5e4-d789-4318-93c8-f5517ad4670b and 
+2025-09-27 08:02:50.572 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /File/Index/c92ab5e4-d789-4318-93c8-f5517ad4670b
+2025-09-27 08:02:50.572 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (id=[62fb097d-7c37-4ed6-b843-ec302eb260dd],action=[Index],controller=[File])
+2025-09-27 08:02:50.572 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /File/Index/62fb097d-7c37-4ed6-b843-ec302eb260dd and 
+2025-09-27 08:02:50.572 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /File/Index/62fb097d-7c37-4ed6-b843-ec302eb260dd
+2025-09-27 08:02:50.572 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (action=[Create],controller=[Folder])
+2025-09-27 08:02:50.573 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Folder/Create and 
+2025-09-27 08:02:50.573 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Folder/Create
+2025-09-27 08:02:50.573 +00:00 [DBG] An antiforgery cookie token was reused.
+2025-09-27 08:02:50.588 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (id=[c92ab5e4-d789-4318-93c8-f5517ad4670b],action=[Edit],controller=[Folder])
+2025-09-27 08:02:50.589 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Folder/Edit/c92ab5e4-d789-4318-93c8-f5517ad4670b and 
+2025-09-27 08:02:50.589 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Folder/Edit/c92ab5e4-d789-4318-93c8-f5517ad4670b
+2025-09-27 08:02:50.589 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (id=[62fb097d-7c37-4ed6-b843-ec302eb260dd],action=[Edit],controller=[Folder])
+2025-09-27 08:02:50.589 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Folder/Edit/62fb097d-7c37-4ed6-b843-ec302eb260dd and 
+2025-09-27 08:02:50.589 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Folder/Edit/62fb097d-7c37-4ed6-b843-ec302eb260dd
+2025-09-27 08:02:50.589 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (id=[c92ab5e4-d789-4318-93c8-f5517ad4670b],action=[Delete],controller=[Folder])
+2025-09-27 08:02:50.590 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Folder/Delete/c92ab5e4-d789-4318-93c8-f5517ad4670b and 
+2025-09-27 08:02:50.590 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Folder/Delete/c92ab5e4-d789-4318-93c8-f5517ad4670b
+2025-09-27 08:02:50.590 +00:00 [DBG] An antiforgery cookie token was reused.
+2025-09-27 08:02:50.591 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (id=[62fb097d-7c37-4ed6-b843-ec302eb260dd],action=[Delete],controller=[Folder])
+2025-09-27 08:02:50.591 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Folder/Delete/62fb097d-7c37-4ed6-b843-ec302eb260dd and 
+2025-09-27 08:02:50.591 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Folder/Delete/62fb097d-7c37-4ed6-b843-ec302eb260dd
+2025-09-27 08:02:50.591 +00:00 [DBG] An antiforgery cookie token was reused.
+2025-09-27 08:02:50.591 +00:00 [DBG] View lookup cache miss for view '_Layout' in controller 'Folder'.
+2025-09-27 08:02:50.592 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (area=[],action=[Index],controller=[Home])
+2025-09-27 08:02:50.592 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Home/Index and 
+2025-09-27 08:02:50.592 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Home/Index
+2025-09-27 08:02:50.592 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (area=[],action=[Privacy],controller=[Home])
+2025-09-27 08:02:50.592 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Home/Privacy and 
+2025-09-27 08:02:50.592 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Home/Privacy
+2025-09-27 08:02:50.593 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (area=[],action=[File],controller=[File])
+2025-09-27 08:02:50.593 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /File/File and 
+2025-09-27 08:02:50.593 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /File/File
+2025-09-27 08:02:50.593 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (area=[],action=[Index],controller=[Folder])
+2025-09-27 08:02:50.593 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Folder/Index and 
+2025-09-27 08:02:50.593 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Folder/Index
+2025-09-27 08:02:50.593 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (action=[Logout],controller=[Account])
+2025-09-27 08:02:50.593 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Account/Logout and 
+2025-09-27 08:02:50.593 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Account/Logout
+2025-09-27 08:02:50.593 +00:00 [DBG] An antiforgery cookie token was reused.
+2025-09-27 08:02:50.593 +00:00 [DBG] The temp data cookie .AspNetCore.Mvc.CookieTempDataProvider was not found.
+2025-09-27 08:02:50.595 +00:00 [INF] Executed ViewResult - view Index executed in 30.8969ms.
+2025-09-27 08:02:50.595 +00:00 [INF] Executed action BrowserFile.Controllers.FolderController.Index (BrowserFile) in 180.9835ms
+2025-09-27 08:02:50.595 +00:00 [INF] Executed endpoint 'BrowserFile.Controllers.FolderController.Index (BrowserFile)'
+2025-09-27 08:02:50.595 +00:00 [INF] HTTP GET /Folder/Index responded 200 in 197.1913 ms
+2025-09-27 08:02:50.595 +00:00 [DBG] Connection id "0HNFTJGTLR8DL" completed keep alive response.
+2025-09-27 08:02:50.595 +00:00 [DBG] 'ApplicationDbContext' disposed.
+2025-09-27 08:02:50.595 +00:00 [DBG] Disposing connection to database 'main' on server 'MyApp.db'.
+2025-09-27 08:02:50.595 +00:00 [DBG] Disposed connection to database 'main' on server 'MyApp.db' (0ms).
+2025-09-27 08:02:50.595 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5196/Folder/Index - 200 null text/html; charset=utf-8 197.7842ms
+2025-09-27 08:02:51.184 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5196/images/bootstrap-logo.svg - null null
+2025-09-27 08:02:51.185 +00:00 [DBG] The request path /images/bootstrap-logo.svg does not match an existing file
+2025-09-27 08:02:51.185 +00:00 [DBG] The request path /images/bootstrap-logo.svg does not match an existing file
+2025-09-27 08:02:51.185 +00:00 [DBG] No candidates found for the request path '/images/bootstrap-logo.svg'
+2025-09-27 08:02:51.185 +00:00 [DBG] Request did not match any endpoints
+2025-09-27 08:02:51.187 +00:00 [DBG] AuthenticationScheme: Identity.Application was successfully authenticated.
+2025-09-27 08:02:51.188 +00:00 [INF] HTTP GET /images/bootstrap-logo.svg responded 404 in 3.2286 ms
+2025-09-27 08:02:51.188 +00:00 [DBG] Connection id "0HNFTJGTLR8DM" completed keep alive response.
+2025-09-27 08:02:51.189 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5196/images/bootstrap-logo.svg - 404 0 null 4.1316ms
+2025-09-27 08:02:51.189 +00:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5196/images/bootstrap-logo.svg, Response status code: 404
+2025-09-27 08:02:52.726 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5196/File/Index/c92ab5e4-d789-4318-93c8-f5517ad4670b - null null
+2025-09-27 08:02:52.728 +00:00 [DBG] The request path /File/Index/c92ab5e4-d789-4318-93c8-f5517ad4670b does not match a supported file type
+2025-09-27 08:02:52.728 +00:00 [DBG] The request path /File/Index/c92ab5e4-d789-4318-93c8-f5517ad4670b does not match a supported file type
+2025-09-27 08:02:52.728 +00:00 [DBG] 1 candidate(s) found for the request path '/File/Index/c92ab5e4-d789-4318-93c8-f5517ad4670b'
+2025-09-27 08:02:52.728 +00:00 [DBG] Endpoint 'BrowserFile.Controllers.FileController.Index (BrowserFile)' with route pattern '{controller=Account}/{action=Login}/{id?}' is valid for the request path '/File/Index/c92ab5e4-d789-4318-93c8-f5517ad4670b'
+2025-09-27 08:02:52.729 +00:00 [DBG] Request matched endpoint 'BrowserFile.Controllers.FileController.Index (BrowserFile)'
+2025-09-27 08:02:52.732 +00:00 [DBG] AuthenticationScheme: Identity.Application was successfully authenticated.
+2025-09-27 08:02:52.733 +00:00 [DBG] Authorization was successful.
+2025-09-27 08:02:52.734 +00:00 [INF] Executing endpoint 'BrowserFile.Controllers.FileController.Index (BrowserFile)'
+2025-09-27 08:02:52.736 +00:00 [INF] Route matched with {action = "Index", controller = "File"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String) on controller BrowserFile.Controllers.FileController (BrowserFile).
+2025-09-27 08:02:52.737 +00:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-09-27 08:02:52.737 +00:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-09-27 08:02:52.738 +00:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2025-09-27 08:02:52.739 +00:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-09-27 08:02:52.739 +00:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-09-27 08:02:52.739 +00:00 [DBG] Executing controller factory for controller BrowserFile.Controllers.FileController (BrowserFile)
+2025-09-27 08:02:52.740 +00:00 [DBG] Executed controller factory for controller BrowserFile.Controllers.FileController (BrowserFile)
+2025-09-27 08:02:52.741 +00:00 [DBG] Attempting to bind parameter 'id' of type 'System.String' ...
+2025-09-27 08:02:52.742 +00:00 [DBG] Attempting to bind parameter 'id' of type 'System.String' using the name 'id' in request data ...
+2025-09-27 08:02:52.743 +00:00 [DBG] Done attempting to bind parameter 'id' of type 'System.String'.
+2025-09-27 08:02:52.744 +00:00 [DBG] Done attempting to bind parameter 'id' of type 'System.String'.
+2025-09-27 08:02:52.744 +00:00 [DBG] Attempting to validate the bound parameter 'id' of type 'System.String' ...
+2025-09-27 08:02:52.746 +00:00 [DBG] Done attempting to validate the bound parameter 'id' of type 'System.String'.
+2025-09-27 08:02:52.749 +00:00 [DBG] Entity Framework Core 8.0.19 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:8.0.19' with options: None
+2025-09-27 08:02:52.752 +00:00 [DBG] Compiling query expression: 
+'DbSet<StoredFile>()
+    .Where(f => f.UserId == __CurrentUserId_0 && f.FolderId == __id_1)'
+2025-09-27 08:02:52.761 +00:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<StoredFile>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: StoredFile.Id (string) Required PK AfterSave:Throw, 0], [Property: StoredFile.CreatedAt (DateTime) Required, 1], [Property: StoredFile.FileExtension (string) Required, 2], [Property: StoredFile.FilePath (string) Required, 3], [Property: StoredFile.FolderId (string) Required FK Index, 4], [Property: StoredFile.IsShared (bool) Required, 5], [Property: StoredFile.IsStarred (bool) Required, 6], [Property: StoredFile.Name (string) Required, 7], [Property: StoredFile.Size (string) Required, 8], [Property: StoredFile.UserId (string) Required FK Index, 9], [Property: StoredFile.WhoAdded (string) Required, 10] }
+        SELECT s.Id, s.CreatedAt, s.FileExtension, s.FilePath, s.FolderId, s.IsShared, s.IsStarred, s.Name, s.Size, s.UserId, s.WhoAdded
+        FROM StoredFiles AS s
+        WHERE (s.UserId == @__CurrentUserId_0) && (s.FolderId == @__id_1)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, StoredFile>, 
+    BrowserFile.Data.ApplicationDbContext, 
+    False, 
+    False, 
+    True
+)'
+2025-09-27 08:02:52.766 +00:00 [DBG] Creating DbConnection.
+2025-09-27 08:02:52.767 +00:00 [DBG] Created DbConnection. (1ms).
+2025-09-27 08:02:52.767 +00:00 [DBG] Opening connection to database 'main' on server 'MyApp.db'.
+2025-09-27 08:02:52.767 +00:00 [DBG] Opened connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:52.768 +00:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-09-27 08:02:52.768 +00:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2025-09-27 08:02:52.770 +00:00 [DBG] Initialized DbCommand for 'ExecuteReader' (2ms).
+2025-09-27 08:02:52.770 +00:00 [DBG] Executing DbCommand [Parameters=[@__CurrentUserId_0='?' (Size = 36), @__id_1='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."CreatedAt", "s"."FileExtension", "s"."FilePath", "s"."FolderId", "s"."IsShared", "s"."IsStarred", "s"."Name", "s"."Size", "s"."UserId", "s"."WhoAdded"
+FROM "StoredFiles" AS "s"
+WHERE "s"."UserId" = @__CurrentUserId_0 AND "s"."FolderId" = @__id_1
+2025-09-27 08:02:52.771 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__CurrentUserId_0='?' (Size = 36), @__id_1='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."CreatedAt", "s"."FileExtension", "s"."FilePath", "s"."FolderId", "s"."IsShared", "s"."IsStarred", "s"."Name", "s"."Size", "s"."UserId", "s"."WhoAdded"
+FROM "StoredFiles" AS "s"
+WHERE "s"."UserId" = @__CurrentUserId_0 AND "s"."FolderId" = @__id_1
+2025-09-27 08:02:52.778 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'StoredFile' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:52.802 +00:00 [DBG] Closing data reader to 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:52.802 +00:00 [DBG] A data reader for 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db' is being disposed after spending 31ms reading results.
+2025-09-27 08:02:52.803 +00:00 [DBG] Closing connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:52.803 +00:00 [DBG] Closed connection to database 'main' on server 'MyApp.db' (0ms).
+2025-09-27 08:02:52.809 +00:00 [DBG] Opening connection to database 'main' on server 'MyApp.db'.
+2025-09-27 08:02:52.810 +00:00 [DBG] Opened connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:52.811 +00:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-09-27 08:02:52.811 +00:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2025-09-27 08:02:52.811 +00:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2025-09-27 08:02:52.812 +00:00 [DBG] Executing DbCommand [Parameters=[@__CurrentUserId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "f"."Id", "f"."CreatedAt", "f"."Description", "f"."IconId", "f"."Name", "f"."Tag", "f"."UserId"
+FROM "Folders" AS "f"
+WHERE "f"."UserId" = @__CurrentUserId_0
+2025-09-27 08:02:52.812 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__CurrentUserId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "f"."Id", "f"."CreatedAt", "f"."Description", "f"."IconId", "f"."Name", "f"."Tag", "f"."UserId"
+FROM "Folders" AS "f"
+WHERE "f"."UserId" = @__CurrentUserId_0
+2025-09-27 08:02:52.816 +00:00 [DBG] The navigation 'StoredFile.Folder' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:52.818 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Folder' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:52.818 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Folder' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:52.819 +00:00 [DBG] Closing data reader to 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:52.820 +00:00 [DBG] A data reader for 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db' is being disposed after spending 7ms reading results.
+2025-09-27 08:02:52.820 +00:00 [DBG] Closing connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:52.820 +00:00 [DBG] Closed connection to database 'main' on server 'MyApp.db' (0ms).
+2025-09-27 08:02:52.840 +00:00 [DBG] View lookup cache miss for view 'Index' in controller 'File'.
+2025-09-27 08:02:52.841 +00:00 [INF] Executing ViewResult, running view Index.
+2025-09-27 08:02:52.841 +00:00 [DBG] The view path '/Views/File/Index.cshtml' was found in 1.1847ms.
+2025-09-27 08:02:52.852 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (action=[Index],controller=[Folder])
+2025-09-27 08:02:52.853 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Folder/Index and 
+2025-09-27 08:02:52.853 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Folder/Index
+2025-09-27 08:02:52.856 +00:00 [DBG] Found the endpoints ["BrowserFile.Controllers.SharingController.ShareSettings (BrowserFile)","Route: {controller=Account}/{action=Login}/{id?}"] for address (id=[aa2fae93-7c59-4b15-9f3c-52e8f4a53e35],action=[ShareSettings],controller=[Sharing])
+2025-09-27 08:02:52.857 +00:00 [DBG] Successfully processed template share/settings/{id} for BrowserFile.Controllers.SharingController.ShareSettings (BrowserFile) resulting in /share/settings/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35 and 
+2025-09-27 08:02:52.857 +00:00 [DBG] Link generation succeeded for endpoints ["BrowserFile.Controllers.SharingController.ShareSettings (BrowserFile)","Route: {controller=Account}/{action=Login}/{id?}"] with result /share/settings/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35
+2025-09-27 08:02:52.859 +00:00 [DBG] Found the endpoints ["BrowserFile.Controllers.FileController.DownloadFile (BrowserFile)","Route: {controller=Account}/{action=Login}/{id?}"] for address (id=[aa2fae93-7c59-4b15-9f3c-52e8f4a53e35],action=[DownloadFile],controller=[File])
+2025-09-27 08:02:52.859 +00:00 [DBG] Successfully processed template download/{id} for BrowserFile.Controllers.FileController.DownloadFile (BrowserFile) resulting in /download/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35 and 
+2025-09-27 08:02:52.860 +00:00 [DBG] Link generation succeeded for endpoints ["BrowserFile.Controllers.FileController.DownloadFile (BrowserFile)","Route: {controller=Account}/{action=Login}/{id?}"] with result /download/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35
+2025-09-27 08:02:52.860 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (action=[UploadFile],controller=[File])
+2025-09-27 08:02:52.861 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /File/UploadFile and 
+2025-09-27 08:02:52.862 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /File/UploadFile
+2025-09-27 08:02:52.863 +00:00 [DBG] An antiforgery cookie token was reused.
+2025-09-27 08:02:52.867 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (id=[aa2fae93-7c59-4b15-9f3c-52e8f4a53e35],folderId=[c92ab5e4-d789-4318-93c8-f5517ad4670b],action=[DeleteFile],controller=[File])
+2025-09-27 08:02:52.869 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /File/DeleteFile/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35 and ?folderId=c92ab5e4-d789-4318-93c8-f5517ad4670b
+2025-09-27 08:02:52.869 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /File/DeleteFile/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35?folderId=c92ab5e4-d789-4318-93c8-f5517ad4670b
+2025-09-27 08:02:52.870 +00:00 [DBG] An antiforgery cookie token was reused.
+2025-09-27 08:02:52.872 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (id=[aa2fae93-7c59-4b15-9f3c-52e8f4a53e35],folderId=[c92ab5e4-d789-4318-93c8-f5517ad4670b],action=[ToggleStar],controller=[File])
+2025-09-27 08:02:52.873 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /File/ToggleStar/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35 and ?folderId=c92ab5e4-d789-4318-93c8-f5517ad4670b
+2025-09-27 08:02:52.873 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /File/ToggleStar/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35?folderId=c92ab5e4-d789-4318-93c8-f5517ad4670b
+2025-09-27 08:02:52.873 +00:00 [DBG] An antiforgery cookie token was reused.
+2025-09-27 08:02:52.873 +00:00 [DBG] An antiforgery cookie token was reused.
+2025-09-27 08:02:52.876 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (action=[MoveFiles],controller=[File])
+2025-09-27 08:02:52.876 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /File/MoveFiles and 
+2025-09-27 08:02:52.877 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /File/MoveFiles
+2025-09-27 08:02:52.881 +00:00 [DBG] An antiforgery cookie token was reused.
+2025-09-27 08:02:52.882 +00:00 [DBG] Connection id "0HNFTJGTLR8DS" received FIN.
+2025-09-27 08:02:52.883 +00:00 [DBG] Connection id "0HNFTJGTLR8DS" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-09-27 08:02:52.890 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (action=[RenameFile],controller=[File])
+2025-09-27 08:02:52.891 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /File/RenameFile and 
+2025-09-27 08:02:52.891 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /File/RenameFile
+2025-09-27 08:02:52.892 +00:00 [DBG] The temp data cookie .AspNetCore.Mvc.CookieTempDataProvider was not found.
+2025-09-27 08:02:52.894 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (action=[DeleteFiles],controller=[File])
+2025-09-27 08:02:52.894 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /File/DeleteFiles and 
+2025-09-27 08:02:52.895 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /File/DeleteFiles
+2025-09-27 08:02:52.895 +00:00 [DBG] View lookup cache miss for view '_Layout' in controller 'File'.
+2025-09-27 08:02:52.898 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (area=[],action=[Index],controller=[Home])
+2025-09-27 08:02:52.898 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Home/Index and 
+2025-09-27 08:02:52.898 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Home/Index
+2025-09-27 08:02:52.899 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (area=[],action=[Privacy],controller=[Home])
+2025-09-27 08:02:52.899 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Home/Privacy and 
+2025-09-27 08:02:52.899 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Home/Privacy
+2025-09-27 08:02:52.899 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (area=[],action=[File],controller=[File])
+2025-09-27 08:02:52.900 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /File/File and 
+2025-09-27 08:02:52.900 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /File/File
+2025-09-27 08:02:52.900 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (area=[],action=[Index],controller=[Folder])
+2025-09-27 08:02:52.901 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Folder/Index and 
+2025-09-27 08:02:52.901 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Folder/Index
+2025-09-27 08:02:52.901 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (action=[Logout],controller=[Account])
+2025-09-27 08:02:52.902 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Account/Logout and 
+2025-09-27 08:02:52.902 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Account/Logout
+2025-09-27 08:02:52.902 +00:00 [DBG] An antiforgery cookie token was reused.
+2025-09-27 08:02:52.904 +00:00 [DBG] Connection id "0HNFTJGTLR8DS" disconnecting.
+2025-09-27 08:02:52.906 +00:00 [INF] Executed ViewResult - view Index executed in 65.4877ms.
+2025-09-27 08:02:52.906 +00:00 [INF] Executed action BrowserFile.Controllers.FileController.Index (BrowserFile) in 167.2934ms
+2025-09-27 08:02:52.907 +00:00 [INF] Executed endpoint 'BrowserFile.Controllers.FileController.Index (BrowserFile)'
+2025-09-27 08:02:52.907 +00:00 [INF] HTTP GET /File/Index/c92ab5e4-d789-4318-93c8-f5517ad4670b responded 200 in 179.0711 ms
+2025-09-27 08:02:52.907 +00:00 [DBG] 'ApplicationDbContext' disposed.
+2025-09-27 08:02:52.907 +00:00 [DBG] Disposing connection to database 'main' on server 'MyApp.db'.
+2025-09-27 08:02:52.908 +00:00 [DBG] Disposed connection to database 'main' on server 'MyApp.db' (0ms).
+2025-09-27 08:02:52.908 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5196/File/Index/c92ab5e4-d789-4318-93c8-f5517ad4670b - 200 null text/html; charset=utf-8 181.5057ms
+2025-09-27 08:02:52.911 +00:00 [DBG] Connection id "0HNFTJGTLR8DS" stopped.
+2025-09-27 08:02:53.021 +00:00 [DBG] Connection id "0HNFTJGTLR8DT" accepted.
+2025-09-27 08:02:53.023 +00:00 [DBG] Connection id "0HNFTJGTLR8DT" started.
+2025-09-27 08:02:53.073 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5196/File/Index/c92ab5e4-d789-4318-93c8-f5517ad4670b - null null
+2025-09-27 08:02:53.075 +00:00 [DBG] The request path /File/Index/c92ab5e4-d789-4318-93c8-f5517ad4670b does not match a supported file type
+2025-09-27 08:02:53.075 +00:00 [DBG] The request path /File/Index/c92ab5e4-d789-4318-93c8-f5517ad4670b does not match a supported file type
+2025-09-27 08:02:53.083 +00:00 [DBG] 1 candidate(s) found for the request path '/File/Index/c92ab5e4-d789-4318-93c8-f5517ad4670b'
+2025-09-27 08:02:53.084 +00:00 [DBG] Endpoint 'BrowserFile.Controllers.FileController.Index (BrowserFile)' with route pattern '{controller=Account}/{action=Login}/{id?}' is valid for the request path '/File/Index/c92ab5e4-d789-4318-93c8-f5517ad4670b'
+2025-09-27 08:02:53.085 +00:00 [DBG] Request matched endpoint 'BrowserFile.Controllers.FileController.Index (BrowserFile)'
+2025-09-27 08:02:53.088 +00:00 [DBG] AuthenticationScheme: Identity.Application was successfully authenticated.
+2025-09-27 08:02:53.090 +00:00 [DBG] Authorization was successful.
+2025-09-27 08:02:53.091 +00:00 [INF] Executing endpoint 'BrowserFile.Controllers.FileController.Index (BrowserFile)'
+2025-09-27 08:02:53.092 +00:00 [INF] Route matched with {action = "Index", controller = "File"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String) on controller BrowserFile.Controllers.FileController (BrowserFile).
+2025-09-27 08:02:53.093 +00:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-09-27 08:02:53.093 +00:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-09-27 08:02:53.093 +00:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2025-09-27 08:02:53.093 +00:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-09-27 08:02:53.093 +00:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-09-27 08:02:53.093 +00:00 [DBG] Executing controller factory for controller BrowserFile.Controllers.FileController (BrowserFile)
+2025-09-27 08:02:53.093 +00:00 [DBG] Executed controller factory for controller BrowserFile.Controllers.FileController (BrowserFile)
+2025-09-27 08:02:53.095 +00:00 [DBG] Attempting to bind parameter 'id' of type 'System.String' ...
+2025-09-27 08:02:53.095 +00:00 [DBG] Attempting to bind parameter 'id' of type 'System.String' using the name 'id' in request data ...
+2025-09-27 08:02:53.095 +00:00 [DBG] Done attempting to bind parameter 'id' of type 'System.String'.
+2025-09-27 08:02:53.095 +00:00 [DBG] Done attempting to bind parameter 'id' of type 'System.String'.
+2025-09-27 08:02:53.096 +00:00 [DBG] Attempting to validate the bound parameter 'id' of type 'System.String' ...
+2025-09-27 08:02:53.096 +00:00 [DBG] Done attempting to validate the bound parameter 'id' of type 'System.String'.
+2025-09-27 08:02:53.100 +00:00 [DBG] Entity Framework Core 8.0.19 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:8.0.19' with options: None
+2025-09-27 08:02:53.101 +00:00 [DBG] Creating DbConnection.
+2025-09-27 08:02:53.103 +00:00 [DBG] Created DbConnection. (1ms).
+2025-09-27 08:02:53.104 +00:00 [DBG] Opening connection to database 'main' on server 'MyApp.db'.
+2025-09-27 08:02:53.105 +00:00 [DBG] Opened connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:53.105 +00:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-09-27 08:02:53.105 +00:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2025-09-27 08:02:53.106 +00:00 [DBG] Initialized DbCommand for 'ExecuteReader' (1ms).
+2025-09-27 08:02:53.109 +00:00 [DBG] Executing DbCommand [Parameters=[@__CurrentUserId_0='?' (Size = 36), @__id_1='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."CreatedAt", "s"."FileExtension", "s"."FilePath", "s"."FolderId", "s"."IsShared", "s"."IsStarred", "s"."Name", "s"."Size", "s"."UserId", "s"."WhoAdded"
+FROM "StoredFiles" AS "s"
+WHERE "s"."UserId" = @__CurrentUserId_0 AND "s"."FolderId" = @__id_1
+2025-09-27 08:02:53.110 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__CurrentUserId_0='?' (Size = 36), @__id_1='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."CreatedAt", "s"."FileExtension", "s"."FilePath", "s"."FolderId", "s"."IsShared", "s"."IsStarred", "s"."Name", "s"."Size", "s"."UserId", "s"."WhoAdded"
+FROM "StoredFiles" AS "s"
+WHERE "s"."UserId" = @__CurrentUserId_0 AND "s"."FolderId" = @__id_1
+2025-09-27 08:02:53.116 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'StoredFile' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:53.118 +00:00 [DBG] Closing data reader to 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:53.119 +00:00 [DBG] A data reader for 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db' is being disposed after spending 3ms reading results.
+2025-09-27 08:02:53.120 +00:00 [DBG] Closing connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:53.120 +00:00 [DBG] Closed connection to database 'main' on server 'MyApp.db' (0ms).
+2025-09-27 08:02:53.122 +00:00 [DBG] Opening connection to database 'main' on server 'MyApp.db'.
+2025-09-27 08:02:53.123 +00:00 [DBG] Opened connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:53.124 +00:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-09-27 08:02:53.124 +00:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2025-09-27 08:02:53.125 +00:00 [DBG] Initialized DbCommand for 'ExecuteReader' (1ms).
+2025-09-27 08:02:53.126 +00:00 [DBG] Executing DbCommand [Parameters=[@__CurrentUserId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "f"."Id", "f"."CreatedAt", "f"."Description", "f"."IconId", "f"."Name", "f"."Tag", "f"."UserId"
+FROM "Folders" AS "f"
+WHERE "f"."UserId" = @__CurrentUserId_0
+2025-09-27 08:02:53.126 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__CurrentUserId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "f"."Id", "f"."CreatedAt", "f"."Description", "f"."IconId", "f"."Name", "f"."Tag", "f"."UserId"
+FROM "Folders" AS "f"
+WHERE "f"."UserId" = @__CurrentUserId_0
+2025-09-27 08:02:53.128 +00:00 [DBG] The navigation 'StoredFile.Folder' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:53.128 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Folder' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:53.128 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'Folder' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:53.128 +00:00 [DBG] Closing data reader to 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:53.128 +00:00 [DBG] A data reader for 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db' is being disposed after spending 1ms reading results.
+2025-09-27 08:02:53.128 +00:00 [DBG] Closing connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:53.129 +00:00 [DBG] Closed connection to database 'main' on server 'MyApp.db' (0ms).
+2025-09-27 08:02:53.131 +00:00 [DBG] View lookup cache hit for view 'Index' in controller 'File'.
+2025-09-27 08:02:53.133 +00:00 [INF] Executing ViewResult, running view Index.
+2025-09-27 08:02:53.134 +00:00 [DBG] The view path '/Views/File/Index.cshtml' was found in 3.2732ms.
+2025-09-27 08:02:53.138 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (action=[Index],controller=[Folder])
+2025-09-27 08:02:53.139 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Folder/Index and 
+2025-09-27 08:02:53.139 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Folder/Index
+2025-09-27 08:02:53.141 +00:00 [DBG] Found the endpoints ["BrowserFile.Controllers.SharingController.ShareSettings (BrowserFile)","Route: {controller=Account}/{action=Login}/{id?}"] for address (id=[aa2fae93-7c59-4b15-9f3c-52e8f4a53e35],action=[ShareSettings],controller=[Sharing])
+2025-09-27 08:02:53.142 +00:00 [DBG] Successfully processed template share/settings/{id} for BrowserFile.Controllers.SharingController.ShareSettings (BrowserFile) resulting in /share/settings/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35 and 
+2025-09-27 08:02:53.142 +00:00 [DBG] Link generation succeeded for endpoints ["BrowserFile.Controllers.SharingController.ShareSettings (BrowserFile)","Route: {controller=Account}/{action=Login}/{id?}"] with result /share/settings/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35
+2025-09-27 08:02:53.145 +00:00 [DBG] Found the endpoints ["BrowserFile.Controllers.FileController.DownloadFile (BrowserFile)","Route: {controller=Account}/{action=Login}/{id?}"] for address (id=[aa2fae93-7c59-4b15-9f3c-52e8f4a53e35],action=[DownloadFile],controller=[File])
+2025-09-27 08:02:53.146 +00:00 [DBG] Successfully processed template download/{id} for BrowserFile.Controllers.FileController.DownloadFile (BrowserFile) resulting in /download/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35 and 
+2025-09-27 08:02:53.146 +00:00 [DBG] Link generation succeeded for endpoints ["BrowserFile.Controllers.FileController.DownloadFile (BrowserFile)","Route: {controller=Account}/{action=Login}/{id?}"] with result /download/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35
+2025-09-27 08:02:53.148 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (action=[UploadFile],controller=[File])
+2025-09-27 08:02:53.148 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /File/UploadFile and 
+2025-09-27 08:02:53.148 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /File/UploadFile
+2025-09-27 08:02:53.149 +00:00 [DBG] An antiforgery cookie token was reused.
+2025-09-27 08:02:53.152 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (id=[aa2fae93-7c59-4b15-9f3c-52e8f4a53e35],folderId=[c92ab5e4-d789-4318-93c8-f5517ad4670b],action=[DeleteFile],controller=[File])
+2025-09-27 08:02:53.152 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /File/DeleteFile/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35 and ?folderId=c92ab5e4-d789-4318-93c8-f5517ad4670b
+2025-09-27 08:02:53.152 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /File/DeleteFile/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35?folderId=c92ab5e4-d789-4318-93c8-f5517ad4670b
+2025-09-27 08:02:53.152 +00:00 [DBG] An antiforgery cookie token was reused.
+2025-09-27 08:02:53.153 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (id=[aa2fae93-7c59-4b15-9f3c-52e8f4a53e35],folderId=[c92ab5e4-d789-4318-93c8-f5517ad4670b],action=[ToggleStar],controller=[File])
+2025-09-27 08:02:53.153 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /File/ToggleStar/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35 and ?folderId=c92ab5e4-d789-4318-93c8-f5517ad4670b
+2025-09-27 08:02:53.153 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /File/ToggleStar/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35?folderId=c92ab5e4-d789-4318-93c8-f5517ad4670b
+2025-09-27 08:02:53.153 +00:00 [DBG] An antiforgery cookie token was reused.
+2025-09-27 08:02:53.153 +00:00 [DBG] An antiforgery cookie token was reused.
+2025-09-27 08:02:53.153 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (action=[MoveFiles],controller=[File])
+2025-09-27 08:02:53.153 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /File/MoveFiles and 
+2025-09-27 08:02:53.153 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /File/MoveFiles
+2025-09-27 08:02:53.153 +00:00 [DBG] An antiforgery cookie token was reused.
+2025-09-27 08:02:53.153 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (action=[RenameFile],controller=[File])
+2025-09-27 08:02:53.153 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /File/RenameFile and 
+2025-09-27 08:02:53.153 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /File/RenameFile
+2025-09-27 08:02:53.153 +00:00 [DBG] The temp data cookie .AspNetCore.Mvc.CookieTempDataProvider was not found.
+2025-09-27 08:02:53.153 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (action=[DeleteFiles],controller=[File])
+2025-09-27 08:02:53.153 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /File/DeleteFiles and 
+2025-09-27 08:02:53.153 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /File/DeleteFiles
+2025-09-27 08:02:53.154 +00:00 [DBG] View lookup cache hit for view '_Layout' in controller 'File'.
+2025-09-27 08:02:53.154 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (area=[],action=[Index],controller=[Home])
+2025-09-27 08:02:53.154 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Home/Index and 
+2025-09-27 08:02:53.154 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Home/Index
+2025-09-27 08:02:53.158 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (area=[],action=[Privacy],controller=[Home])
+2025-09-27 08:02:53.158 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Home/Privacy and 
+2025-09-27 08:02:53.158 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Home/Privacy
+2025-09-27 08:02:53.158 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (area=[],action=[File],controller=[File])
+2025-09-27 08:02:53.158 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /File/File and 
+2025-09-27 08:02:53.158 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /File/File
+2025-09-27 08:02:53.158 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (area=[],action=[Index],controller=[Folder])
+2025-09-27 08:02:53.158 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Folder/Index and 
+2025-09-27 08:02:53.158 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Folder/Index
+2025-09-27 08:02:53.158 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (action=[Logout],controller=[Account])
+2025-09-27 08:02:53.158 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Account/Logout and 
+2025-09-27 08:02:53.158 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Account/Logout
+2025-09-27 08:02:53.159 +00:00 [DBG] An antiforgery cookie token was reused.
+2025-09-27 08:02:53.162 +00:00 [INF] Executed ViewResult - view Index executed in 31.5683ms.
+2025-09-27 08:02:53.163 +00:00 [INF] Executed action BrowserFile.Controllers.FileController.Index (BrowserFile) in 70.0916ms
+2025-09-27 08:02:53.163 +00:00 [INF] Executed endpoint 'BrowserFile.Controllers.FileController.Index (BrowserFile)'
+2025-09-27 08:02:53.165 +00:00 [INF] HTTP GET /File/Index/c92ab5e4-d789-4318-93c8-f5517ad4670b responded 200 in 90.3407 ms
+2025-09-27 08:02:53.166 +00:00 [DBG] Connection id "0HNFTJGTLR8DT" completed keep alive response.
+2025-09-27 08:02:53.166 +00:00 [DBG] 'ApplicationDbContext' disposed.
+2025-09-27 08:02:53.167 +00:00 [DBG] Disposing connection to database 'main' on server 'MyApp.db'.
+2025-09-27 08:02:53.167 +00:00 [DBG] Disposed connection to database 'main' on server 'MyApp.db' (0ms).
+2025-09-27 08:02:53.167 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5196/File/Index/c92ab5e4-d789-4318-93c8-f5517ad4670b - 200 null text/html; charset=utf-8 94.169ms
+2025-09-27 08:02:53.257 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5196/images/bootstrap-logo.svg - null null
+2025-09-27 08:02:53.259 +00:00 [DBG] The request path /images/bootstrap-logo.svg does not match an existing file
+2025-09-27 08:02:53.259 +00:00 [DBG] The request path /images/bootstrap-logo.svg does not match an existing file
+2025-09-27 08:02:53.259 +00:00 [DBG] No candidates found for the request path '/images/bootstrap-logo.svg'
+2025-09-27 08:02:53.259 +00:00 [DBG] Request did not match any endpoints
+2025-09-27 08:02:53.260 +00:00 [DBG] AuthenticationScheme: Identity.Application was successfully authenticated.
+2025-09-27 08:02:53.261 +00:00 [INF] HTTP GET /images/bootstrap-logo.svg responded 404 in 2.2417 ms
+2025-09-27 08:02:53.262 +00:00 [DBG] Connection id "0HNFTJGTLR8DQ" completed keep alive response.
+2025-09-27 08:02:53.263 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5196/images/bootstrap-logo.svg - 404 0 null 5.2977ms
+2025-09-27 08:02:53.264 +00:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5196/images/bootstrap-logo.svg, Response status code: 404
+2025-09-27 08:02:59.163 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5196/share/settings/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35 - null null
+2025-09-27 08:02:59.164 +00:00 [DBG] The request path /share/settings/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35 does not match a supported file type
+2025-09-27 08:02:59.164 +00:00 [DBG] The request path /share/settings/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35 does not match a supported file type
+2025-09-27 08:02:59.165 +00:00 [DBG] 1 candidate(s) found for the request path '/share/settings/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35'
+2025-09-27 08:02:59.165 +00:00 [DBG] Endpoint 'BrowserFile.Controllers.SharingController.ShareSettings (BrowserFile)' with route pattern 'share/settings/{id}' is valid for the request path '/share/settings/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35'
+2025-09-27 08:02:59.166 +00:00 [DBG] Request matched endpoint 'BrowserFile.Controllers.SharingController.ShareSettings (BrowserFile)'
+2025-09-27 08:02:59.167 +00:00 [DBG] AuthenticationScheme: Identity.Application was successfully authenticated.
+2025-09-27 08:02:59.167 +00:00 [DBG] Authorization was successful.
+2025-09-27 08:02:59.168 +00:00 [INF] Executing endpoint 'BrowserFile.Controllers.SharingController.ShareSettings (BrowserFile)'
+2025-09-27 08:02:59.172 +00:00 [INF] Route matched with {action = "ShareSettings", controller = "Sharing"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ShareSettings(System.String) on controller BrowserFile.Controllers.SharingController (BrowserFile).
+2025-09-27 08:02:59.172 +00:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-09-27 08:02:59.173 +00:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-09-27 08:02:59.173 +00:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2025-09-27 08:02:59.173 +00:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2025-09-27 08:02:59.173 +00:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2025-09-27 08:02:59.173 +00:00 [DBG] Executing controller factory for controller BrowserFile.Controllers.SharingController (BrowserFile)
+2025-09-27 08:02:59.174 +00:00 [DBG] Executed controller factory for controller BrowserFile.Controllers.SharingController (BrowserFile)
+2025-09-27 08:02:59.174 +00:00 [DBG] Attempting to bind parameter 'id' of type 'System.String' ...
+2025-09-27 08:02:59.174 +00:00 [DBG] Attempting to bind parameter 'id' of type 'System.String' using the name 'id' in request data ...
+2025-09-27 08:02:59.174 +00:00 [DBG] Done attempting to bind parameter 'id' of type 'System.String'.
+2025-09-27 08:02:59.174 +00:00 [DBG] Done attempting to bind parameter 'id' of type 'System.String'.
+2025-09-27 08:02:59.174 +00:00 [DBG] Attempting to validate the bound parameter 'id' of type 'System.String' ...
+2025-09-27 08:02:59.174 +00:00 [DBG] Done attempting to validate the bound parameter 'id' of type 'System.String'.
+2025-09-27 08:02:59.179 +00:00 [DBG] Entity Framework Core 8.0.19 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:8.0.19' with options: None
+2025-09-27 08:02:59.180 +00:00 [DBG] Compiling query expression: 
+'DbSet<StoredFile>()
+    .FirstOrDefault(x => x.Id == __id_0 && x.UserId == __CurrentUser_1)'
+2025-09-27 08:02:59.184 +00:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<StoredFile>(
+    asyncEnumerable: new SingleQueryingEnumerable<StoredFile>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: StoredFile.Id (string) Required PK AfterSave:Throw, 0], [Property: StoredFile.CreatedAt (DateTime) Required, 1], [Property: StoredFile.FileExtension (string) Required, 2], [Property: StoredFile.FilePath (string) Required, 3], [Property: StoredFile.FolderId (string) Required FK Index, 4], [Property: StoredFile.IsShared (bool) Required, 5], [Property: StoredFile.IsStarred (bool) Required, 6], [Property: StoredFile.Name (string) Required, 7], [Property: StoredFile.Size (string) Required, 8], [Property: StoredFile.UserId (string) Required FK Index, 9], [Property: StoredFile.WhoAdded (string) Required, 10] }
+            SELECT TOP(1) s.Id, s.CreatedAt, s.FileExtension, s.FilePath, s.FolderId, s.IsShared, s.IsStarred, s.Name, s.Size, s.UserId, s.WhoAdded
+            FROM StoredFiles AS s
+            WHERE (s.Id == @__id_0) && (s.UserId == @__CurrentUser_1)), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, StoredFile>, 
+        BrowserFile.Data.ApplicationDbContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2025-09-27 08:02:59.185 +00:00 [DBG] Creating DbConnection.
+2025-09-27 08:02:59.186 +00:00 [DBG] Created DbConnection. (0ms).
+2025-09-27 08:02:59.186 +00:00 [DBG] Opening connection to database 'main' on server 'MyApp.db'.
+2025-09-27 08:02:59.186 +00:00 [DBG] Opened connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:59.186 +00:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-09-27 08:02:59.186 +00:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2025-09-27 08:02:59.186 +00:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2025-09-27 08:02:59.186 +00:00 [DBG] Executing DbCommand [Parameters=[@__id_0='?' (Size = 36), @__CurrentUser_1='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."CreatedAt", "s"."FileExtension", "s"."FilePath", "s"."FolderId", "s"."IsShared", "s"."IsStarred", "s"."Name", "s"."Size", "s"."UserId", "s"."WhoAdded"
+FROM "StoredFiles" AS "s"
+WHERE "s"."Id" = @__id_0 AND "s"."UserId" = @__CurrentUser_1
+LIMIT 1
+2025-09-27 08:02:59.187 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (Size = 36), @__CurrentUser_1='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."CreatedAt", "s"."FileExtension", "s"."FilePath", "s"."FolderId", "s"."IsShared", "s"."IsStarred", "s"."Name", "s"."Size", "s"."UserId", "s"."WhoAdded"
+FROM "StoredFiles" AS "s"
+WHERE "s"."Id" = @__id_0 AND "s"."UserId" = @__CurrentUser_1
+LIMIT 1
+2025-09-27 08:02:59.188 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'StoredFile' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:59.189 +00:00 [DBG] Closing data reader to 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:59.189 +00:00 [DBG] A data reader for 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db' is being disposed after spending 1ms reading results.
+2025-09-27 08:02:59.189 +00:00 [DBG] Closing connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:59.189 +00:00 [DBG] Closed connection to database 'main' on server 'MyApp.db' (0ms).
+2025-09-27 08:02:59.191 +00:00 [DBG] Compiling query expression: 
+'DbSet<SharedLink>()
+    .FirstOrDefault(x => x.FileId == __file_Id_0 && x.ExpiresAt > DateTime.Now)'
+2025-09-27 08:02:59.201 +00:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<SharedLink>(
+    asyncEnumerable: new SingleQueryingEnumerable<SharedLink>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: SharedLink.Id (string) Required PK AfterSave:Throw, 0], [Property: SharedLink.Alias (string), 1], [Property: SharedLink.ExpiresAt (DateTime) Required, 2], [Property: SharedLink.FileId (string) Required FK Index, 3], [Property: SharedLink.OneTime (bool) Required, 4], [Property: SharedLink.PasswordHash (string), 5], [Property: SharedLink.Token (string) Required, 6], [Property: SharedLink.Used (int) Required, 7] }
+            SELECT TOP(1) s.Id, s.Alias, s.ExpiresAt, s.FileId, s.OneTime, s.PasswordHash, s.Token, s.Used
+            FROM SharedLinks AS s
+            WHERE (s.FileId == @__file_Id_0) && (s.ExpiresAt > rtrim(rtrim(strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'), '0'), '.'))), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, SharedLink>, 
+        BrowserFile.Data.ApplicationDbContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2025-09-27 08:02:59.204 +00:00 [DBG] Opening connection to database 'main' on server 'MyApp.db'.
+2025-09-27 08:02:59.204 +00:00 [DBG] Opened connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:59.204 +00:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-09-27 08:02:59.204 +00:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2025-09-27 08:02:59.204 +00:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2025-09-27 08:02:59.204 +00:00 [DBG] Executing DbCommand [Parameters=[@__file_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."Alias", "s"."ExpiresAt", "s"."FileId", "s"."OneTime", "s"."PasswordHash", "s"."Token", "s"."Used"
+FROM "SharedLinks" AS "s"
+WHERE "s"."FileId" = @__file_Id_0 AND "s"."ExpiresAt" > rtrim(rtrim(strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'), '0'), '.')
+LIMIT 1
+2025-09-27 08:02:59.205 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__file_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."Alias", "s"."ExpiresAt", "s"."FileId", "s"."OneTime", "s"."PasswordHash", "s"."Token", "s"."Used"
+FROM "SharedLinks" AS "s"
+WHERE "s"."FileId" = @__file_Id_0 AND "s"."ExpiresAt" > rtrim(rtrim(strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime'), '0'), '.')
+LIMIT 1
+2025-09-27 08:02:59.211 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'SharedLink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:59.218 +00:00 [DBG] Closing data reader to 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:59.218 +00:00 [DBG] A data reader for 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db' is being disposed after spending 13ms reading results.
+2025-09-27 08:02:59.218 +00:00 [DBG] Closing connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:59.218 +00:00 [DBG] Closed connection to database 'main' on server 'MyApp.db' (0ms).
+2025-09-27 08:02:59.220 +00:00 [DBG] Compiling query expression: 
+'DbSet<SharedLink>()
+    .Where(x => x.FileId == __file_Id_0)
+    .OrderByDescending(x => x.ExpiresAt)
+    .Take(__p_1)'
+2025-09-27 08:02:59.225 +00:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<SharedLink>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: SharedLink.Id (string) Required PK AfterSave:Throw, 0], [Property: SharedLink.Alias (string), 1], [Property: SharedLink.ExpiresAt (DateTime) Required, 2], [Property: SharedLink.FileId (string) Required FK Index, 3], [Property: SharedLink.OneTime (bool) Required, 4], [Property: SharedLink.PasswordHash (string), 5], [Property: SharedLink.Token (string) Required, 6], [Property: SharedLink.Used (int) Required, 7] }
+        SELECT TOP(@__p_1) s.Id, s.Alias, s.ExpiresAt, s.FileId, s.OneTime, s.PasswordHash, s.Token, s.Used
+        FROM SharedLinks AS s
+        WHERE s.FileId == @__file_Id_0
+        ORDER BY s.ExpiresAt DESC), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, SharedLink>, 
+    BrowserFile.Data.ApplicationDbContext, 
+    False, 
+    False, 
+    True
+)'
+2025-09-27 08:02:59.225 +00:00 [DBG] Opening connection to database 'main' on server 'MyApp.db'.
+2025-09-27 08:02:59.226 +00:00 [DBG] Opened connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:59.226 +00:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-09-27 08:02:59.226 +00:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2025-09-27 08:02:59.226 +00:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2025-09-27 08:02:59.226 +00:00 [DBG] Executing DbCommand [Parameters=[@__file_Id_0='?' (Size = 36), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."Alias", "s"."ExpiresAt", "s"."FileId", "s"."OneTime", "s"."PasswordHash", "s"."Token", "s"."Used"
+FROM "SharedLinks" AS "s"
+WHERE "s"."FileId" = @__file_Id_0
+ORDER BY "s"."ExpiresAt" DESC
+LIMIT @__p_1
+2025-09-27 08:02:59.227 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__file_Id_0='?' (Size = 36), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "s"."Id", "s"."Alias", "s"."ExpiresAt", "s"."FileId", "s"."OneTime", "s"."PasswordHash", "s"."Token", "s"."Used"
+FROM "SharedLinks" AS "s"
+WHERE "s"."FileId" = @__file_Id_0
+ORDER BY "s"."ExpiresAt" DESC
+LIMIT @__p_1
+2025-09-27 08:02:59.227 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'SharedLink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:59.227 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'SharedLink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:59.227 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'SharedLink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:59.228 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'SharedLink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:59.228 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'SharedLink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:59.228 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'SharedLink' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 08:02:59.228 +00:00 [DBG] Closing data reader to 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:59.228 +00:00 [DBG] A data reader for 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db' is being disposed after spending 0ms reading results.
+2025-09-27 08:02:59.228 +00:00 [DBG] Closing connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 08:02:59.228 +00:00 [DBG] Closed connection to database 'main' on server 'MyApp.db' (0ms).
+2025-09-27 08:02:59.229 +00:00 [DBG] View lookup cache miss for view 'ShareSettings' in controller 'Sharing'.
+2025-09-27 08:02:59.230 +00:00 [INF] Executing ViewResult, running view ShareSettings.
+2025-09-27 08:02:59.230 +00:00 [DBG] The view path '/Views/Sharing/ShareSettings.cshtml' was found in 1.4344ms.
+2025-09-27 08:02:59.235 +00:00 [DBG] Found the endpoints ["BrowserFile.Controllers.SharingController.ShareNewFileLink (BrowserFile)","Route: {controller=Account}/{action=Login}/{id?}"] for address (id=[aa2fae93-7c59-4b15-9f3c-52e8f4a53e35],action=[ShareNewFileLink],controller=[Sharing])
+2025-09-27 08:02:59.236 +00:00 [DBG] Successfully processed template share/settings/{id} for BrowserFile.Controllers.SharingController.ShareNewFileLink (BrowserFile) resulting in /share/settings/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35 and 
+2025-09-27 08:02:59.236 +00:00 [DBG] Link generation succeeded for endpoints ["BrowserFile.Controllers.SharingController.ShareNewFileLink (BrowserFile)","Route: {controller=Account}/{action=Login}/{id?}"] with result /share/settings/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35
+2025-09-27 08:02:59.236 +00:00 [DBG] An antiforgery cookie token was reused.
+2025-09-27 08:02:59.250 +00:00 [DBG] Found the endpoints ["BrowserFile.Controllers.SharingController.Index (BrowserFile)","Route: {controller=Account}/{action=Login}/{id?}"] for address (action=[Index],controller=[Sharing])
+2025-09-27 08:02:59.250 +00:00 [DBG] Successfully processed template share for BrowserFile.Controllers.SharingController.Index (BrowserFile) resulting in /share and 
+2025-09-27 08:02:59.250 +00:00 [DBG] Link generation succeeded for endpoints ["BrowserFile.Controllers.SharingController.Index (BrowserFile)","Route: {controller=Account}/{action=Login}/{id?}"] with result /share
+2025-09-27 08:02:59.251 +00:00 [DBG] The temp data cookie .AspNetCore.Mvc.CookieTempDataProvider was not found.
+2025-09-27 08:02:59.252 +00:00 [DBG] View lookup cache miss for view '_Layout' in controller 'Sharing'.
+2025-09-27 08:02:59.253 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (area=[],action=[Index],controller=[Home])
+2025-09-27 08:02:59.253 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Home/Index and 
+2025-09-27 08:02:59.253 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Home/Index
+2025-09-27 08:02:59.253 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (area=[],action=[Privacy],controller=[Home])
+2025-09-27 08:02:59.253 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Home/Privacy and 
+2025-09-27 08:02:59.253 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Home/Privacy
+2025-09-27 08:02:59.253 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (area=[],action=[File],controller=[File])
+2025-09-27 08:02:59.253 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /File/File and 
+2025-09-27 08:02:59.253 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /File/File
+2025-09-27 08:02:59.254 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (area=[],action=[Index],controller=[Folder])
+2025-09-27 08:02:59.254 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Folder/Index and 
+2025-09-27 08:02:59.254 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Folder/Index
+2025-09-27 08:02:59.254 +00:00 [DBG] Found the endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] for address (action=[Logout],controller=[Account])
+2025-09-27 08:02:59.254 +00:00 [DBG] Successfully processed template {controller=Account}/{action=Login}/{id?} for Route: {controller=Account}/{action=Login}/{id?} resulting in /Account/Logout and 
+2025-09-27 08:02:59.254 +00:00 [DBG] Link generation succeeded for endpoints ["Route: {controller=Account}/{action=Login}/{id?}"] with result /Account/Logout
+2025-09-27 08:02:59.254 +00:00 [DBG] An antiforgery cookie token was reused.
+2025-09-27 08:02:59.255 +00:00 [INF] Executed ViewResult - view ShareSettings executed in 26.1246ms.
+2025-09-27 08:02:59.255 +00:00 [INF] Executed action BrowserFile.Controllers.SharingController.ShareSettings (BrowserFile) in 81.7552ms
+2025-09-27 08:02:59.255 +00:00 [INF] Executed endpoint 'BrowserFile.Controllers.SharingController.ShareSettings (BrowserFile)'
+2025-09-27 08:02:59.255 +00:00 [INF] HTTP GET /share/settings/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35 responded 200 in 91.1935 ms
+2025-09-27 08:02:59.255 +00:00 [DBG] Connection id "0HNFTJGTLR8DN" completed keep alive response.
+2025-09-27 08:02:59.255 +00:00 [DBG] 'ApplicationDbContext' disposed.
+2025-09-27 08:02:59.255 +00:00 [DBG] Disposing connection to database 'main' on server 'MyApp.db'.
+2025-09-27 08:02:59.255 +00:00 [DBG] Disposed connection to database 'main' on server 'MyApp.db' (0ms).
+2025-09-27 08:02:59.255 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5196/share/settings/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35 - 200 null text/html; charset=utf-8 92.7797ms
+2025-09-27 08:02:59.360 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5196/images/bootstrap-logo.svg - null null
+2025-09-27 08:02:59.360 +00:00 [DBG] The request path /images/bootstrap-logo.svg does not match an existing file
+2025-09-27 08:02:59.360 +00:00 [DBG] The request path /images/bootstrap-logo.svg does not match an existing file
+2025-09-27 08:02:59.360 +00:00 [DBG] No candidates found for the request path '/images/bootstrap-logo.svg'
+2025-09-27 08:02:59.360 +00:00 [DBG] Request did not match any endpoints
+2025-09-27 08:02:59.361 +00:00 [DBG] AuthenticationScheme: Identity.Application was successfully authenticated.
+2025-09-27 08:02:59.361 +00:00 [INF] HTTP GET /images/bootstrap-logo.svg responded 404 in 0.8740 ms
+2025-09-27 08:02:59.361 +00:00 [DBG] Connection id "0HNFTJGTLR8DJ" completed keep alive response.
+2025-09-27 08:02:59.361 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5196/images/bootstrap-logo.svg - 404 0 null 1.7293ms
+2025-09-27 08:02:59.361 +00:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5196/images/bootstrap-logo.svg, Response status code: 404
+2025-09-27 10:34:39.772 +00:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2025-09-27 10:34:40.167 +00:00 [DBG] The index {'UserId'} was not created on entity type 'Folder' as the properties are already covered by the index {'UserId', 'Name'}.
+2025-09-27 10:34:40.169 +00:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserRole<string>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+2025-09-27 10:34:40.169 +00:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserToken<string>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+2025-09-27 10:34:40.369 +00:00 [DBG] Entity Framework Core 8.0.19 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:8.0.19' with options: None
+2025-09-27 10:34:40.400 +00:00 [DBG] Compiling query expression: 
+'DbSet<ApplicationUser>()
+    .Where(u => u.NormalizedEmail == __normalizedEmail_0)
+    .SingleOrDefault()'
+2025-09-27 10:34:40.582 +00:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<ApplicationUser>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: ApplicationUser.Id (string) Required PK AfterSave:Throw, 0], [Property: ApplicationUser.AccessFailedCount (int) Required, 1], [Property: ApplicationUser.ConcurrencyStamp (string) Concurrency, 2], [Property: ApplicationUser.Email (string) MaxLength(256), 3], [Property: ApplicationUser.EmailConfirmed (bool) Required, 4], [Property: ApplicationUser.LockoutEnabled (bool) Required, 5], [Property: ApplicationUser.LockoutEnd (DateTimeOffset?), 6], [Property: ApplicationUser.NormalizedEmail (string) Index MaxLength(256), 7], [Property: ApplicationUser.NormalizedUserName (string) Index MaxLength(256), 8], [Property: ApplicationUser.PasswordHash (string), 9], [Property: ApplicationUser.PhoneNumber (string), 10], [Property: ApplicationUser.PhoneNumberConfirmed (bool) Required, 11], [Property: ApplicationUser.SecurityStamp (string), 12], [Property: ApplicationUser.TwoFactorEnabled (bool) Required, 13], [Property: ApplicationUser.UserName (string) MaxLength(256), 14] }
+        SELECT TOP(2) a.Id, a.AccessFailedCount, a.ConcurrencyStamp, a.Email, a.EmailConfirmed, a.LockoutEnabled, a.LockoutEnd, a.NormalizedEmail, a.NormalizedUserName, a.PasswordHash, a.PhoneNumber, a.PhoneNumberConfirmed, a.SecurityStamp, a.TwoFactorEnabled, a.UserName
+        FROM AspNetUsers AS a
+        WHERE a.NormalizedEmail == @__normalizedEmail_0), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, ApplicationUser>, 
+    BrowserFile.Data.ApplicationDbContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+2025-09-27 10:34:40.651 +00:00 [DBG] Creating DbConnection.
+2025-09-27 10:34:40.664 +00:00 [DBG] Created DbConnection. (13ms).
+2025-09-27 10:34:40.667 +00:00 [DBG] Opening connection to database 'main' on server 'MyApp.db'.
+2025-09-27 10:34:40.675 +00:00 [DBG] Opened connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 10:34:40.680 +00:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-09-27 10:34:40.685 +00:00 [DBG] Created DbCommand for 'ExecuteReader' (4ms).
+2025-09-27 10:34:40.687 +00:00 [DBG] Initialized DbCommand for 'ExecuteReader' (9ms).
+2025-09-27 10:34:40.694 +00:00 [DBG] Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 17)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-09-27 10:34:40.714 +00:00 [INF] Executed DbCommand (18ms) [Parameters=[@__normalizedEmail_0='?' (Size = 17)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-09-27 10:34:40.753 +00:00 [DBG] Context 'ApplicationDbContext' started tracking 'ApplicationUser' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-09-27 10:34:40.783 +00:00 [DBG] Closing data reader to 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 10:34:40.787 +00:00 [DBG] A data reader for 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db' is being disposed after spending 68ms reading results.
+2025-09-27 10:34:40.789 +00:00 [DBG] Closing connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 10:34:40.792 +00:00 [DBG] Closed connection to database 'main' on server 'MyApp.db' (2ms).
+2025-09-27 10:34:40.795 +00:00 [DBG] Compiling query expression: 
+'DbSet<Icon>()
+    .Any()'
+2025-09-27 10:34:40.800 +00:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Icons AS i)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    BrowserFile.Data.ApplicationDbContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+2025-09-27 10:34:40.803 +00:00 [DBG] Opening connection to database 'main' on server 'MyApp.db'.
+2025-09-27 10:34:40.803 +00:00 [DBG] Opened connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 10:34:40.804 +00:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-09-27 10:34:40.804 +00:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2025-09-27 10:34:40.804 +00:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2025-09-27 10:34:40.804 +00:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Icons" AS "i")
+2025-09-27 10:34:40.804 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Icons" AS "i")
+2025-09-27 10:34:40.804 +00:00 [DBG] Closing data reader to 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 10:34:40.805 +00:00 [DBG] A data reader for 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db' is being disposed after spending 0ms reading results.
+2025-09-27 10:34:40.805 +00:00 [DBG] Closing connection to database 'main' on server '/workspaces/BrowserFile/BrowserFile/BrowserFile/MyApp.db'.
+2025-09-27 10:34:40.805 +00:00 [DBG] Closed connection to database 'main' on server 'MyApp.db' (0ms).
+2025-09-27 10:34:40.806 +00:00 [DBG] 'ApplicationDbContext' disposed.
+2025-09-27 10:34:40.808 +00:00 [DBG] Disposing connection to database 'main' on server 'MyApp.db'.
+2025-09-27 10:34:40.809 +00:00 [DBG] Disposed connection to database 'main' on server 'MyApp.db' (0ms).
+2025-09-27 10:34:40.833 +00:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2025-09-27 10:34:40.840 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Account/Login.cshtml'.
+2025-09-27 10:34:40.840 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/File/Index.cshtml'.
+2025-09-27 10:34:40.840 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Folder/Edit.cshtml'.
+2025-09-27 10:34:40.840 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Folder/Index.cshtml'.
+2025-09-27 10:34:40.840 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Home/Index.cshtml'.
+2025-09-27 10:34:40.840 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Home/Privacy.cshtml'.
+2025-09-27 10:34:40.840 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/PublicFiles/Index.cshtml'.
+2025-09-27 10:34:40.840 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Error.cshtml'.
+2025-09-27 10:34:40.840 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_LoginPartial.cshtml'.
+2025-09-27 10:34:40.840 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_ValidationScriptsPartial.cshtml'.
+2025-09-27 10:34:40.840 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Sharing/Index.cshtml'.
+2025-09-27 10:34:40.840 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Sharing/ShareSettings.cshtml'.
+2025-09-27 10:34:40.840 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/_ViewImports.cshtml'.
+2025-09-27 10:34:40.840 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/_ViewStart.cshtml'.
+2025-09-27 10:34:40.840 +00:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_Layout.cshtml'.
+2025-09-27 10:34:40.853 +00:00 [WRN] Storing keys in a directory '/home/codespace/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed. For more information go to https://aka.ms/aspnet/dataprotectionwarning
+2025-09-27 10:34:40.853 +00:00 [INF] User profile is available. Using '/home/codespace/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-09-27 10:34:40.912 +00:00 [DBG] Hosting starting
+2025-09-27 10:34:40.927 +00:00 [DBG] Reading data from file '/home/codespace/.aspnet/DataProtection-Keys/key-9756e286-c09d-445f-b02f-4f06d5381c4b.xml'.
+2025-09-27 10:34:40.936 +00:00 [DBG] Found key {9756e286-c09d-445f-b02f-4f06d5381c4b}.
+2025-09-27 10:34:40.945 +00:00 [DBG] Considering key {9756e286-c09d-445f-b02f-4f06d5381c4b} with expiration date 2025-12-26 08:02:09Z as default key.
+2025-09-27 10:34:40.948 +00:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2025-09-27 10:34:40.950 +00:00 [DBG] Using managed symmetric algorithm 'System.Security.Cryptography.Aes'.
+2025-09-27 10:34:40.951 +00:00 [DBG] Using managed keyed hash algorithm 'System.Security.Cryptography.HMACSHA256'.
+2025-09-27 10:34:40.960 +00:00 [DBG] Using key {9756e286-c09d-445f-b02f-4f06d5381c4b} as the default key.
+2025-09-27 10:34:40.964 +00:00 [DBG] Key ring with default key {9756e286-c09d-445f-b02f-4f06d5381c4b} was loaded during application startup.
+2025-09-27 10:34:41.010 +00:00 [INF] Now listening on: http://localhost:5196
+2025-09-27 10:34:41.011 +00:00 [DBG] Loaded hosting startup assembly BrowserFile
+2025-09-27 10:34:41.011 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-27 10:34:41.011 +00:00 [INF] Hosting environment: Development
+2025-09-27 10:34:41.011 +00:00 [INF] Content root path: /workspaces/BrowserFile/BrowserFile/BrowserFile
+2025-09-27 10:34:41.011 +00:00 [DBG] Hosting started
