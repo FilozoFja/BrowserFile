@@ -177,6 +177,26 @@ namespace BrowserFile.Controllers
             TempData["SuccessMessage"] = "Sharing link created successfully.";
             return RedirectToAction("Index");
         }
-        
+
+        [Authorize]
+        [HttpGet("share/settings/{id}/deactivate")]
+        public async Task<IActionResult> DeactivateSharingLink(string id)
+        {
+            var sharedFile = await _context.SharedLinks
+                .Include(f => f.File)
+                .Where(x => x.File.Id == id && x.File.UserId == CurrentUser && x.ExpiresAt > DateTime.Now && ((x.OneTime == true && x.Used < 1) || (x.OneTime == false)))
+                .FirstOrDefaultAsync();
+            
+            if (sharedFile == null)
+            {
+                TempData["ErrorMessage"] = "File not found.";
+                RedirectToAction("Index");
+            }
+
+            sharedFile.ExpiresAt = DateTime.Now;
+            await _context.SaveChangesAsync();
+            TempData["SuccessMessage"] = "Sharing link has been deactivated.";
+            return RedirectToAction("Index");
+        }
     }
 }

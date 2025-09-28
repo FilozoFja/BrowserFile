@@ -50,15 +50,18 @@
                                                 break;
                                         }
                                     </div>
-                                </div>
+                                    <a asp-action="ShareSettings" asp-controller="Sharing" asp-route-id="@combinedList.File.Id">
+                                        <i class="fas fa-share-alt text-secondary"></i>
+                                    </a></div>
                                 <h6 class="card-title text-truncate" title="@combinedList.File.Name">@combinedList.File.Name</h6>
                                 <small class="text-muted d-block">Size: @combinedList.File.Size</small>
                                 <small class="text-muted d-block">Extension: @combinedList.File.FileExtension</small>
                             </div>
-                            <div class="input-group mb-2">
-                                <input type="text" class="form-control" id="shareLink"
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="shareLink_@combinedList.File.Id"
                                        value="@combinedList.Link" readonly>
-                                <button class="btn btn-outline-secondary" type="button" onclick="copyToClipboard()">
+                                <button class="btn btn-outline-secondary" type="button" 
+                                        onclick="copyToClipboard('shareLink_@combinedList.File.Id')">
                                     <i class="fas fa-copy"></i> Copy
                                 </button>
                             </div>
@@ -75,8 +78,8 @@
 </div>
 
 <script>
-    function copyToClipboard() {
-        const linkInput = document.getElementById('shareLink');
+    function copyToClipboard(elementID) {
+        const linkInput = document.getElementById(elementID);
         linkInput.select();
         linkInput.setSelectionRange(0, 99999);
 

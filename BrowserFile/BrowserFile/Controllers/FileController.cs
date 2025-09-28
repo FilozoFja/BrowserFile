@@ -17,14 +17,16 @@ namespace BrowserFile.Controllers
         private string CurrentUserId => User?.FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty;
         private readonly IMapper _mapper;
         private readonly ILogger<FileController> _logger;
+        private readonly IWebHostEnvironment _environment;
 
         public FileController(ApplicationDbContext context, IConfiguration configuration, 
-                                IMapper mapper, ILogger<FileController> logger)
+                                IMapper mapper, ILogger<FileController> logger,  IWebHostEnvironment environment)
         {
             _context = context;
             _configuration = configuration;
             _mapper = mapper;
             _logger = logger;
+            _environment = environment;
         }
 
         [HttpGet]
@@ -63,13 +65,14 @@ namespace BrowserFile.Controllers
                 return RedirectToAction("Index", "Folder");
             }
 
-            var fullFilePath = Path.Combine(Directory.GetCurrentDirectory(), file.FilePath);
-            if (!System.IO.File.Exists(fullFilePath))
-            {
-                TempData["Error"] = "File not found on server.";
-                return RedirectToAction("Index", "Folder");
-            }
+            var fullFilePath = GetSafeFilePath(file.FilePath);
 
+            if (fullFilePath == null)
+            {
+                TempData["Error"] = "File not found.";
+                return RedirectToAction("Index", "File");
+            }
+            
             var stream = new FileStream(fullFilePath, FileMode.Open, FileAccess.Read);
             var contentType = GetContentType(file.FileExtension) ?? "application/octet-stream";
 
@@ -96,14 +99,22 @@ namespace BrowserFile.Controllers
             }
 
             var fullFilePath = Path.Combine(Directory.GetCurrentDirectory(), file.FilePath);
-            if (!System.IO.File.Exists(fullFilePath))
+            try
             {
-                TempData["Error"] = "File not found on server.";
+                if (!System.IO.File.Exists(fullFilePath))
+                {
+                    TempData["Error"] = "File not found on server.";
+                    return RedirectToAction("Index", "Folder");
+                }
+    
+                var contentType = GetContentType(file.FileExtension) ?? "application/octet-stream";
+                return PhysicalFile(fullFilePath, contentType); 
+            }
+            catch (IOException)
+            {
+                TempData["Error"] = "Plik jest aktualnie używany. Spróbuj ponownie.";
                 return RedirectToAction("Index", "Folder");
             }
-            var stream = new FileStream(fullFilePath, FileMode.Open, FileAccess.Read);
-            var contentType = GetContentType(file.FileExtension) ?? "application/octet-stream";
-            return File(stream, contentType);
         }
 
         [HttpPost]
@@ -455,6 +466,28 @@ namespace BrowserFile.Controllers
                 ".txt" => "text/plain",
                 _ => "application/octet-stream"
             };
+        }
+        
+        private string? GetSafeFilePath(string filePath)
+        {
+            try
+            {
+                var universalPath = _environment.ContentRootPath;
+                filePath = filePath.Replace(@"\", "/");
+                
+                var uploadsPath = Path.Combine(_environment.ContentRootPath, "uploads");
+                var normalizedPath = Path.GetFullPath(Path.Combine(universalPath, filePath));
+
+                if (!normalizedPath.StartsWith(Path.GetFullPath(uploadsPath)))
+                {
+                    return null; 
+                }
+                return normalizedPath;
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }

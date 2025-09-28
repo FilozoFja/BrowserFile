@@ -83,6 +83,12 @@
                             <a asp-action="Index" class="btn btn-secondary">
                                 <i class="fas fa-arrow-left"></i> Back to Files
                             </a>
+                        @if (Model.HasActiveLink)
+                            {
+                                <a asp-action="DeactivateSharingLink" asp-route-id="@Model.File.Id" class="btn btn-secondary">
+                                    <i class="fas fa-close"></i> Deactivate link
+                                </a>
+                            }
                         </div>
                     </form>
                 </div>
