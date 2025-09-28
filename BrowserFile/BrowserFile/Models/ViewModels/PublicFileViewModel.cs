@@ -1,6 +1,6 @@
 using BrowserFile.Models.ViewModels;
 
-namespace BrowserFile.Models.Entities
+namespace BrowserFile.Models.ViewModels
 {
     public class PublicFileViewModel
     {
@@ -9,5 +9,6 @@ namespace BrowserFile.Models.Entities
         public string FileSize { get; set; } = string.Empty;
         public bool IsRequiredPassword { get; set; } = false;
         public bool IsOneTime { get; set; } = false;
+        public string FileExtension  { get; set; } = string.Empty;
     }
 }

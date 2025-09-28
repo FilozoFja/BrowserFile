@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Scrypt;
 using System.Security.Cryptography;
+using BrowserFile.Models.ViewModels;
 
 namespace BrowserFile.Controllers
 {
@@ -44,7 +45,8 @@ namespace BrowserFile.Controllers
                 FileName = fileSharing.File.Name,
                 FileSize = fileSharing.File.Size,
                 IsRequiredPassword = !string.IsNullOrEmpty(fileSharing.PasswordHash),
-                IsOneTime = fileSharing.OneTime
+                IsOneTime = fileSharing.OneTime,
+                FileExtension = fileSharing.File.FileExtension
             };
 
             return View(viewModel);
@@ -149,7 +151,7 @@ namespace BrowserFile.Controllers
             return await _context.SharedLinks
                         .Include(x => x.File)
                         .FirstOrDefaultAsync(x => (x.Token == token || x.Alias == token)
-                        && x.ExpiresAt > DateTime.Now
+                        && x.ExpiresAt.AddSeconds(5) > DateTime.Now
                         && (x.OneTime == false
                         || (x.OneTime == true && x.Used == 0)));
         }
@@ -195,15 +197,16 @@ namespace BrowserFile.Controllers
         {
             try
             {
+                var universalPath = _environment.ContentRootPath;
+                filePath = filePath.Replace(@"\", "/");
+                
                 var uploadsPath = Path.Combine(_environment.ContentRootPath, "uploads");
-
-                var normalizedPath = Path.GetFullPath(Path.Combine(uploadsPath, filePath));
+                var normalizedPath = Path.GetFullPath(Path.Combine(universalPath, filePath));
 
                 if (!normalizedPath.StartsWith(Path.GetFullPath(uploadsPath)))
                 {
                     return null; 
                 }
-
                 return normalizedPath;
             }
             catch

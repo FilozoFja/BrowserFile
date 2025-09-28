@@ -12,17 +12,17 @@
 
 <div class="tab-content mt-3">
     <div class="tab-pane fade show active">
-        @if (Model.SharedFiles.Any())
+        @if (Model.SharedCombinedList.Any())
         {
             <div id="filesGrid" class="row">
-                @foreach (var file in Model.SharedFiles)
+                @foreach (var combinedList in Model.SharedCombinedList)
                 {
                     <div class="col-md-4 col-lg-3 mb-3">
                         <div class="card h-100 file-card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-start mb-2">
                                     <div class="file-icon">
-                                        @switch (file.FileExtension?.ToLower())
+                                        @switch (combinedList.File.FileExtension?.ToLower())
                                         {
                                             case ".pdf":
                                                 <i class="fas fa-file-pdf text-danger fa-2x"></i>
@@ -51,16 +51,16 @@
                                         }
                                     </div>
                                 </div>
-                                <h6 class="card-title text-truncate" title="@file.Name">@file.Name</h6>
-                                <small class="text-muted d-block">Size: @file.Size</small>
-                                <small class="text-muted d-block">Extension: @file.FileExtension</small>
+                                <h6 class="card-title text-truncate" title="@combinedList.File.Name">@combinedList.File.Name</h6>
+                                <small class="text-muted d-block">Size: @combinedList.File.Size</small>
+                                <small class="text-muted d-block">Extension: @combinedList.File.FileExtension</small>
                             </div>
-                            <div class="card-footer p-2 bg-light">
-                                <div class="btn-group w-100" role="group">
-                                    <button class="btn btn-outline-secondary" type="button" onclick="copyToClipboard()">
-                                        <i class="fas fa-copy"></i> Copy
-                                    </button>
-                                </div>
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="shareLink"
+                                       value="@combinedList.Link" readonly>
+                                <button class="btn btn-outline-secondary" type="button" onclick="copyToClipboard()">
+                                    <i class="fas fa-copy"></i> Copy
+                                </button>
                             </div>
                         </div>
                     </div>

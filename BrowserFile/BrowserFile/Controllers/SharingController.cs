@@ -29,11 +29,34 @@ namespace BrowserFile.Controllers
                 .Include(f => f.SharedLink)
                 .Where(x => x.UserId == CurrentUser 
                     && x.IsShared 
-                    && x.SharedLink != null)
+                    && x.SharedLink != null 
+                    && x.SharedLink.Any(xs => xs.ExpiresAt > DateTime.Now)
+                    && x.SharedLink.Any(xs => (xs.OneTime && xs.Used <1 )
+                                                            || xs.OneTime == false))
                 .ToListAsync();
+            var sharedLinks = await _context.SharedLinks
+                .Where(x => x.ExpiresAt > DateTime.Now && (x.OneTime && x.Used < 1
+                                                           || x.OneTime == false)).ToListAsync();
+
+            List<ShareViewCombinedList?> combinedlist = new List<ShareViewCombinedList?>();
+            foreach (var sharedLink in sharedLinks)
+            {
+                foreach (var sharedFile in sharedFiles)
+                {
+                    if (sharedFile.Id == sharedLink.FileId)
+                    {
+                        combinedlist.Add(new ShareViewCombinedList
+                        {
+                            File = sharedFile,
+                            Link = $"{Request.Scheme}://{Request.Host}/share/{sharedLink.Token}"
+                        });
+                    }
+                }
+            }
+            
             var vm = new ShareViewModel
             {
-                SharedFiles = sharedFiles
+                SharedCombinedList = combinedlist
             };
 
             return View(vm);

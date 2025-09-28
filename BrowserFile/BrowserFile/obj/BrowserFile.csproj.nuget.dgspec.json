@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/workspaces/BrowserFile/BrowserFile/BrowserFile/BrowserFile.csproj": {}
+    "/home/kornel/Documents/GitHub/BrowserFile/BrowserFile/BrowserFile/BrowserFile.csproj": {}
   },
   "projects": {
-    "/workspaces/BrowserFile/BrowserFile/BrowserFile/BrowserFile.csproj": {
+    "/home/kornel/Documents/GitHub/BrowserFile/BrowserFile/BrowserFile/BrowserFile.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/workspaces/BrowserFile/BrowserFile/BrowserFile/BrowserFile.csproj",
+        "projectUniqueName": "/home/kornel/Documents/GitHub/BrowserFile/BrowserFile/BrowserFile/BrowserFile.csproj",
         "projectName": "BrowserFile",
-        "projectPath": "/workspaces/BrowserFile/BrowserFile/BrowserFile/BrowserFile.csproj",
-        "packagesPath": "/home/codespace/.nuget/packages/",
-        "outputPath": "/workspaces/BrowserFile/BrowserFile/BrowserFile/obj/",
+        "projectPath": "/home/kornel/Documents/GitHub/BrowserFile/BrowserFile/BrowserFile/BrowserFile.csproj",
+        "packagesPath": "/home/kornel/.nuget/packages/",
+        "outputPath": "/home/kornel/Documents/GitHub/BrowserFile/BrowserFile/BrowserFile/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/codespace/.nuget/NuGet/NuGet.Config"
+          "/home/kornel/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -101,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.412/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/kornel/.dotnet/sdk/8.0.414/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
