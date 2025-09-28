@@ -240,13 +240,27 @@
 <script>
     document.querySelector('.download-form').addEventListener('submit', function(e) {
         const btn = document.querySelector('.download-btn');
+        
+        if (@Model.IsOneTime.ToString().ToLower() && btn.classList.contains('used')) {
+            e.preventDefault();
+            return;
+        }
+
         btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Pobieranie...';
         btn.disabled = true;
         
-        setTimeout(() => {
-            btn.innerHTML = '<i class="fas fa-download me-2"></i>Pobierz plik';
-            btn.disabled = false;
-        }, 3000);
+        if (@Model.IsOneTime.ToString().ToLower()) {
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-times me-2"></i>Link wyczerpany';
+                btn.classList.add('used');
+                btn.disabled = true;
+            }, 2000);
+        } else {
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-download me-2"></i>Pobierz plik';
+                btn.disabled = false;
+            }, 3000);
+        }
     });
     
     @if (Model.IsRequiredPassword)

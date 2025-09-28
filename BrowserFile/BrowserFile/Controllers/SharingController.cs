@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Scrypt;
 using System.Security.Claims;
+using BrowserFile.Interface;
 
 namespace BrowserFile.Controllers
 {
@@ -14,51 +15,35 @@ namespace BrowserFile.Controllers
         private readonly ApplicationDbContext _context;
         private string CurrentUser => User?.FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty;
         private readonly ILogger<SharingController> _logger;
+        private readonly IFileShareService _shareService;
         
-        public SharingController(ApplicationDbContext context, ILogger<SharingController> logger)
+        public SharingController(ApplicationDbContext context, 
+                ILogger<SharingController> logger,
+                IFileShareService shareService)
         {
             _context = context;
             _logger = logger;
+            _shareService = shareService;
         }
 
         [Authorize]
         [HttpGet("share")]
         public async Task<IActionResult> Index()
         {
-            var sharedFiles = await _context.StoredFiles
-                .Include(f => f.SharedLink)
-                .Where(x => x.UserId == CurrentUser 
-                    && x.IsShared 
-                    && x.SharedLink != null 
-                    && x.SharedLink.Any(xs => xs.ExpiresAt > DateTime.Now)
-                    && x.SharedLink.Any(xs => (xs.OneTime && xs.Used <1 )
-                                                            || xs.OneTime == false))
-                .ToListAsync();
-            var sharedLinks = await _context.SharedLinks
-                .Where(x => x.ExpiresAt > DateTime.Now && (x.OneTime && x.Used < 1
-                                                           || x.OneTime == false)).ToListAsync();
+            var sharedFiles = await _shareService.GetSharedFiles(CurrentUser);
+            var sharedLinks = await _shareService.GetSharedLinks(CurrentUser);
 
-            List<ShareViewCombinedList?> combinedlist = new List<ShareViewCombinedList?>();
-            foreach (var sharedLink in sharedLinks)
+            List<ShareViewCombinedList> combinedList = new List<ShareViewCombinedList>();
+            if (sharedFiles != null && sharedLinks != null)
             {
-                foreach (var sharedFile in sharedFiles)
-                {
-                    if (sharedFile.Id == sharedLink.FileId)
-                    {
-                        combinedlist.Add(new ShareViewCombinedList
-                        {
-                            File = sharedFile,
-                            Link = $"{Request.Scheme}://{Request.Host}/share/{sharedLink.Token}"
-                        });
-                    }
-                }
+                var link = $"{Request.Scheme}://{Request.Host}";
+                combinedList = _shareService.GetCombinedList(sharedFiles, sharedLinks, link);
             }
             
             var vm = new ShareViewModel
             {
-                SharedCombinedList = combinedlist
+                SharedCombinedList = combinedList
             };
-
             return View(vm);
         }
 
@@ -66,6 +51,7 @@ namespace BrowserFile.Controllers
         [HttpGet("share/settings/{id}")]
         public async Task<IActionResult> ShareSettings(string id)
         {
+            /*DODAC WYWOLANIE Z KONTROLLERA FILE DO TEGO*/
             var file = await _context.StoredFiles.FirstOrDefaultAsync(x => x.Id == id && x.UserId == CurrentUser);
             if (file == null)
             {
@@ -73,28 +59,18 @@ namespace BrowserFile.Controllers
                 return NotFound();
             }
 
-            var activeLink = file.IsShared ? await _context.SharedLinks
-                .FirstOrDefaultAsync(x => x.FileId == file.Id && x.ExpiresAt > DateTime.Now) : null;
-
-            var sharingHistory = await _context.SharedLinks
-                .Where(x => x.FileId == file.Id)
-                .OrderByDescending(x => x.ExpiresAt)
-                .Take(10) 
-                .ToListAsync();
+            var activeLink = file.IsShared ? await _shareService.GetSharedLink(CurrentUser, id) : null;
+            var sharingHistory = await _shareService.GetSharingHistory(CurrentUser, id);
 
             var vm = new ShareSettingsViewModel
             {
                 File = file,
                 SharedLink = activeLink,
-                SharingHistory = sharingHistory,
-                ExpirationDate = DateTime.Now.AddDays(1)
+                SharingHistory = sharingHistory.Any() ? sharingHistory : null,
+                ExpirationDate = DateTime.Now.AddDays(1),
+                ShareUrl = activeLink != null ? $"{Request.Scheme}://{Request.Host}/share/{activeLink.Token}" : null
             };
-
-            if (activeLink != null)
-            {
-                vm.ShareUrl = $"{Request.Scheme}://{Request.Host}/share/{activeLink.Token}";
-            }
-
+            
             return View(vm);
         }
 
@@ -104,7 +80,7 @@ namespace BrowserFile.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var fileForView = await _context.StoredFiles.FirstOrDefaultAsync(x => x.Id == id && x.UserId == CurrentUser);
+                var fileForView = await _shareService.GetSharedFile(CurrentUser, id);
                 if (fileForView == null)
                 {
                     TempData["ErrorMessage"] = "File not found.";
@@ -112,33 +88,24 @@ namespace BrowserFile.Controllers
                 }
 
                 model.File = fileForView;
-                model.SharingHistory = await _context.SharedLinks
-                    .Where(x => x.FileId == fileForView.Id)
-                    .OrderByDescending(x => x.ExpiresAt)
-                    .Take(10)
-                    .ToListAsync();
+                model.SharingHistory = await _shareService.GetSharingHistory(CurrentUser, id);
                 TempData["ErrorMessage"] = "Something went wrong";
                 return View("ShareSettings", model);
             }
-
+            /*DODAC WYWOLANIE Z KONTROLLERA FILE DO TEGO*/
             var file = await _context.StoredFiles.FirstOrDefaultAsync(x => x.Id == id && x.UserId == CurrentUser);
-
             if (file == null)
             {
                 TempData["ErrorMessage"] = "File not found or you do not have permission to edit its sharing settings.";
                 return NotFound();
             }
 
-            var existingLink = await _context.SharedLinks.FirstOrDefaultAsync(x => x.FileId == file.Id && x.ExpiresAt > DateTime.Now);
-
+            var existingLink = await _shareService.GetSharedLink(CurrentUser, id);
             if (existingLink != null)
             {
-                existingLink.ExpiresAt = DateTime.Now;
-
                 try
                 {
-                    _context.SharedLinks.Update(existingLink);
-                    await _context.SaveChangesAsync();
+                    await _shareService.DeactivateSharedLink(CurrentUser, file.Id);
                 }
                 catch(Exception ex)
                 {
@@ -182,20 +149,21 @@ namespace BrowserFile.Controllers
         [HttpGet("share/settings/{id}/deactivate")]
         public async Task<IActionResult> DeactivateSharingLink(string id)
         {
-            var sharedFile = await _context.SharedLinks
-                .Include(f => f.File)
-                .Where(x => x.File.Id == id && x.File.UserId == CurrentUser && x.ExpiresAt > DateTime.Now && ((x.OneTime == true && x.Used < 1) || (x.OneTime == false)))
-                .FirstOrDefaultAsync();
-            
-            if (sharedFile == null)
+            try
             {
-                TempData["ErrorMessage"] = "File not found.";
-                RedirectToAction("Index");
+                await _shareService.DeactivateSharedLink(CurrentUser, id);
+                TempData["SuccessMessage"] = "Sharing link has been deactivated.";
             }
-
-            sharedFile.ExpiresAt = DateTime.Now;
-            await _context.SaveChangesAsync();
-            TempData["SuccessMessage"] = "Sharing link has been deactivated.";
+            catch (InvalidOperationException ex)
+            {
+                TempData["ErrorMessage"] = "Shared link not found.";
+                _logger.LogError(ex, "Sharing link not found for file {FileId} by user {UserId}", id, CurrentUser);
+            }
+            catch (DbUpdateException dbex)
+            {
+                TempData["ErrorMessage"] = "Sharing link could not be deactivated.";
+                _logger.LogError(dbex, "Database error deactivating sharing link for file {FileId}", id);
+            }
             return RedirectToAction("Index");
         }
     }

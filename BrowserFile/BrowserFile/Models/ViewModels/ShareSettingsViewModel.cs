@@ -7,7 +7,7 @@ namespace BrowserFile.Models.ViewModels
     {
         public SharedLink? SharedLink { get; set; } = null;
         public StoredFile? File { get; set; } = null;
-        public List<SharedLink> SharingHistory { get; set; } = new(); 
+        public List<SharedLink?> SharingHistory { get; set; } = new(); 
 
         [Display(Name = "Expiration Date")]
         public DateTime? ExpirationDate { get; set; }

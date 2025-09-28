@@ -1,5 +1,7 @@
 using BrowserFile.Data;
+using BrowserFile.Interface;
 using BrowserFile.Models.Entities;
+using BrowserFile.Service;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +26,8 @@ builder.Services.AddAuthentication(options =>
     options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
     options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
 }).AddApplicationCookie();
+
+builder.Services.AddScoped<IFileShareService,FileShareService>();
 
 builder.Services.AddIdentityCore<ApplicationUser>(options =>
 {
