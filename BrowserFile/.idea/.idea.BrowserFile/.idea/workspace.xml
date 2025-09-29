@@ -9,15 +9,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aab06062-6826-4f25-804b-8e5acb909b53" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BrowserFile/Interface/IFileShareService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BrowserFile/Service/FileShareService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BrowserFile/Interface/IFileService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BrowserFile/Service/FileService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BrowserFile/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BrowserFile/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BrowserFile/Controllers/SharingController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/Controllers/SharingController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Controllers/FileController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/Controllers/FileController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BrowserFile/Logs/applog-20250928.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/Logs/applog-20250928.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BrowserFile/Models/ViewModels/ShareSettingsViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/Models/ViewModels/ShareSettingsViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BrowserFile/MyApp.db" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/MyApp.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BrowserFile/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BrowserFile/Views/PublicFiles/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/Views/PublicFiles/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BrowserFile/bin/Debug/net8.0/BrowserFile.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/bin/Debug/net8.0/BrowserFile.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BrowserFile/bin/Debug/net8.0/BrowserFile.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/bin/Debug/net8.0/BrowserFile.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/BrowserFile.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/BrowserFile.AssemblyInfo.cs" afterDir="false" />
@@ -28,7 +26,10 @@
       <change beforePath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/BrowserFile.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/BrowserFile.sourcelink.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/ref/BrowserFile.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/ref/BrowserFile.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/refint/BrowserFile.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/refint/BrowserFile.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BrowserFile/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/uploads/1acf4d1f-962d-4314-aa43-eb0589477479/2769fbe1-3fd5-4ee2-8279-55ffa1ab3b8d.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/uploads/1acf4d1f-962d-4314-aa43-eb0589477479/713569c0-2d83-4452-8cd8-efd4e3778b75.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/uploads/1acf4d1f-962d-4314-aa43-eb0589477479/a99039c2-8d72-4761-b67b-72b08adf3b34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/uploads/1acf4d1f-962d-4314-aa43-eb0589477479/beb67cb4-2187-427b-8f3f-62c8e8729578.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,23 +58,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.BrowserFile: http.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.BrowserFile: http.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "develop",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.BrowserFile: http">
     <configuration name="BrowserFile: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/BrowserFile/BrowserFile.csproj" />
@@ -123,6 +124,9 @@
       <workItem from="1759051319577" duration="3985000" />
       <workItem from="1759064752716" duration="10430000" />
       <workItem from="1759077245891" duration="3702000" />
+      <workItem from="1759081722618" duration="340000" />
+      <workItem from="1759088458653" duration="3692000" />
+      <workItem from="1759141807978" duration="84000" />
     </task>
     <servers />
   </component>

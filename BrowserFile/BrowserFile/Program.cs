@@ -2,6 +2,7 @@ using BrowserFile.Data;
 using BrowserFile.Interface;
 using BrowserFile.Models.Entities;
 using BrowserFile.Service;
+using BrowserFile.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +29,7 @@ builder.Services.AddAuthentication(options =>
 }).AddApplicationCookie();
 
 builder.Services.AddScoped<IFileShareService,FileShareService>();
+builder.Services.AddScoped<IFileService,FileService>();
 
 builder.Services.AddIdentityCore<ApplicationUser>(options =>
 {
