@@ -3,19 +3,22 @@ using BrowserFile.Interface;
 using BrowserFile.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace BrowserFile.Services
+namespace BrowserFile.Service
 {
     public class FileService : IFileService
     {
         private readonly ApplicationDbContext _context;
         private readonly IConfiguration _configuration;
         private readonly ILogger<FileService> _logger;
+        private readonly IStorageService _storageService;
 
-        public FileService(ApplicationDbContext context, IConfiguration configuration, ILogger<FileService> logger)
+        public FileService(ApplicationDbContext context, IConfiguration configuration, 
+                          ILogger<FileService> logger, IStorageService storageService)
         {
             _context = context;
             _configuration = configuration;
             _logger = logger;
+            _storageService = storageService;
         }
 
         public async Task<StoredFile?> GetFileAsync(string id, string userId)
@@ -29,7 +32,7 @@ namespace BrowserFile.Services
             return File.Exists(fullPath) ? fullPath : null;
         }
 
-        public string? GetContentType(string fileExtension)
+        public string? GetContentType(string? fileExtension)
         {
             return fileExtension?.ToLower() switch
             {
@@ -42,6 +45,8 @@ namespace BrowserFile.Services
                 ".docx" => "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
                 ".xls" => "application/vnd.ms-excel",
                 ".xlsx" => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                ".zip" => "application/zip",
+                ".rar" => "application/x-rar-compressed",
                 _ => "application/octet-stream"
             };
         }
@@ -263,7 +268,7 @@ namespace BrowserFile.Services
 
         public async Task<bool> VerifyFolderPermissionAsync(string folderId, string userId)
         {
-            return await _context.Folders.AnyAsync(f => f.Id == folderId && f.UserId == userId);
+            return await _storageService.UserHasPermissionToFolderAsync(folderId, userId);
         }
     }
 }

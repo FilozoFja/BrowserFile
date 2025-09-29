@@ -29,7 +29,10 @@ builder.Services.AddAuthentication(options =>
 }).AddApplicationCookie();
 
 builder.Services.AddScoped<IFileShareService,FileShareService>();
-builder.Services.AddScoped<IFileService,FileService>();
+builder.Services.AddScoped<IStorageService, StorageService>();
+builder.Services.AddScoped<IFileService, FileService>();
+builder.Services.AddScoped<IFolderService, FolderService>();
+builder.Services.AddScoped<IPublicFileService, PublicFileService>();
 
 builder.Services.AddIdentityCore<ApplicationUser>(options =>
 {
