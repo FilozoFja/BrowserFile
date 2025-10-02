@@ -49,7 +49,7 @@ namespace BrowserFile.Service
                 .Where(x => x.File != null
                             && x.File.Id == fileId
                             && x.File.UserId == currentUser
-                            && x.ExpiresAt > DateTime.Now
+                            && x.ExpiresAt > DateTime.UtcNow
                             && ((x.OneTime == true 
                                  && x.Used < 1) || (x.OneTime == false)))
                 .FirstOrDefaultAsync();
@@ -61,7 +61,7 @@ namespace BrowserFile.Service
                 .Include(f => f.File)
                 .Where(x => x.File != null
                             && x.File.UserId == currentUser
-                            && x.ExpiresAt > DateTime.Now.AddSeconds(1)
+                            && x.ExpiresAt > DateTime.UtcNow.AddSeconds(1)
                             && ((x.OneTime == true 
                                  && x.Used < 1) || (x.OneTime == false)))
                 .ToListAsync();
@@ -74,7 +74,7 @@ namespace BrowserFile.Service
                 .Where(x => x.UserId == currentUser 
                             && x.IsShared 
                             && x.SharedLink != null 
-                            && x.SharedLink.Any(xs => xs.ExpiresAt > DateTime.Now)
+                            && x.SharedLink.Any(xs => xs.ExpiresAt > DateTime.UtcNow)
                             && x.SharedLink.Any(xs => (xs.OneTime && xs.Used <1 )
                                                       || xs.OneTime == false))
                 .ToListAsync();
@@ -94,7 +94,7 @@ namespace BrowserFile.Service
             }
             try
             {
-                sharedFile.ExpiresAt = DateTime.Now;
+                sharedFile.ExpiresAt = DateTime.UtcNow;
                 _context.SharedLinks.Update(sharedFile);
                 await _context.SaveChangesAsync();
             }

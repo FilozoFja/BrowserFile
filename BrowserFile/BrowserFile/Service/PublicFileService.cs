@@ -27,7 +27,7 @@ namespace BrowserFile.Service
                 .Include(x => x.File)
                 .FirstOrDefaultAsync(x => 
                     (x.Token == token || x.Alias == token) &&
-                    x.ExpiresAt.AddSeconds(5) > DateTime.Now &&
+                    x.ExpiresAt.AddSeconds(5) > DateTime.UtcNow &&
                     (x.OneTime == false || (x.OneTime == true && x.Used == 0)));
         }
 
@@ -82,7 +82,7 @@ namespace BrowserFile.Service
             try
             {
                 sharedLink.Used = 1;
-                sharedLink.ExpiresAt = DateTime.Now;
+                sharedLink.ExpiresAt = DateTime.UtcNow;
                 _context.SharedLinks.Update(sharedLink);
                 await _context.SaveChangesAsync();
 

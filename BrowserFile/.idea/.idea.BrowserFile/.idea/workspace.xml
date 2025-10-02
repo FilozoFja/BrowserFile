@@ -9,30 +9,69 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aab06062-6826-4f25-804b-8e5acb909b53" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BrowserFile/Interface/IFolderService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BrowserFile/Interface/IPublicFileService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BrowserFile/Interface/IStorageService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BrowserFile/Service/FolderService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BrowserFile/Service/PublicFileService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BrowserFile/Service/StorageService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BrowserFile/Models/Entities/AppSettings.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BrowserFile/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BrowserFile/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/BrowserFile.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/BrowserFile.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BrowserFile/Controllers/FolderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/Controllers/FolderController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BrowserFile/Controllers/PublicFilesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/Controllers/PublicFilesController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Controllers/SharingController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/Controllers/SharingController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BrowserFile/Interface/IFileService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/Interface/IFileService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BrowserFile/Logs/applog-20250929.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/Logs/applog-20250929.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Interface/IStorageService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/Interface/IStorageService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Migrations/20250903101239_Init.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Migrations/20250903101239_Init.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Migrations/20250906162045_FoldersAndIcons.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Migrations/20250906162045_FoldersAndIcons.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Migrations/20250909091328_FolderChanges.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Migrations/20250909091328_FolderChanges.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Migrations/20250913091122_FileModel.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Migrations/20250913091122_FileModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Migrations/20250915181257_FixingFileUnique.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Migrations/20250915181257_FixingFileUnique.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Migrations/20250916110958_StoredFileChanges.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Migrations/20250916110958_StoredFileChanges.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Migrations/20250921112233_SharedLinksTable.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Migrations/20250921112233_SharedLinksTable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Migrations/20250921142328_SharedLinkRelationOneToManyChange.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Migrations/20250921142328_SharedLinkRelationOneToManyChange.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Migrations/20250923110954_AliasToSharing.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Migrations/20250923110954_AliasToSharing.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Models/Entities/SharedLink.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/Models/Entities/SharedLink.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BrowserFile/MyApp.db" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/MyApp.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BrowserFile/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BrowserFile/Service/FileService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/Service/FileService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Service/FileShareService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/Service/FileShareService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/Service/PublicFileService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/Service/PublicFileService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/bin/Debug/net8.0/BrowserFile.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/bin/Debug/net8.0/BrowserFile.deps.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BrowserFile/bin/Debug/net8.0/BrowserFile.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/bin/Debug/net8.0/BrowserFile.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BrowserFile/bin/Debug/net8.0/BrowserFile.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/bin/Debug/net8.0/BrowserFile.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/bin/Debug/net8.0/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/bin/Debug/net8.0/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/bin/Debug/net8.0/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/bin/Debug/net8.0/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/obj/BrowserFile.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/obj/BrowserFile.csproj.nuget.dgspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/BrowserFile.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/BrowserFile.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/BrowserFile.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/BrowserFile.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/BrowserFile.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/BrowserFile.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/BrowserFile.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/BrowserFile.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/BrowserFile.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/BrowserFile.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/BrowserFile.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/BrowserFile.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/BrowserFile.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/BrowserFile.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/BrowserFile.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/BrowserFile.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/BrowserFile.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/BrowserFile.sourcelink.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/ref/BrowserFile.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/ref/BrowserFile.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/refint/BrowserFile.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/obj/Debug/net8.0/refint/BrowserFile.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/BrowserFile/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/uploads/1acf4d1f-962d-4314-aa43-eb0589477479/1193b489-41ad-4b16-88f8-e6eae98960c0.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/uploads/1acf4d1f-962d-4314-aa43-eb0589477479/1e913776-4c64-4ae0-8437-11f2373b64ad.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/uploads/1acf4d1f-962d-4314-aa43-eb0589477479/3da4e3b4-819b-4390-a747-e1f7bc5edc99.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/uploads/1acf4d1f-962d-4314-aa43-eb0589477479/4d14622b-05dd-475a-8b18-60fd32b8fa4e.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/uploads/1acf4d1f-962d-4314-aa43-eb0589477479/7d761746-30fc-459f-a8d3-8b4cf1b9f4af.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BrowserFile/uploads/1acf4d1f-962d-4314-aa43-eb0589477479/aa2fae93-7c59-4b15-9f3c-52e8f4a53e35.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,21 +82,28 @@
     <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4b21fc3f8a3abb5d25f06c622276fbec0fd3932f169cc6af520bf5abc6a46b4/DbSet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf9021a960b74107a7e141aa06bc9d8a0a53c929178c2fb95b1597be8af8dc/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BrowserFile/Interface/IFileShareService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BrowserFile/Interface/IFolderService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BrowserFile/Interface/IPublicFileService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BrowserFile/Interface/IStorageService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BrowserFile/Models/Entities/AppSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BrowserFile/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BrowserFile/Service/FolderService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BrowserFile/Service/PublicFileService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BrowserFile/Service/StorageService.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -137,6 +183,12 @@
       <workItem from="1759088458653" duration="3692000" />
       <workItem from="1759141807978" duration="3056000" />
       <workItem from="1759164073966" duration="1325000" />
+      <workItem from="1759347347905" duration="989000" />
+      <workItem from="1759348437754" duration="2439000" />
+      <workItem from="1759431053729" duration="611000" />
+      <workItem from="1759431679349" duration="5860000" />
+      <workItem from="1759438795257" duration="131000" />
+      <workItem from="1759438954078" duration="190000" />
     </task>
     <servers />
   </component>

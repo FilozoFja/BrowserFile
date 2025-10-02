@@ -19,12 +19,16 @@ namespace BrowserFile.Models.Entities
 
         [ForeignKey(nameof(FileId))]
         public virtual StoredFile? File { get; set; }
+        
         [NotMapped]
-        public bool IsExpired => DateTime.Now.AddSeconds(1) > ExpiresAt;
+        public bool IsExpired => DateTime.UtcNow.AddSeconds(1) > ExpiresAt;
+        
         [NotMapped]
         public bool IsUsedUp => OneTime && Used > 0;
+        
         [NotMapped]
         public bool IsValid => !IsExpired && !IsUsedUp;
+        
         [NotMapped]
         public bool HasPassword => !string.IsNullOrEmpty(PasswordHash);
     }

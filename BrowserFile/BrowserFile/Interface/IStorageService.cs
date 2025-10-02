@@ -2,9 +2,6 @@ using BrowserFile.Models.Entities;
 
 namespace BrowserFile.Interface
 {
-    /// <summary>
-    /// Shared service for common operations used by both files and folders
-    /// </summary>
     public interface IStorageService
     {
         Task<List<Icon>> GetIconsAsync();

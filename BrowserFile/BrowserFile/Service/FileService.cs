@@ -262,7 +262,7 @@ namespace BrowserFile.Service
 
         public bool IsFileSizeValid(long fileSize)
         {
-            const long maxFileSize = 100 * 1024 * 1024; // 100MB
+            const long maxFileSize = 100 * 1024 * 1024 * 5;
             return fileSize <= maxFileSize;
         }
 

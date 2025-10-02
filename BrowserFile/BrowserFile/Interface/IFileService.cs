@@ -5,12 +5,9 @@ namespace BrowserFile.Interface
 {
     public interface IFileService
     {
-        // Existing methods (keep what you have)
         Task<StoredFile?> GetFileAsync(string id, string userId);
         string? GetSafeFilePath(string filePath);
         string? GetContentType(string? fileExtension);
-
-        // New methods to add
         Task<string?> CreateFileAsync(IFormFile file, string fileId, string userId);
         Task<bool> DeleteFileAsync(string fileId, string userId);
         Task<bool> DeleteMultipleFilesAsync(string[] fileIds, string userId);

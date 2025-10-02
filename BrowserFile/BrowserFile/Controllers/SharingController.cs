@@ -1,9 +1,11 @@
 ﻿using BrowserFile.Data;
+using BrowserFile.Models;
 using BrowserFile.Models.Entities;
 using BrowserFile.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Scrypt;
 using System.Security.Claims;
 using BrowserFile.Interface;
@@ -16,14 +18,17 @@ namespace BrowserFile.Controllers
         private string CurrentUser => User?.FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty;
         private readonly ILogger<SharingController> _logger;
         private readonly IFileShareService _shareService;
+        private readonly AppSettings _appSettings;
         
         public SharingController(ApplicationDbContext context, 
                 ILogger<SharingController> logger,
-                IFileShareService shareService)
+                IFileShareService shareService,
+                IOptions<AppSettings> appSettings)
         {
             _context = context;
             _logger = logger;
             _shareService = shareService;
+            _appSettings = appSettings.Value;
         }
 
         [Authorize]
@@ -36,8 +41,7 @@ namespace BrowserFile.Controllers
             List<ShareViewCombinedList> combinedList = new List<ShareViewCombinedList>();
             if (sharedFiles != null && sharedLinks != null)
             {
-                var link = $"{Request.Scheme}://{Request.Host}";
-                combinedList = _shareService.GetCombinedList(sharedFiles, sharedLinks, link);
+                combinedList = _shareService.GetCombinedList(sharedFiles, sharedLinks, _appSettings.BaseUrl);
             }
             
             var vm = new ShareViewModel
@@ -51,7 +55,6 @@ namespace BrowserFile.Controllers
         [HttpGet("share/settings/{id}")]
         public async Task<IActionResult> ShareSettings(string id)
         {
-            /*DODAC WYWOLANIE Z KONTROLLERA FILE DO TEGO*/
             var file = await _context.StoredFiles.FirstOrDefaultAsync(x => x.Id == id && x.UserId == CurrentUser);
             if (file == null)
             {
@@ -67,8 +70,8 @@ namespace BrowserFile.Controllers
                 File = file,
                 SharedLink = activeLink,
                 SharingHistory = sharingHistory.Any() ? sharingHistory : null,
-                ExpirationDate = DateTime.Now.AddDays(1),
-                ShareUrl = activeLink != null ? $"{Request.Scheme}://{Request.Host}/share/{activeLink.Token}" : null
+                ExpirationDate = DateTime.UtcNow.AddDays(1),
+                ShareUrl = activeLink != null ? $"{_appSettings.BaseUrl}/share/{activeLink.Token}" : null
             };
             
             return View(vm);
@@ -92,7 +95,6 @@ namespace BrowserFile.Controllers
                 TempData["ErrorMessage"] = "Something went wrong";
                 return View("ShareSettings", model);
             }
-            /*DODAC WYWOLANIE Z KONTROLLERA FILE DO TEGO*/
             var file = await _context.StoredFiles.FirstOrDefaultAsync(x => x.Id == id && x.UserId == CurrentUser);
             if (file == null)
             {
@@ -115,18 +117,34 @@ namespace BrowserFile.Controllers
             }
 
             var encoder = new ScryptEncoder();
+            
+            DateTime expiresAt;
+            if (model.ExpirationDate != null)
+            {
+                expiresAt = DateTime.SpecifyKind(model.ExpirationDate.Value, DateTimeKind.Utc);
+            }
+            else
+            {
+                expiresAt = DateTime.UtcNow.AddDays(1);
+            }
 
             var newLink = new SharedLink
             {
                 Id = Guid.NewGuid().ToString(),
                 FileId = file.Id,
                 Token = Guid.NewGuid().ToString(),
-                ExpiresAt = (DateTime)(model.ExpirationDate != null ? model.ExpirationDate : DateTime.Now.AddDays(1)),
+                ExpiresAt = expiresAt,
                 OneTime = model.OneTime,
                 PasswordHash = string.IsNullOrEmpty(model.Password) ? null : encoder.Encode(model.Password)
             };
 
             file.IsShared = true;
+            
+            if (file.CreatedAt.Kind == DateTimeKind.Unspecified)
+            {
+                file.CreatedAt = DateTime.SpecifyKind(file.CreatedAt, DateTimeKind.Utc);
+            }
+            
             _context.StoredFiles.Update(file);
 
             try

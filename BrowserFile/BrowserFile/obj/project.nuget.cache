@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HYB2I4BDnN8=",
+  "dgSpecHash": "zbl8V3CDhWw=",
   "success": true,
   "projectFilePath": "/home/kornel/Documents/GitHub/BrowserFile/BrowserFile/BrowserFile/BrowserFile.csproj",
   "expectedPackageFiles": [
@@ -45,6 +45,8 @@
     "/home/kornel/.nuget/packages/microsoft.extensions.options/8.0.2/microsoft.extensions.options.8.0.2.nupkg.sha512",
     "/home/kornel/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "/home/kornel/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
+    "/home/kornel/.nuget/packages/npgsql/8.0.6/npgsql.8.0.6.nupkg.sha512",
+    "/home/kornel/.nuget/packages/npgsql.entityframeworkcore.postgresql/8.0.11/npgsql.entityframeworkcore.postgresql.8.0.11.nupkg.sha512",
     "/home/kornel/.nuget/packages/portable.bouncycastle/1.9.0/portable.bouncycastle.1.9.0.nupkg.sha512",
     "/home/kornel/.nuget/packages/scrypt.net/1.3.0/scrypt.net.1.3.0.nupkg.sha512",
     "/home/kornel/.nuget/packages/serilog/3.1.1/serilog.3.1.1.nupkg.sha512",
