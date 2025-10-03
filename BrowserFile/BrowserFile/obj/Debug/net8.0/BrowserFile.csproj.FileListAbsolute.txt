@@ -763,3 +763,5 @@ D:/Coding/BrowserFile/BrowserFile/BrowserFile/bin/Debug/net8.0/Scrypt.dll
 /home/kornel/Documents/GitHub/BrowserFile/BrowserFile/BrowserFile/obj/Debug/net8.0/ref/BrowserFile.dll
 /home/kornel/Documents/GitHub/BrowserFile/BrowserFile/BrowserFile/bin/Debug/net8.0/Npgsql.dll
 /home/kornel/Documents/GitHub/BrowserFile/BrowserFile/BrowserFile/bin/Debug/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/workspaces/BrowserFile/BrowserFile/BrowserFile/bin/Debug/net8.0/Npgsql.dll
+/workspaces/BrowserFile/BrowserFile/BrowserFile/bin/Debug/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll

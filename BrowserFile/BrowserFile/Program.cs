@@ -29,7 +29,7 @@ builder.Services.Configure<ForwardedHeadersOptions>(options =>
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<TimeProvider>(TimeProvider.System);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(connectionString));
+    options.UseSqlite(connectionString));
 
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

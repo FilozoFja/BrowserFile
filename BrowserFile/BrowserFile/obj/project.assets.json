@@ -3686,19 +3686,19 @@
     ]
   },
   "packageFolders": {
-    "/home/kornel/.nuget/packages/": {}
+    "/home/codespace/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/kornel/Documents/GitHub/BrowserFile/BrowserFile/BrowserFile/BrowserFile.csproj",
+      "projectUniqueName": "/workspaces/BrowserFile/BrowserFile/BrowserFile/BrowserFile.csproj",
       "projectName": "BrowserFile",
-      "projectPath": "/home/kornel/Documents/GitHub/BrowserFile/BrowserFile/BrowserFile/BrowserFile.csproj",
-      "packagesPath": "/home/kornel/.nuget/packages/",
-      "outputPath": "/home/kornel/Documents/GitHub/BrowserFile/BrowserFile/BrowserFile/obj/",
+      "projectPath": "/workspaces/BrowserFile/BrowserFile/BrowserFile/BrowserFile.csproj",
+      "packagesPath": "/home/codespace/.nuget/packages/",
+      "outputPath": "/workspaces/BrowserFile/BrowserFile/BrowserFile/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/kornel/.nuget/NuGet/NuGet.Config"
+        "/home/codespace/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -3789,7 +3789,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/home/kornel/.dotnet/sdk/8.0.414/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.412/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
