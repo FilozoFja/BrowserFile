@@ -184,24 +184,24 @@
                     <i class="@iconClass"></i>
                 </div>
 
-                <h1 class="download-title">Pobieranie pliku</h1>
-                <p class="download-subtitle">Plik jest gotowy do pobrania</p>
+                <h1 class="download-title">Downloading file</h1>
+                <p class="download-subtitle">File is ready to download</p>
 
                 <div class="file-info">
                     <div class="file-detail">
-                        <span class="file-label">Nazwa pliku:</span>
+                        <span class="file-label">File name:</span>
                         <span class="file-value" title="@Model.FileName">@Model.FileName</span>
                     </div>
                     <div class="file-detail">
-                        <span class="file-label">Rozmiar:</span>
+                        <span class="file-label">Size:</span>
                         <span class="file-value">@Model.FileSize</span>
                     </div>
                     @if (Model.IsOneTime)
                     {
                         <div class="file-detail">
-                            <span class="file-label">Typ dostępu:</span>
+                            <span class="file-label">Type of access:</span>
                             <span class="file-value text-warning">
-                                <i class="fas fa-exclamation-triangle"></i> Jednorazowy
+                                <i class="fas fa-exclamation-triangle"></i> One time
                             </span>
                         </div>
                     }
@@ -219,7 +219,7 @@
                     
                     <button type="submit" class="download-btn">
                         <i class="fas fa-download me-2"></i>
-                        Pobierz plik
+                        Download file
                     </button>
                 </form>
 
@@ -228,7 +228,7 @@
                     <div class="security-notice">
                         <i class="fas fa-shield-alt"></i>
                         <p class="security-notice-text">
-                            <strong>Uwaga:</strong> Ten link działa tylko raz. Po pobraniu pliku link zostanie dezaktywowany.
+                            <strong>Warning:</strong> This link works only one time. After download this file will not be avaible.
                         </p>
                     </div>
                 }

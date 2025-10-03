@@ -76,8 +76,7 @@ namespace BrowserFile.Controllers
                 TempData["Error"] = "Invalid folder ID.";
                 return RedirectToAction("Index");
             }
-
-            // Check if folder has files first
+            
             var hasFiles = await _folderService.FolderHasFilesAsync(id, CurrentUserId);
             if (hasFiles)
             {

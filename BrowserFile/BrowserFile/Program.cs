@@ -1,16 +1,30 @@
 using BrowserFile.Data;
 using BrowserFile.Interface;
+using BrowserFile.Models;
 using BrowserFile.Models.Entities;
 using BrowserFile.Service;
 using BrowserFile.Services;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.Configure<AppSettings>(
+    builder.Configuration.GetSection("AppSettings"));
+
+builder.Services.Configure<ForwardedHeadersOptions>(options =>
+{
+    options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+    options.KnownNetworks.Clear();
+    options.KnownProxies.Clear();
+});
 
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<TimeProvider>(TimeProvider.System);
@@ -46,6 +60,8 @@ builder.Services.AddIdentityCore<ApplicationUser>(options =>
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+app.UseForwardedHeaders();
 
 if (!app.Environment.IsDevelopment())
 {

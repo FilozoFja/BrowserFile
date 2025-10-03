@@ -32,7 +32,6 @@ namespace BrowserFile.Controllers
 
             if (fileSharing == null)
             {
-                // Add random delay to prevent timing attacks
                 await Task.Delay(TimeSpan.FromMilliseconds(100 + RandomNumberGenerator.GetInt32(0, 50)));
                 return NotFound();
             }
@@ -62,12 +61,10 @@ namespace BrowserFile.Controllers
 
             if (fileSharing == null || fileSharing.File == null)
             {
-                // Add random delay to prevent timing attacks
                 await Task.Delay(TimeSpan.FromMilliseconds(100 + RandomNumberGenerator.GetInt32(0, 50)));
                 return NotFound();
             }
 
-            // Validate password if required
             if (fileSharing.HasPassword)
             {
                 if (string.IsNullOrEmpty(password))
@@ -78,7 +75,6 @@ namespace BrowserFile.Controllers
 
                 if (!await _publicFileService.ValidatePasswordAsync(password, fileSharing.PasswordHash))
                 {
-                    // Add delay to prevent brute force attacks
                     await Task.Delay(TimeSpan.FromSeconds(1));
 
                     _logger.LogWarning("Invalid password attempt for shared link {Token} from IP {IP}",
@@ -89,7 +85,6 @@ namespace BrowserFile.Controllers
                 }
             }
 
-            // Get file stream
             var fileStream = await _publicFileService.GetSecureFileStreamAsync(fileSharing.File);
 
             if (fileStream == null)
@@ -99,8 +94,6 @@ namespace BrowserFile.Controllers
                 TempData["ErrorMessage"] = "File is no longer available.";
                 return RedirectToAction("Index", new { token });
             }
-
-            // Mark as used if one-time link
             if (fileSharing.OneTime)
             {
                 await _publicFileService.MarkSharedLinkAsUsedAsync(fileSharing);
